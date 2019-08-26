@@ -2,25 +2,27 @@
 
 注：本文中带尖括号（`<`、`>`）的标签是需要被替换为对应文本的标记。
 
-## 添加文件
+## 常用操作
+
+### 添加文件
 
 ```
 git add <file>
 ```
 
-## 提交文件
+### 提交文件
 
 ```
 git commit -m <message>
 ```
 
-## 查看暂存状态
+### 查看暂存状态
 
 ```
 git status
 ```
 
-## 发送到其他仓库
+### 发送到其他仓库
 
 ```
 push
@@ -46,27 +48,44 @@ $ git commit --amend
 git reset HEAD <file>
 ```
 
-> `git status` 命令其实自带提醒如何取消：
->
-> ```
-> $ git add .
-> $ git status
-> On branch master
-> Changes to be committed:
->    (use "git reset HEAD <file>..." to unstage)
-> 
->        modified:   README.txt
->        modified:   benchmarks.rb
-> ```
+`git status` 命令其实自带提醒如何取消：
+
+```
+$ git add .
+$ git status
+On branch master
+Changes to be committed:
+    (use "git reset HEAD <file>..." to unstage)
+ 
+        modified:   README.txt
+        modified:   benchmarks.rb
+```
 
 ### 删除暂存的文件
 
 不删除物理文件，仅将该文件从缓存中删除：
 
 ```
-$ git rm -r --cached <filename>
+$ git rm -r --cached <file>
 ```
 
+### 取消修改 / 退回文件版本
 
+```
+$ git checkout -- <file>
+```
 
+这同样在 `git status` 命令中有所提示：
+
+```
+$ git checkout -- benchmarks.rb
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.txt
+```
+
+注意：此方法会覆盖你修改好的文件且无法找回，使用前需确保操作正确。建议使用 tashing 和分支来处理此问题。
 
