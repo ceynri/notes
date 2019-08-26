@@ -6,15 +6,16 @@
 
 <br>
 
-### 笔记列表：
+## 笔记列表
+
 - 📃 [Markdown 笔记](/markdown/README.md)  
-  边学 markdown 边写 markdown，记录了一些常用的 markdown 语法，建议花一个下午时间好好上手。
+  [已完成] 边学 markdown 边写 markdown，记录了一些常用的 markdown 语法，建议花一个下午时间好好上手。
   
 - ⚰ [JavaScript 笔记](/javascript/README.md)  
   [更新中] 由 Java/C 语言基础过渡到 JavaScript，适合快速上手 JavaScript。
 
 - 🔮 [CSS 常见问题](css/README.md)  
-  [整理中] 记录一些自己实战中遇到的一些问题，偶尔整理一些知识点。
+  [未整理] 记录一些自己实战中遇到的一些问题，偶尔整理一些知识点。
 
 - ⛓ [Git 常见问题](git.README.md)  
-  还没开始写= =
+  [未开始] 还没开始写= =
