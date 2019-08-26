@@ -4,4 +4,15 @@
 
 ## 目录
 
+- [git 常见指令](git常见指令.md)
+
 - [上传至 Github](github.md)
+
+
+<br>
+
+## 推荐参考
+
+- [Git - Book](https://git-scm.com/book/zh/v2)  
+  Git官方教程，意外的好用。
+
