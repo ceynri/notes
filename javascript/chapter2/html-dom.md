@@ -1,6 +1,123 @@
-# DOM
+# JavaScript | HTML DOM
 
-未进行详细整理。
+文档对象模型 **D**ocument **O**bject **M**odel
+
+HTML DOM模型被结构化为对象树：
+![HTML DOM树](https://www.w3school.com.cn/i/ct_htmltree.gif)
+
+## 目录 <!-- omit in toc -->
+
+- [什么是 HTML DOM？](#什么是-html-dom)
+- [HTML DOM模型能做什么](#html-dom模型能做什么)
+- [例子](#例子)
+- [document 对象](#document-对象)
+  - [常用方法](#常用方法)
+- [属性](#属性)
+- [Attributes and properties](#attributes-and-properties)
+- [样式和类](#样式和类)
+- [元素的尺寸与滚动](#元素的尺寸与滚动)
+- [Window 的尺寸与滚动](#window-的尺寸与滚动)
+
+<br>
+
+---
+
+<br>
+
+## 什么是 HTML DOM？
+
+HTML DOM 是 HTML 的标准对象模型和编程接口，是关于如何获取、更改、添加或删除 HTML 元素的标准。
+
+它定义了：
+
+- 作为对象的 HTML 元素
+- 所有 HTML 元素的属性
+- 访问所有 HTML 元素的方法
+- 所有 HTML 元素的事件
+
+## HTML DOM模型能做什么
+
+- 改变页面中的所有 HTML 元素、HTML 属性、CSS 样式
+- 删除已有的或添加新的 HTML 元素和属性
+- 对页面中所有已有的 HTML 事件作出反应
+- 在页面中创建新的 HTML 事件
+
+## 例子
+
+```html
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+  document.getElementById("demo").innerHTML = "Hello World!";
+</script>
+
+</body>
+</html>
+```
+
+- `getElementById` 方法  
+  在上例中使用 `id="demo"` 来查找元素。
+
+- `innerHTML` 属性  
+  可用于获取或改变任何 HTML 元素，包括 `<html>` 和 `<body>`。
+
+## document 对象
+
+HTML DOM 文档对象（document）代表了你的网页，是网页中所有其他对象的拥有者。
+
+### 常用方法
+
+已收录于[方法索引表](../方法索引表#DOM)
+
+#### 查找 HTML 元素 <!-- omit in toc -->
+
+| 方法                                    | 描述                   |
+| --------------------------------------- | ---------------------- |
+| document.getElementById(*id*)           | 通过元素 id 来查找元素 |
+| document.getElementsByTagName(*name*)   | 通过标签名来查找元素   |
+| document.getElementsByClassName(*name*) | 通过类名来查找元素     |
+
+#### 改变 HTML 元素 <!-- omit in toc -->
+
+| 方法                                         | 描述                 |
+| -------------------------------------------- | -------------------- |
+| *element*.innerHTML = *new-html-content*     | 改变元素的 innerHTML |
+| *element*.*attribute* = *new-value*          | 改变元素的属性值     |
+| *element*.setAttribute(*attribute*, *value*) | 改变元素的属性值     |
+| *element*.style.*property* = *new style*     | 改变元素的样式       |
+
+#### 添加和删除元素 <!-- omit in toc -->
+
+| 方法                              | 描述             |
+| --------------------------------- | ---------------- |
+| document.createElement(*element*) | 创建元素         |
+| document.removeChild(*element*)   | 删除元素         |
+| document.appendChild(*element*)   | 添加元素         |
+| document.replaceChild(*element*)  | 替换元素         |
+| document.write(*text*)            | 写入 HTML 输出流 |
+
+注：*斜体*表示应该被对应内容替换的标记
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 属性
 
@@ -40,10 +157,10 @@ DOM 节点还具有其他属性，具体内容则取决于它们的类。例如�
 属性 —— 是一个 `DOM` 对象。
 
 对比：
-| |属性|特性
--|-|-
-类型|一些值，标准化的属性值在规范中有类型描述|字符串
-名字|键名大小写敏感|键名大小写不敏感
+|      | 属性                                     | 特性             |
+| ---- | ---------------------------------------- | ---------------- |
+| 类型 | 一些值，标准化的属性值在规范中有类型描述 | 字符串           |
+| 名字 | 键名大小写敏感                           | 键名大小写不敏感 |
 
 操作特性的一些方法：
 
