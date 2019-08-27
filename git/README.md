@@ -8,6 +8,7 @@
 
 - [上传至 Github](github.md)
 
+- [在 VS Code 中使用 Git](git-in-vscode.md)
 
 <br>
 
