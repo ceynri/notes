@@ -7,7 +7,7 @@
 - **JavaScript 编程语言** 部分参考 [javascript.info 在线教程](https://zh.javascript.info) 进行个人的笔记总结，内容偏向于**理论**（即作为一门编程语言进行学习）。
 - **JavaScript 与浏览器** 部分参考 [W3school JavaScript 教程](https://www.w3school.com.cn/js/index.asp)，内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
 
-想要更加系统的学习 JavaScript 可以从 [javascript.info 在线教程](https://zh.javascript.info)、[W3school JavaScript教程](https://www.w3school.com.cn/js/index.asp)入手。
+如想要更加系统的学习 JavaScript，也推荐从以上引用的网站入手。
 
 <br>
 
@@ -19,9 +19,9 @@
 
 - [函数](chapter1/2.函数.md)
 
-- [Objects 对象基础1](chapter1/3.Objects对象1.md)
+- [Objects 对象基础 (1)](chapter1/3.Objects对象1.md)
 
-- [Objects 对象基础2](chapter1/4.Objects对象2.md)
+- [Objects 对象基础 (2)](chapter1/4.Objects对象2.md)
 
 - [数据类型](chapter1/5.数据类型.md)
 
@@ -49,10 +49,11 @@
 
 - [JavaScript 性能](chapter2/性能.md)
 
-- 更新中... （最后更新时间：2019/08/26 | 当前行数：430行）
+- [HTML DOM](chapter2/html-dom.md)  
 
-- [DOM](chapter2/DOM.md)  
-  未进行详细整理
+- 更新中... （最后更新时间：2019/08/28 | 当前行数：430行）
+
+<br>
 
 ### 其他
 
