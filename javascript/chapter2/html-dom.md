@@ -11,7 +11,12 @@ HTML DOM模型被结构化为对象树：
 - [HTML DOM模型能做什么](#html-dom模型能做什么)
 - [例子](#例子)
 - [document 对象](#document-对象)
-  - [常用方法](#常用方法)
+- [常用方法](#常用方法)
+  - [查找 HTML 元素](#查找-html-元素)
+  - [改变 HTML 元素](#改变-html-元素)
+  - [添加和删除元素](#添加和删除元素)
+- [JavaScript DOM 动画](#javascript-dom-动画)
+- [DOM 事件](#dom-事件)
 - [属性](#属性)
 - [Attributes and properties](#attributes-and-properties)
 - [样式和类](#样式和类)
@@ -35,12 +40,16 @@ HTML DOM 是 HTML 的标准对象模型和编程接口，是关于如何获取�
 - 访问所有 HTML 元素的方法
 - 所有 HTML 元素的事件
 
+<br>
+
 ## HTML DOM模型能做什么
 
 - 改变页面中的所有 HTML 元素、HTML 属性、CSS 样式
 - 删除已有的或添加新的 HTML 元素和属性
 - 对页面中所有已有的 HTML 事件作出反应
 - 在页面中创建新的 HTML 事件
+
+<br>
 
 ## 例子
 
@@ -64,32 +73,72 @@ HTML DOM 是 HTML 的标准对象模型和编程接口，是关于如何获取�
 - `innerHTML` 属性  
   可用于获取或改变任何 HTML 元素，包括 `<html>` 和 `<body>`。
 
+<br>
+
 ## document 对象
 
 HTML DOM 文档对象（document）代表了你的网页，是网页中所有其他对象的拥有者。
 
-### 常用方法
+想要访问 HTML 页面中的其他元素，往往就是从访问 document 对象开始的。
+
+<br>
+
+## 常用方法
 
 已收录于[方法索引表](../方法索引表#DOM)
 
-#### 查找 HTML 元素 <!-- omit in toc -->
+### 查找 HTML 元素
 
-| 方法                                    | 描述                   |
-| --------------------------------------- | ---------------------- |
-| document.getElementById(*id*)           | 通过元素 id 来查找元素 |
-| document.getElementsByTagName(*name*)   | 通过标签名来查找元素   |
-| document.getElementsByClassName(*name*) | 通过类名来查找元素     |
+| 方法                                            | 描述                          |
+| ----------------------------------------------- | ----------------------------- |
+| document.getElementById(*id*)                   | 通过 id 来查找 HTML 元素      |
+| document.getElementsByTagName(*name*)           | 通过标签名来查找 HTML 元素    |
+| document.getElementsByClassName(*name*)         | 通过类名来查找 HTML 元素      |
+| document.querySelectorAll(*name-with-selector*) | 通过 CSS 选择器查找 HTML 元素 |
 
-#### 改变 HTML 元素 <!-- omit in toc -->
+还可以通过 HTML 对象选择器来查找 HTML 对象，如 document 的 froms、images、links 属性。
+
+例子：
+
+```js
+var x = document.forms["frm1"];
+var text = "";
+ var i;
+for (i = 0; i < x.length; i++) {
+    text += x.elements[i].value + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+```
+
+### 改变 HTML 元素
 
 | 方法                                         | 描述                 |
 | -------------------------------------------- | -------------------- |
 | *element*.innerHTML = *new-html-content*     | 改变元素的 innerHTML |
 | *element*.*attribute* = *new-value*          | 改变元素的属性值     |
 | *element*.setAttribute(*attribute*, *value*) | 改变元素的属性值     |
-| *element*.style.*property* = *new style*     | 改变元素的样式       |
+| *element*.style.*property* = *new style*     | 改变元素的 CSS 样式       |
 
-#### 添加和删除元素 <!-- omit in toc -->
+其中，*element* 可以通过上面的“查找 HTML 元素”来获得对应的元素。
+
+例子：
+
+```HTML
+<!DOCTYPE html>
+<html>
+<body>
+
+<img id="myImage" src="smiley.gif">
+
+<script>
+document.getElementById("myImage").src = "landscape.jpg";
+</script>
+
+</body>
+</html>
+```
+
+### 添加和删除元素
 
 | 方法                              | 描述             |
 | --------------------------------- | ---------------- |
@@ -101,10 +150,123 @@ HTML DOM 文档对象（document）代表了你的网页，是网页中所有其
 
 注：*斜体*表示应该被对应内容替换的标记
 
+## JavaScript DOM 动画
 
+JavaScript 提供了一个定时器 `setInterval()` 的方法，可以用来制作简易的动画。
 
+**注意**：本段的 JavaScript DOM 动画 Demo 仅用来加深对 JavaScript 与 DOM 的理解，实际情况下直接修改 DOM 会产生很大的性能问题，故**不推荐使用此方法**制作动画。
 
+<br>
 
+首先，创建一个 HTML 页面，使用一层 div 作为容器元素包裹 div 动画元素。
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>我的第一部 JavaScript 动画</h1>
+
+<div id ="container">
+  <div id="animation">我的动画在这里。</div>
+</div>
+
+</body>
+</html>
+```
+
+然后添加样式：
+
+```css
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: gray;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: orange;
+}
+```
+
+然后使用 JavaScript，思路是借助定时器，每隔一段时间执行一次移动任务，当间隔时间足够短时动画看起来便足够连贯。
+
+setInterval 的语法：
+
+```js
+setInterval(code,millisec[,"lang"])
+```
+
+`code` 为每次执行的代码串（函数），`millisec` 为执行 `code` 的时间周期（毫秒单位）。
+
+常用的解构如下：
+
+```js
+var id = setInterval(frame, 5);
+
+function frame() {
+    if (/* 测试是否完成 */) {
+        clearInterval(id);    // 调用后，停止 id 计时器
+    } else {
+         /* 改变元素样式的代码 */
+    }
+}
+```
+
+最后完成的动画 Demo 如下：
+
+```html
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: gray;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: orange;
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">单击此处</button></p>
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + "px";
+      elem.style.left = pos + "px";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+```
+
+## DOM 事件
+
+<h1 onclick="this.innerHTML = 'Hello!'">点击此文本！</h1>
 
 
 
@@ -141,12 +303,12 @@ DOM 节点的属性主要有：
   非元素节点（文本、注释）内容。两者几乎一样，我们通常使用 data。允许被修改。
 
 - textContent  
-  元素中的文本，基本上是 HTML 减去所有 <tags>。将文本写入元素中，并把所有特殊字符和标记完全视为文本。可以安全地插入用户生成的文本，防止不必要的 HTML 插入。
+  元素中的文本，基本上是 HTML 减去所有 `<tags>`。将文本写入元素中，并把所有特殊字符和标记完全视为文本。可以安全地插入用户生成的文本，防止不必要的 HTML 插入。
 
 - hidden  
   当设置为 true 时，执行与 CSS display:none 相同的操作。
 
-DOM 节点还具有其他属性，具体内容则取决于它们的类。例如，\<input\>元素（HTMLInputElement）支持 value、type，而 \<a\> 元素（HTMLAnchorElement）则支持 href 等。大多数标准 HTML 属性都具有相应的 DOM 属性。
+DOM 节点还具有其他属性，具体内容则取决于它们的类。例如，`<input>` 元素（HTMLInputElement）支持 value、type，而 `<a>` 元素（HTMLAnchorElement）则支持 href 等。大多数标准 HTML 属性都具有相应的 DOM 属性。
 
 <br>
 
