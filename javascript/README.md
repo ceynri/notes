@@ -7,7 +7,7 @@
 - **JavaScript 编程语言** 部分参考 [javascript.info 在线教程](https://zh.javascript.info) 进行个人的笔记总结，内容偏向于**理论**（即作为一门编程语言进行学习）。
 - **JavaScript 与浏览器** 部分参考 [W3school JavaScript 教程](https://www.w3school.com.cn/js/index.asp)，内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
 
-如想要更加系统的学习 JavaScript，也推荐从以上引用的网站入手。
+<font size=2 color=gray>注：由于参考的教程都是经外文翻译而成，原文带有一定的翻译腔，本笔记相当于精简+润色语调。但如想要更加系统的学习 JavaScript，仍然推荐从以上引用的网站入手。</font>
 
 <br>
 
@@ -19,9 +19,9 @@
 
 - [函数](chapter1/2.函数.md)
 
-- [Objects 对象基础 (1)](chapter1/3.Objects对象1.md)
+- [Objects 对象基础（1）](chapter1/3.Objects对象(1).md)
 
-- [Objects 对象基础 (2)](chapter1/4.Objects对象2.md)
+- [Objects 对象基础（2）](chapter1/4.Objects对象(2).md)
 
 - [数据类型](chapter1/5.数据类型.md)
 
@@ -33,7 +33,7 @@
 
 - [Class 类](chapter1/Class类.md)
 
-- 更新中...（最后更新时间：2019/08/26 | 当前行数：1265行）
+- 更新中...（最后更新时间：2019/08/26 | 当前行数：1309行）
 
 - Throw、Try 与 Catch
 
@@ -49,14 +49,19 @@
 
 - [JavaScript 性能](chapter2/性能.md)
 
-- [HTML DOM](chapter2/html-dom.md)  
+- [HTML DOM（1）](chapter2/html-dom(1).md)
 
-- 更新中... （最后更新时间：2019/08/28 | 当前行数：430行）
+- [HTML DOM（2）](chapter2/html-dom(2).md)
+
+- 更新中... （最后更新时间：2019/08/29 | 当前行数：932行）
+
+- BOM
 
 <br>
 
 ### 其他
 
-- [常见方法索引表](常见方法索引表.md)
+- [索引对照表](索引对照表.md)  
+  收录一些常用方法（以及属性等）
 
 <br>
