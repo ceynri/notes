@@ -1,4 +1,4 @@
-# JavaScript | HTML DOM
+# JavaScript | HTML DOM (1)
 
 文档对象模型 **D**ocument **O**bject **M**odel
 
@@ -15,9 +15,17 @@ HTML DOM模型被结构化为对象树：
   - [查找 HTML 元素](#查找-html-元素)
   - [改变 HTML 元素](#改变-html-元素)
   - [添加和删除元素](#添加和删除元素)
-- [JavaScript DOM 动画](#javascript-dom-动画)
+- [DOM 动画](#dom-动画)
 - [DOM 事件](#dom-事件)
-- [属性](#属性)
+  - [代码调用方式](#代码调用方式)
+  - [分配事件方式](#分配事件方式)
+  - [事件种类](#事件种类)
+  - [事件监听器](#事件监听器)
+  - [事件冒泡 / 事件捕获](#事件冒泡--事件捕获)
+- [节点](#节点)
+  - [节点导航属性](#节点导航属性)
+  - [节点属性](#节点属性)
+- [*以下未整理*](#以下未整理)
 - [Attributes and properties](#attributes-and-properties)
 - [样式和类](#样式和类)
 - [元素的尺寸与滚动](#元素的尺寸与滚动)
@@ -117,7 +125,7 @@ document.getElementById("demo").innerHTML = text;
 | *element*.innerHTML = *new-html-content*     | 改变元素的 innerHTML |
 | *element*.*attribute* = *new-value*          | 改变元素的属性值     |
 | *element*.setAttribute(*attribute*, *value*) | 改变元素的属性值     |
-| *element*.style.*property* = *new style*     | 改变元素的 CSS 样式       |
+| *element*.style.*property* = *new style*     | 改变元素的 CSS 样式  |
 
 其中，*element* 可以通过上面的“查找 HTML 元素”来获得对应的元素。
 
@@ -150,11 +158,13 @@ document.getElementById("myImage").src = "landscape.jpg";
 
 注：*斜体*表示应该被对应内容替换的标记
 
-## JavaScript DOM 动画
+<br>
+
+## DOM 动画
 
 JavaScript 提供了一个定时器 `setInterval()` 的方法，可以用来制作简易的动画。
 
-**注意**：本段的 JavaScript DOM 动画 Demo 仅用来加深对 JavaScript 与 DOM 的理解，实际情况下直接修改 DOM 会产生很大的性能问题，故**不推荐使用此方法**制作动画。
+**注意**：本段的 DOM 动画 Demo 仅用来加深对 JavaScript 与 DOM 的理解，实际情况下直接修改 DOM 会产生很大的性能问题，故**不推荐使用此方法**制作动画。
 
 <br>
 
@@ -266,51 +276,302 @@ function myMove() {
 
 ## DOM 事件
 
-<h1 onclick="this.innerHTML = 'Hello!'">点击此文本！</h1>
+HTML 事件有许多例子：
+
+- 点击鼠标时
+- 用户敲击按键时
+- 鼠标移至元素上时
+- 输入字段被改变时
+- HTML 表单被提交时
+- 网页加载后
+- 图像加载后
+
+通过 HTML DOM，我们可以编写 JavaScript 代码对 HTML 事件作出反应。
+
+### 代码调用方式
+
+我们可以直接插入 JS 代码，或者通过调用 JS 函数的方式执行代码：
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- 方法 1 -->
+<h1 onclick="this.innerHTML = 'Hello~'">点我</h1>
+
+<!-- 方法 2 -->
+<h1 onclick="changeText(this)">点我我</h1>
+
+<script>
+function changeText(id) {
+    id.innerHTML = "Hello :)";
+}
+</script>
+
+</body>
+</html>
+```
+
+### 分配事件方式
+
+除了直接在标签中添加事件属性，也可以使用 JavaScript 代码向 HTML 元素分配事件：
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="displayDate()">试一试</button>
+
+<button id="my_btn">再试试</button>
+
+<script>
+document.getElementById("my_btn").onclick = displayDate;
+</script>
+
+</body>
+</html>
+```
+
+### 事件种类
+
+| 事件名                   | 描述                                             |
+| ------------------------ | ------------------------------------------------ |
+| onload / onunload        | 进入/离开 页面时                                 |
+| onchange                 | 内容 被改变 时                                   |
+| onmouseover / onmouseout | 移入/移出 某个元素的上方时                       |
+| onmousedown / onmouseup  | 鼠标按钮 按下/抬起时                             |
+| onclick                  | 鼠标按钮点击后（按下与抬起动作都在元素上方完成） |
+
+### 事件监听器
+
+使用 `addEventListener()` 方法可以为 HTML 元素（或 DOM 对象）指定事件处理程序。
+
+语法：
+
+```js
+element.addEventListener(event, function[, useCapture]);
+//                    参数类型，被调用的函数，布尔值（指定事件冒泡/事件捕获，后讲）
+```
+
+由于该方法不会覆盖已有的事件处理程序，我们可以给一个元素添加多个相同或不相同类型的事件处理程序。
+
+使用该方法添加事件监听，达到了代码分离的效果，只用在 JavaScript 文件中修改代码而无需跳转至 HTML 文档。
+
+在旧浏览器版本下可以使用 `attachEvent()`方法。
+
+添加监听器所对应的移除方法是 `removeEventListener()`。
+
+监听器例子：
+
+```js
+element.addEventListener("click", function(){
+  alert("Hello World!");
+});
+
+element.addEventListener("click", function(){
+  console.log("Hello World!");
+}); //并不会和第一个冲突或覆盖
+```
+
+DOM 对象（如 `window`）也支持添加事件监听器：
+
+```js
+// 添加当用户调整窗口大小时触发的事件监听器
+window.addEventListener("resize", function(){
+    document.getElementById("demo").innerHTML = sometext;
+});
+```
+
+如果需要给函数传递参数，请写成调用指定函数的匿名函数的形式：
+
+```js
+element.addEventListener("click", function(){ myFunction(p1, p2); });
+```
+
+### 事件冒泡 / 事件捕获
+
+在 HTML DOM 中有两种事件传播的方法：冒泡和捕获。
+
+事件传播是一种定义当发生事件时元素次序的方法，确定次序的方式区别：在冒泡中，最先处理内侧元素的事件，然后是外层元素；捕获则反之。
+
+> 假如 `<div>` 元素内有一个 `<p>`，然后用户点击了这个 `<p>` 元素：
+>
+> - 冒泡：首先处理 `<p>` 元素的点击事件，然后是 `<div>` 元素的点击事件。
+>
+> - 捕获：首先处理 `<div>` 元素的点击事件，然后是 `<p>` 元素的点击事件。
+
+在 `addEventListener(event, function[, useCapture])` 方法中可以通过使用 `useCapture` 参数来规定传播类型：默认值是 `false`，将使用冒泡传播，如果该值设置为 `true`，则事件使用捕获传播。  
+
+<br>
+
+## 节点
+
+（`节点`不是`结点`，`结点`常用在数据结构与算法中）
+
+根据 W3C HTML DOM 标准，HTML 文档中的所有事物都是节点：文档节点、元素节点、文本节点、属性节点、注释节点...
+
+由这些节点，一篇 HTML 文档能够组成一颗节点树：
+
+![HTML DOM 树](https://www.w3school.com.cn/i/ct_htmltree.gif)
+
+### 节点导航属性
+
+使用以下节点属性可以实现在节点之间的导航：
+
+| 节点属性               | 描述                   |
+| ---------------------- | ---------------------- |
+| parentNode             | 父节点                 |
+| childNodes[nodeNumber] | 第 nodeNumber 位子节点 |
+| firstChild             | 首个子节点             |
+| lastChild              | 最后一个子节点         |
+| nextSibling            | 同一层级的后一个节点   |
+| previousSibling        | 同一层级的前一个节点   |
+
+注意：在编写 HTML 时，缩进之类的空白文本也会被算成文本节点，所以对于未压缩过的 HTML 文档在使用 childNodes[] 时需要注意。
+
+例子：
+
+```html
+<html>
+<body>
+
+<h4 id="id01">DOM 节点<span>例子</span></h4>
+<p id="id02">Hello!</p>
+
+<script>
+  document.getElementById("id02").innerHTML = document.getElementById("id01").firstChild.nodeValue;
+</script>
+
+</body>
+</html>
+```
+
+显示效果：
+
+<h4> DOM 节点<span>例子</span></h4>
+<p>DOM 节点</p>
+
+<br>
+
+这里的 `document.getElementById("id01")` 是 `<h4>` 元素，而 `document.getElementById("id01").firstChild` 指的是 `<h4>` 元素节点内的以 `DOM 节点` 为节点值的文本节点对象，而不是 `<span>` 元素节点，注意区分元素与节点的概念。
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-## 属性
-
-每个 DOM 节点都属于某个类。这些类形成层次结构。完整的属性和方法集是继承的结果。
+### 节点属性
 
 DOM 节点的属性主要有：
 
-- nodeType  
-  我们可以从 DOM 对象类中获取 nodeType，但我们通常只需要查看它是文本节点还是元素节点。nodeType 属性就可以我们的需求。它有数值，最重要的是：1 —— 是元素，3 —— 是文本。只读。
-
-- nodeName/tagName  
-  对于元素来说，标记名（除了 XML 模式外都要大写）。对于非元素节点，nodeName 则描述了它是什么。只读。
-
 - innerHTML  
-  HTML 的元素内容。可以被修改。
+  HTML 元素的内容（可写）
 
 - outerHTML  
-  元素的完整 HTML。写入 elem.outerHTML 的操作不会涉及 elem 自身。相反，它会在外部上下文中被替换成新的 HTML。
+  完整的 HTML 元素（可写）
 
-- nodeValue/data  
-  非元素节点（文本、注释）内容。两者几乎一样，我们通常使用 data。允许被修改。
+  区别：
+  
+  ```js
+  <body>
+    <p>你好</p>
+    <div id="test"><h5>就是喜欢你</h5></div>
+    <script>
+      var inner = document.getElementById("test").innerHTML;
+      var outer = document.getElementById("test").outerHTML;
+      alert(inner);
+      alert(outer);
+    </script>
+  </body>
+
+  // 输出结果：
+  
+  // inner
+  <h5>就是喜欢你</h5>
+  
+  // outer
+  <div id="test"><h5>就是喜欢你</h5></div>
+  ```
+
+  修改 innerHTML 只会改变元素的内容，修改 outerHTML 会产生新的元素覆盖掉旧的元素。
+
+  <br>
+
+  DOM 根节点：
+
+- document.body  
+  文档的 body 对象
+
+- document.documentElement  
+  完整的文档对象
+
+  <br>
+
+- nodeName  
+  节点的名称（只读）
+
+  | 类型     | 对应名称    |
+  | -------- | ----------- |
+  | 元素节点 | 大写标签名  |
+  | 属性节点 | 属性名称    |
+  | 文本节点 | `#text`     |
+  | 文档节点 | `#document` |
+
+  tagName 类似，但智能用在元素节点上。
+
+  <br>
+
+- nodeValue / data  
+  节点的值（可写）
+
+  | 类型     | 对应值      |
+  | -------- | ----------- |
+  | 元素节点 | `undefined` |
+  | 文本节点 | 文本文本    |
+  | 属性节点 | 属性值      |
+
+  <br>
+
+- nodeType  
+  返回一个数字，查看它是什么类型的节点（只读）
+
+  | 节点         | 类型 | 例子                  |
+  | ------------ | ---- | --------------------- |
+  | ELEMENT_NODE | 1    | `<h1>`W3School`</h1>` |
+  | TEXT_NODE    | 3    | `W3School`            |
+
+  <br>
+
+  不常用：
+
+  | 节点               | 类型 | 例子                                              |
+  | ------------------ | ---- | ------------------------------------------------- |
+  | ATTRIBUTE_NODE     | 2    | `class = "heading"` （HTML DOM 弃用，仅 XML DOM） |
+  | COMMENT_NODE       | 8    | `<!-- 这是注释 -->`                               |
+  | DOCUMENT_NODE      | 9    | HTML 文档本身（`<html>` 的父节点）                |
+  | DOCUMENT_TYPE_NODE | 10   | `<!Doctype html>`                                 |
+
+  <br>
+
+  其他：
 
 - textContent  
-  元素中的文本，基本上是 HTML 减去所有 `<tags>`。将文本写入元素中，并把所有特殊字符和标记完全视为文本。可以安全地插入用户生成的文本，防止不必要的 HTML 插入。
+  元素中的文本，基本上是 HTML 减去所有 `<tags>`。
+  
+  将文本写入元素中，并把所有特殊字符和标记完全视为文本。可以安全地插入用户生成的文本，防止不必要的 HTML 插入。
 
 - hidden  
-  当设置为 true 时，执行与 CSS display:none 相同的操作。
+  当设置为 `true` 时，执行与 CSS `display: none` 相同的操作。
 
-DOM 节点还具有其他属性，具体内容则取决于它们的类。例如，`<input>` 元素（HTMLInputElement）支持 value、type，而 `<a>` 元素（HTMLAnchorElement）则支持 href 等。大多数标准 HTML 属性都具有相应的 DOM 属性。
+一些 DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`<input>` 元素（HTMLInputElement）支持 `value`、`type`，而 `<a>` 元素（HTMLAnchorElement）则支持 `href` 等。大多数标准 HTML 属性都具有相应的 DOM 属性。
 
 <br>
+
+
+
+
+<br>
+
+## *以下未整理*
+
 
 ## Attributes and properties
 
