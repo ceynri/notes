@@ -1,15 +1,11 @@
-# JavaScript 个人笔记导航
+# JavaScript 笔记导航
 
 ## 介绍
 
-本笔记是我对于一些 JavaScript 教程和相关知识的内容的记录，会省略或快速带过部分语言（如C语言、Java）都拥有的相类似的内容，同时默认读者掌握基础的 HTML 语言，适合想要快速上手过渡到 Javascript 的同学，不适合对编程零基础的同学。
+本笔记是我对于一些 JavaScript 教程内容的整理和相关知识的记录，会部分省略或快速带过热门语言（如C语言、Java）都拥有的相类似的基础内容，默认读者非零基础且了解 HTML 语言，适合想要快速上手过渡到 Javascript 的同学阅读。
 
-- **JavaScript 编程语言** 部分参考 [javascript.info 在线教程](https://zh.javascript.info) 进行个人的笔记总结，内容偏向于**理论**（即作为一门编程语言进行学习）。
-- **JavaScript 与浏览器** 部分参考 [W3school JavaScript 教程](https://www.w3school.com.cn/js/index.asp)，内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
-
-<font size=2 color=gray>注：由于参考的教程都是经外文翻译而成，原文带有一定的翻译腔，本笔记相当于精简+润色语调。但如想要更加系统的学习 JavaScript，仍然推荐从以上引用的网站入手。</font>
-
-<br>
+- **JavaScript 编程语言** 内容偏向于**理论**（即作为一门编程语言进行学习）。
+- **JavaScript 与浏览器** 内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
 
 ## 导航
 
@@ -65,3 +61,10 @@
   收录一些常用方法（以及属性等）
 
 <br>
+
+## 参考教程
+
+- [javascript.info 在线教程](https://zh.javascript.info)
+- [W3school JavaScript 教程](https://www.w3school.com.cn/js/index.asp)
+
+<font size=2 color=gray>注：由于参考的教程都是经外文翻译而成，原文带有一定的翻译腔，本笔记相当于精简+润色语调。如想要更加系统的学习 JavaScript，可以将本笔记作为参考与其他资料结合进行学习。</font>
