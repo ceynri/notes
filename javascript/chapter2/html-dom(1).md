@@ -1,6 +1,6 @@
 # JavaScript | HTML DOM（1）
 
-文档对象模型 **D**ocument **O**bject **M**odel
+文档对象模型 **D**ocument **O**bject **M**odel（DOM）
 
 ## 目录 <!-- omit in toc -->
 

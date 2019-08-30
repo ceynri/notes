@@ -1,6 +1,6 @@
 # JavaScript | HTML DOM（2）
 
-文档对象模型 **D**ocument **O**bject **M**odel
+文档对象模型 **D**ocument **O**bject **M**odel（DOM）
 
 ## 目录 <!-- omit in toc -->
 
@@ -9,10 +9,16 @@
   - [节点属性](#节点属性)
 - [DOM 元素](#dom-元素)
   - [查找 HTML 元素](#查找-html-元素)
-  - [改变 HTML 元素](#改变-html-元素)
   - [增删 HTML 元素](#增删-html-元素)
-- [Attributes and properties](#attributes-and-properties)
-- [样式和类](#样式和类)
+    - [旧方法](#旧方法)
+    - [新方法](#新方法)
+  - [改变 HTML 元素](#改变-html-元素)
+
+<br>
+
+---
+
+<br>
 
 ## 节点
 
@@ -213,37 +219,11 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 
 <br>
 
-### 改变 HTML 元素
-
-| 方法                                         | 描述                 |
-| -------------------------------------------- | -------------------- |
-| *element*.innerHTML = *new-html-content*     | 改变元素的 innerHTML |
-| *element*.*attribute* = *new-value*          | 改变元素的属性值     |
-| *element*.setAttribute(*attribute*, *value*) | 改变元素的属性值     |
-| *element*.style.*property* = *new style*     | 改变元素的 CSS 样式  |
-
-其中，*element* 可以通过上面的“查找 HTML 元素”来获得对应的元素。
-
-例子：
-
-```HTML
-<!DOCTYPE html>
-<html>
-<body>
-
-<img id="myImage" src="smiley.gif">
-
-<script>
-document.getElementById("myImage").src = "landscape.jpg";
-</script>
-
-</body>
-</html>
-```
-
-<br>
-
 ### 增删 HTML 元素
+
+*注：首先介绍一些旧方法，下面介绍新方法。*
+
+#### 旧方法
 
 | 方法                                        | 描述           |
 | ------------------------------------------- | -------------- |
@@ -252,7 +232,6 @@ document.getElementById("myImage").src = "landscape.jpg";
 | *elem*.appendChild(*child*)                 | 添加 HTML 元素 |
 | *elem*.insertBefore(*element*)              | 插入 HTML 元素 |
 | *elem*.replaceChild(*newchild*, *oldchild*) | 替换 HTML 元素 |
-
 
 <br>
 
@@ -278,6 +257,7 @@ document.getElementById("myImage").src = "landscape.jpg";
   var para = document.createElement("p");       // 创建元素
   var node = document.createTextNode("新文本"); // 创建文本节点
   para.appendChild(node);                       // 追加文本节点
+    // 其实可以 “para.innerHTML = "新文本";” 一行搞掂
 
   var element = document.getElementById("div1");// 查找已有元素
   element.appendChild(para);                    // 追加新元素在最后面
@@ -347,6 +327,63 @@ document.getElementById("myImage").src = "landscape.jpg";
 </script>
 ```
 
+以上是旧方法，我们仍然能够在各种老的脚本里看到它们，所以认识它们还是有必要的。
+
+#### 新方法
+
+| 方法               | 插入位置  |
+| ------------------ | --------- |
+| *node*.append()      | node 末尾 |
+| *node*.prepend()     | node 开头 |
+| *node*.before()      | node 前面 |
+| *node*.after()       | node 后面 |
+| *node*.replaceWith() | 替换 node |
+
+参数：节点或字符串（支持多个参数）
+
+作用：插入节点或者字符串
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+### 改变 HTML 元素
+
+| 方法                                         | 描述                 |
+| -------------------------------------------- | -------------------- |
+| *element*.innerHTML = *new-html-content*     | 改变元素的 innerHTML |
+| *element*.*attribute* = *new-value*          | 改变元素的属性值     |
+| *element*.setAttribute(*attribute*, *value*) | 改变元素的特性值     |
+| *element*.style.*property* = *new style*     | 改变元素的 CSS 样式  |
+
+其中，*element* 可以通过上面的“查找 HTML 元素”来获得对应的元素。
+
+例子：
+
+```HTML
+<!DOCTYPE html>
+<html>
+<body>
+
+<img id="myImage" src="smiley.gif">
+
+<script>
+document.getElementById("myImage").src = "landscape.jpg";
+</script>
+
+</body>
+</html>
+```
+
 <br>
 
 ---
@@ -360,50 +397,3 @@ document.getElementById("myImage").src = "landscape.jpg";
 <!-- 变量区 -->
 
 [DOM 树]: https://www.w3school.com.cn/i/ct_htmltree.gif
-
-<br>
-
-# *以下暂未整理*
-
-## Attributes and properties
-
-特性 —— 写在 `HTML` 中。
-
-属性 —— 是一个 `DOM` 对象。
-
-对比：
-|      | 属性                                     | 特性             |
-| ---- | ---------------------------------------- | ---------------- |
-| 类型 | 一些值，标准化的属性值在规范中有类型描述 | 字符串           |
-| 名字 | 键名大小写敏感                           | 键名大小写不敏感 |
-
-操作特性的一些方法：
-
-- elem.hasAttribute(name) —— 检查是否存在这个特性
-- elem.getAttribute(name) —— 获取这个特性
-- elem.setAttribute(name, value) —— 把这个特性设置为 name 值
-- elem.removeAttribute(name) —— 移除这个特性
-- elem.attributes —— 所有特性的集合
-
-对于大多数需求，`DOM` 属性已经可以给予很好的支持。应当在 `DOM` 属性实在无法满足开发需求的情况下才使用特性，比如以下情况：
-
-- 我们需要一个非标准化的特性。但是如果我们用 `data-` 来设置特性值，那就要使用 `dataset` 来获取属性值。
-- 我们想要读取到 `HTML` 的展示内容。比如 `href` 属性总是一个绝对路径，但是我们只想要相对路径。
-
-<br>
-
-## 样式和类
-
-在管理 class 时，有两个 DOM 属性：
-
-- className —— 字符串值可以很好地管理整个类集合。
-- classList —— 拥有 add/remove/toggle/contains 方法的对象可以很好地支持单独的类。
-
-改变样式：
-
-- style 属性是一个带有 camelCased 样式的对象。对它的读取和修改 "style" 属性中的单个属性等价。要留意如果应用 important 和其他稀有内容 —— 在 MDN 上有一个方法列表。
-- style.cssText 属性对应于整个“样式”属性，即完整的样式字符串。
-
-获取已经解析的样式（对应于所有类，在应用所有 CSS 并计算最终值   后）：
-
-- getComputedStyle(elem[, pseudo]) 返回与 style 对象类似且包含了所有类的对象，是只读的。
