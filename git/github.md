@@ -9,7 +9,7 @@
     Initialized empty Git repository in /Users/michael/learngit/.git/
     ```
 
-2. `git add <file>` 和 `git commit -m <message>` 
+2. `git add <file>` 和 `git commit -m <message>`
 
     ```bash
     git add file1.txt
@@ -34,11 +34,11 @@
 
     遇到询问直接回车（选择默认），然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制。
 
-    打开 Github 的 [SSH and GPG keys](https://github.com/settings/keys) 页面，选择 New SSH Key
+    打开 Github 的 [SSH and GPG keys](https://github.com/settings/keys) 页面，选择 New SSH key
 
     标题任意，然后将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击Add SSH key。
 
-    可以在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 `ssh git@github.com`
+    可以在 .ssh 文件夹 Git Bash 中检测 GitHub 公钥设置是否成功，输入 `ssh git@github.com`
 
     > 设置GitHub密钥原因：通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。
 
@@ -75,4 +75,4 @@
     git pull origin master --allow-unrelated-histories
     ```
 
-    然后在vim编辑器模式下编写完 commit 信息后保存即可重新push。
+    然后在 vim 编辑器模式下编写完 commit 信息后保存即可重新push。
