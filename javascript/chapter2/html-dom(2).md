@@ -287,7 +287,7 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 
 删除 HTML 元素则使用 `removeChild()` 方法：
 
-```js
+```html
 <div id="div1">
   <p id="p1">这是一个段落。</p>
   <p id="p2">这是另一个段落。</p>
@@ -308,7 +308,7 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 
 替换 HTML 元素使用 `parent.replaceChild()` 方法：
 
-```js
+```html
 <div id="div1">
   <p id="p1">这是一个段落。</p>
   <p id="p2">这是另一个段落。</p>
@@ -331,28 +331,63 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 
 #### 新方法
 
-| 方法               | 插入位置  |
-| ------------------ | --------- |
-| *node*.append()      | node 末尾 |
-| *node*.prepend()     | node 开头 |
-| *node*.before()      | node 前面 |
-| *node*.after()       | node 后面 |
-| *node*.replaceWith() | 替换 node |
+**插入文本或节点**
+
+| 方法                 | 插入位置      |
+| -------------------- | ------------- |
+| *node*.before()      | node 前面     |
+| *node*.prepend()     | node 内部开头 |
+| *node*.append()      | node 内部末尾 |
+| *node*.after()       | node 后面     |
+| *node*.replaceWith() | 替换 node     |
 
 参数：节点或字符串（支持多个参数）
 
-作用：插入节点或者字符串
+<br/>
 
+此方法可以围绕节点添加字符串或者节点，文本的所有内容会以安全的方式插入：
 
+```html
+<div id="div"></div>
+<script>
+  div.before('<p>Hello</p>', document.createElement('hr'));
+</script>
 
+<!-- 页面结果 -->
+&lt;p&gt;Hello&lt;/p&gt;
+<hr>
+<div id="div"></div>
+```
 
+<br/>
 
+如果希望标签不会被自动转换为安全文本，则可以使用以下方法直接编写 html:
 
+**插入 html**
 
+| 方法                                | 插入位置                 |
+| ----------------------------------- | ------------------------ |
+| *elem*.beforebegin(*where*, *html*) | elem 开头位置前插入 html |
+| *elem*.afterbegin(*where*, *html*)  | elem 开头位置后插入 html |
+| *elem*.beforeend(*where*, *html*)   | elem 结束位置前插入 html |
+| *elem*.afterend(*where*, *html*)    | elem 结束位置后插入 html |
 
+<br/>
 
+样例：
 
+```HTML
+<div id="div"></div>
+<script>
+  div.insertAdjacentHTML('beforebegin', '<p>Hello</p>');
+  div.insertAdjacentHTML('afterend', '<p>Bye</p>');
+</script>
 
+<!-- 页面结果 -->
+<p>Hello</p>
+<div id="div"></div>
+<p>Bye</p>
+```
 
 <br>
 
@@ -366,6 +401,8 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 | *element*.style.*property* = *new style*     | 改变元素的 CSS 样式  |
 
 其中，*element* 可以通过上面的“查找 HTML 元素”来获得对应的元素。
+
+<br/>
 
 例子：
 
