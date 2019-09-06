@@ -13,6 +13,8 @@
     - [旧方法](#旧方法)
     - [新方法](#新方法)
   - [改变 HTML 元素](#改变-html-元素)
+  - [克隆节点](#克隆节点)
+  - [DocumentFragment 文档片段](#documentfragment-文档片段)
 
 <br>
 
@@ -343,6 +345,8 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 
 参数：节点或字符串（支持多个参数）
 
+注意：如果方法调用者*node*是个已经存在于文档中的节点，“插入方法”在这里应该被称为“移动方法”，会直接移动该节点到指定的地方，而不会原处留下旧节点。
+
 <br/>
 
 此方法可以围绕节点添加字符串或者节点，文本的所有内容会以安全的方式插入：
@@ -363,7 +367,7 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 
 如果希望标签不会被自动转换为安全文本，则可以使用以下方法直接编写 html:
 
-**插入 html**
+**插入 HTML**
 
 | 方法                                | 插入位置                 |
 | ----------------------------------- | ------------------------ |
@@ -389,7 +393,13 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 <p>Bye</p>
 ```
 
-<br>
+<br/>
+
+**移除 HTML**
+
+使用 `node.remove()` 代替 `parent.removeChild(node)` 更加简洁直观。
+
+<br/>
 
 ### 改变 HTML 元素
 
@@ -407,19 +417,47 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 例子：
 
 ```HTML
-<!DOCTYPE html>
-<html>
-<body>
-
 <img id="myImage" src="smiley.gif">
 
 <script>
 document.getElementById("myImage").src = "landscape.jpg";
 </script>
-
-</body>
-</html>
 ```
+
+<br>
+
+### 克隆节点
+
+当我们需要插入多条相同的信息时，我们可以使用克隆节点的方法：
+
+*elem*.cloneNode(*bool*);
+
+如果我们有一个很大的元素，克隆的方式要远比创建后插入来的更简单，性能也更好。
+
+| bool 取值 | 用途                                               |
+| --------- | -------------------------------------------------- |
+| true      | 用来对一个元素进行“深”克隆（包括所有特性和子元素） |
+| false     | 只克隆该元素本身，不对子元素进行克隆               |
+
+<br>
+
+```html
+<div class="alert" id="div">
+  <strong>Hi there!</strong> You've read an important message.
+</div>
+
+<script>
+  let div2 = div.cloneNode(true);                         // 克隆信息
+  div2.querySelector('strong').innerHTML = 'Bye there!';  // 改变克隆信息
+  div.after(div2);                                        // 显示克隆信息在已经存在的 div 后
+</script>
+```
+
+<br/>
+
+### DocumentFragment 文档片段
+
+
 
 <br>
 
