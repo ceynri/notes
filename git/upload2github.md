@@ -22,17 +22,17 @@
 3. 设置用户名与邮箱（如果没有设置的话）
 
     ```bash
-    git config --global user.name "你的GitHub用户名"
-    git config --global user.email "你的GitHub注册邮箱"
+    git config --global user.name "<你的GitHub用户名>"
+    git config --global user.email "<你的GitHub注册邮箱>"
     ```
 
 4. 生成并设置 ssh 密钥文件（如果你是第一次在这个电脑上传到github上）
 
     ```bash
-    ssh-keygen -t rsa -C "你的GitHub注册邮箱"
+    ssh-keygen -t rsa -C "<你的GitHub注册邮箱>"
     ```
 
-    遇到询问直接回车（选择默认），然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制。
+    遇到询问直接回车（选择默认），然后找到生成的.ssh的文件夹（应该会有输出提示其位置）中的id_rsa.pub密钥，将内容全部复制。
 
     打开 Github 的 [SSH and GPG keys](https://github.com/settings/keys) 页面，选择 New SSH key
 
@@ -40,7 +40,9 @@
 
     可以在 .ssh 文件夹 Git Bash 中检测 GitHub 公钥设置是否成功，输入 `ssh git@github.com`
 
-    > 设置GitHub密钥原因：通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。
+    > 设置GitHub密钥原因：
+    >
+    > 通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。
 
 5. 在 Github 上创建仓库
 
@@ -49,7 +51,9 @@
     ![github-new-repo](pics/github-new-repo.jpg)
 
     ```bash
+    # 指定远程仓库
     git remote add origin https://github.com/HazeAcc/tmp-repo.git
+    # push到远程仓库
     git push -u origin master
     ```
 
@@ -63,11 +67,11 @@
 
 1. 如果远程仓库已经有了文件怎么办？
 
-    ![仓库已初始化](pics/q-pull.jpg)
+    ![仓库已初始化](./pics/q-pull.jpg)
 
     原因：
 
-    远程库存在文件，需要先 pull 下来。
+    远程库存在文件，需要先 `pull` 下来。
 
     解决方法：
 
@@ -75,6 +79,6 @@
     git pull origin master --allow-unrelated-histories
     ```
 
-    然后在 vim 编辑器模式下编写完 commit 信息后保存即可重新push。
+    然后在 vim 编辑器模式下编写完 commit 信息后保存即可重新 push。
 
     另：如果你确认远程仓库里的文件都不需要或者可以被本地文件替代，可以在 push 时添加 `-f` 或 `--force` 参数，会强制覆盖远程仓库的文件。但这是一个需要谨慎使用的参数，特别是在团队合作中。
