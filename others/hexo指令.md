@@ -1,3 +1,8 @@
+---
+title: "Hexo 指令"
+date: "2019-09-02"
+---
+
 # Hexo 指令
 
 官网指令文档：[指令 | Hexo](https://hexo.io/zh-cn/docs/commands)

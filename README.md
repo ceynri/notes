@@ -1,3 +1,8 @@
+---
+title: "Notes 个人笔记导航"
+date: "2019-08-01"
+---
+
 # Notes 个人笔记（更新中）
 
 一些个人一边学习一边记录的笔记。
@@ -6,24 +11,16 @@
 
 ## 笔记列表
 
-- 📃 [Markdown 笔记](/markdown/README.md)  [已完成] [540行]  
-  边学 Markdown 边写 Markdown，记录了一些常用的 Markdown 语法，建议花一个下午时间好好上手。
+- 📃 [Markdown 上手教程](/markdown/README.md) [已完成]  
+  记录常用的 Markdown 语法，建议花一个下午时间好好上手。
   
-- ⚰ [JavaScript 笔记](/javascript/README.md)  [更新中] [2577行]  
+- ⚰ [JavaScript 入门教程笔记](/javascript/README.md) [更新中]  
   由 Java/C 语言基础过渡到 JavaScript，适合快速上手 JavaScript。
 
-- 🔮 [CSS 笔记](css/README.md)  [未整理]  
-  记录一些自己实战中遇到的一些问题，偶尔整理一些知识点。
-
-- ⛓ [Git 笔记](git/README.md)  [刚开始] [132行]  
+- ⛓ [Git 学习笔记](git/README.md) [刚开始]  
   随缘写，遇到问题就记录（摸
 
-<br>
+- 🔮 CSS 笔记 [未整理]  
+  记录一些自己实战中遇到的一些问题，偶尔整理一些知识点。
 
-**关于行数统计：**
-
-在 VS Code 中使用 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> 开启全局搜索，在正则表达式模式下匹配：`b*[^:b#/]+.*`
-
-自动忽略空行。而字数估算为行数的3至4倍。
-
-<br>
+<br/>
