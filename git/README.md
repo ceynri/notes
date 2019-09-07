@@ -11,7 +11,7 @@ date: "2019-08-22"
 
 - [git 常见指令](./git常见指令.md)
 
-- [上传至 Github](./github.md)
+- [上传至 Github](./upload2github.md)
 
 - [在 VS Code 中使用 Git](./git-in-vscode.md)
 
