@@ -1,5 +1,5 @@
 ---
-title: "JavaScript 笔记导航"
+title: "JavaScript 教程笔记导航"
 date: "2019-08-10"
 ---
 
@@ -14,47 +14,48 @@ date: "2019-08-10"
 
 ### JavaScript 编程语言
 
-- [JavaScript 入门基础](chapter1/1.入门基础.md)
+- [JavaScript 入门基础](./chapter1/01.入门基础.md)
 
-- [函数](chapter1/2.函数.md)
+- [函数](./chapter1/02.函数.md)
 
-- [Objects 对象基础（1）](chapter1/3.Objects对象(1).md)
+- [Objects 对象基础（1）](./chapter1/03.Objects-1.md)
 
-- [Objects 对象基础（2）](chapter1/4.Objects对象(2).md)
+- [Objects 对象基础（2）](./chapter1/04.Objects-2.md)
 
-- [数据类型](chapter1/5.数据类型.md)
+- [数据类型](./chapter1/05.数据类型.md)
 
-- [Array 类型](chapter1/6.Array类型.md)
+- [Array 类型](./chapter1/06.Array类型.md)
 
-- [Map 与 Set 类型](chapter1/7.Map&Set.md)
+- [Map 与 Set 类型](./chapter1/07.Map&Set.md)
 
-- [Objects 对象类型](chapter1/8.Objects对象类型.md)
+- [Objects 对象类型](./chapter1/08.Objects对象类型.md)
 
-- [Class 类](chapter1/Class类.md)
+- 更新中...（最后更新时间：2019/08/26）
 
-- 更新中...（最后更新时间：2019/08/26 | 当前行数：1309行）
+- [Class 类](./chapter1/Class类.md)
 
 - Throw、Try 与 Catch
-
-- 正则表达式
 
 <br>
 
 ### JavaScript 与 浏览器
 
-- [基础介绍与应用](chapter2/1.简介.md)
+- [基础介绍与应用](./chapter2/简介.md)
 
-- [浏览器调试与代码测试](chapter2/调试与测试.md)
+- [HTML DOM（1）](./chapter2/html-dom-1.md)
 
-- [JavaScript 性能](chapter2/性能.md)
+- [HTML DOM（2）](./chapter2/html-dom-2.md)
 
-- [HTML DOM（1）](chapter2/html-dom(1).md)
+- [HTML DOM（3）](./chapter2/html-dom-3.md)
 
-- [HTML DOM（2）](chapter2/html-dom(2).md)
+- [BOM](./chapter2/bom.md)
 
-- 更新中... （最后更新时间：2019/08/29 | 当前行数：932行）
+- [浏览器调试与代码测试](./chapter2/调试与测试.md)
 
-- BOM
+- 更新中... （最后更新时间：2019/09/07）
+
+- 浏览器兼容
+
 
 <br>
 
@@ -62,6 +63,12 @@ date: "2019-08-10"
 
 - [索引对照表](./others/索引对照表.md)  
   收录一些常用方法（以及属性等）
+
+- [JavaScript 性能](./others/性能.md)
+
+- 正则表达式
+
+- ES6
 
 <br>
 

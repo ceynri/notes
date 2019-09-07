@@ -1,4 +1,11 @@
+---
+title: "Class 类"
+date: "2019-08-22"
+---
+
 # JavaScript | Class 类
+
+## *内容待丰富*
 
 <br>
 
@@ -28,7 +35,7 @@ class MyClass {
 
 <br>
 
-## *内容待丰富*
+---
 
 <br>
 
