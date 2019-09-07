@@ -8,17 +8,19 @@ date: "2019-09-07"
 ## 目录 <!-- omit in toc -->
 
 - [window 对象](#window-对象)
-  - [一些方法](#一些方法)
 - [窗口尺寸](#窗口尺寸)
 - [元素尺寸](#元素尺寸)
-- [window.screen 对象](#windowscreen-对象)
-- [window.location 对象](#windowlocation-对象)
-- [window.History 对象](#windowhistory-对象)
-- [window.navigator 对象](#windownavigator-对象)
-- [timing 事件](#timing-事件)
+- [页面滚动](#页面滚动)
+- [坐标](#坐标)
+  - [窗口坐标](#窗口坐标)
+  - [文档坐标](#文档坐标)
+- [window 对象属性](#window-对象属性)
+  - [window.screen 对象](#windowscreen-对象)
+  - [window.location 对象](#windowlocation-对象)
+  - [window.History 对象](#windowhistory-对象)
+  - [window.navigator 对象](#windownavigator-对象)
+- [Timing 事件](#timing-事件)
 - [Cookies](#cookies)
-- [滚动](#滚动)
-- [元素的尺寸与滚动](#元素的尺寸与滚动)
 
 <br/>
 
@@ -28,7 +30,11 @@ date: "2019-09-07"
 
 ## window 对象
 
-window 对象代表浏览器的窗口，相当于“全局”。全局变量是 window 对象的属性，全局函数是 window 对象的方法。
+window 对象代表浏览器的窗口，相当于“全局”。
+
+全局变量是 window 对象的属性，全局函数是 window 对象的方法。
+
+故“`window.`”常常可以省略。
 
 ```JS
 window.document.getElementById("header");
@@ -36,14 +42,15 @@ window.document.getElementById("header");
 document.getElementById("header");
 ```
 
-故“`window.`”常常可以省略。
 
-### 一些方法
+**一些方法**
 
-window.open() - 打开新窗口
-window.close() - 关闭当前窗口
-window.moveTo() -移动当前窗口
-window.resizeTo() -重新调整当前窗口
+| 方法              | 描述             |
+| ----------------- | ---------------- |
+| window.open()     | 打开新窗口       |
+| window.close()    | 关闭当前窗口     |
+| window.moveTo()   | 移动当前窗口     |
+| window.resizeTo() | 重新调整当前窗口 |
 
 <br/>
 
@@ -51,13 +58,15 @@ window.resizeTo() -重新调整当前窗口
 
 文档可视范围的宽度/高度（内容区域的宽高）：
 
-- document.documentElement.clientWidth
-- document.documentElement.clientHeight
+- `document.documentElement.clientWidth`
+- `document.documentElement.clientHeight`
 
 如果使用 windows 对象的属性获取浏览器窗口的内高度/内宽度：
 
-- window.innerHeight
-- window.innerWidth
+- `window.innerHeight`
+- `window.innerWidth`
+
+但是**不建议**使用 `window.innerHeight/Width` 属性。原因是当页面存在滚动条的时候，innerHeight/Width 会忽略滚动条，如果是需要绘制或者定位某些东西的时候，可能会被滚动条所遮挡。
 
 <br/>
 
@@ -76,7 +85,77 @@ window.resizeTo() -重新调整当前窗口
 
 <br/>
 
-## window.screen 对象
+由于历史原因及兼容问题，如果想要获得可靠的窗口大小，最好采取获得它们的最大值：
+
+```js
+let scrollHeight = Math.max(
+  document.body.scrollHeight, document.documentElement.scrollHeight,
+  document.body.offsetHeight, document.documentElement.offsetHeight,
+  document.body.clientHeight, document.documentElement.clientHeight
+);
+```
+
+<br/>
+
+## 页面滚动
+
+滚动页面需要等到 DOM 完全构建好才可以进行。
+
+- 获得当前的滚动状态建议使用 `window.pageYOffset/pageXOffset` 属性。（只读）
+    
+    > `documentElement.scrollLeft/scrollTop` 属性并不方便且存在 bugs，有些浏览器需要用 `document.body` 代替 `document.documentElement`。
+
+- 改变当前滚动：
+    | 描述                          | 方法                                  |
+    | ----------------------------- | ------------------------------------- |
+    | 绝对定位                      | window.scrollTo(*pageX*, *pageY*)     |
+    | 相对当前位置滚动              | window.scrollBy(*x*, *y*)             |
+    | *elem* 与 与窗口顶部/底部对齐 | *elem*.scrollIntoView([*topBoolean*]) |
+
+<br/>
+
+## 坐标
+
+在 CSS 中，`窗口坐标`对应的是 `position:fixed`，而`文档坐标`则类似顶部的 `position:absolute`。
+
+### 窗口坐标
+
+窗口的坐标是从窗口的左上角开始计算的。
+
+`elem.getBoundingClientRect()` 方法返回一个 elem 的窗口坐标对象，这个对象有以下这些属性：
+
+| 属性   | 描述                  |
+| ------ | --------------------- |
+| top    | 元素顶部边缘的 Y 坐标 |
+| left   | 元素左边边缘的 X 坐标 |
+| right  | 元素右边边缘的 X 坐标 |
+| bottom | 元素底部边缘的 Y 坐标 |
+
+<br/>
+
+### 文档坐标
+
+文档坐标类似于绝对定位，其不随页面滚动而改变。
+
+在现在的 JavaScript 中并没有获取一个元素的文档坐标的标准方法，但是我们可以通过 `窗口坐标 + 文档滚动的长度` 计算获得。
+
+```js
+// 获取元素的文档坐标
+function getCoords(elem) {
+  let box = elem.getBoundingClientRect();
+
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset
+  };
+}
+```
+
+<br/>
+
+## window 对象属性
+
+### window.screen 对象
 
 访问者屏幕宽度/高度：
 
@@ -95,7 +174,7 @@ window.resizeTo() -重新调整当前窗口
 
 <br/>
 
-## window.location 对象
+### window.location 对象
 
 | 属性 / 方法            | 描述                       |
 | ---------------------- | -------------------------- |
@@ -107,7 +186,7 @@ window.resizeTo() -重新调整当前窗口
 
 <br/>
 
-## window.History 对象
+### window.History 对象
 
 window.history 对象包含浏览器历史，为了保护用户的隐私，JavaScript 访问此对象存在限制。
 
@@ -118,7 +197,7 @@ window.history 对象包含浏览器历史，为了保护用户的隐私，JavaS
 
 <br/>
 
-## window.navigator 对象
+### window.navigator 对象
 
 window.navigator 对象包含有关访问者的信息。
 
@@ -137,7 +216,7 @@ window.navigator 对象包含有关访问者的信息。
 
 <br/>
 
-## timing 事件
+## Timing 事件
 
 window 对象允许以指定的时间间隔执行代码,这些时间间隔称为定时事件。
 
@@ -199,27 +278,12 @@ window 对象允许以指定的时间间隔执行代码,这些时间间隔称为
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     ```
 
-## 滚动
+<br>
 
-- 读取当前的滚动：`window.pageYOffset/pageXOffset`
+---
 
-- 改变当前的滚动：
-  - `window.scrollTo(pageX,pageY)` — 绝对定位
-  - `window.scrollBy(x,y)` — 相对当前位置的滚动
-  - `elem.scrollIntoView(top)` — 滚动到正好elem可视的位置（elem 与窗口的顶部/底部对齐）
+<br>
 
-<br/>
+## 更多内容 <!-- omit in toc -->
 
-## 元素的尺寸与滚动
-
-元素具有以下几何属性：
-
-- offsetParent — 是最近的有定位属性的祖先元素，或者是 td、th、table、body。
-- offsetLeft/offsetTop — 是相对于 offsetParent 的左上角边缘坐标。
-- offsetWidth/offsetHeight — 元素的“外部”宽/高 ，边框尺寸计算在内。
-- clientLeft/clientTop — 从元素左上角外部到内部的距离，对于从左到右渲染元素的操作系统，它始终是左/顶部边界的宽度，而对于从右到左的操作系统，垂直滚动条在左边，所以 clientLeft 也包括滚动条的宽度。
-- clientWidth/clientHeight — 内容的宽度/高度，包括内间距，但没有滚动条。
-- scrollWidth/scrollHeight — 内容的宽度/高度，包括可滚动的可视区域外的尺寸，也包括内间距，但不包括滚动条。
-- scrollLeft/scrollTop — 从左上角开始的元素的滚动部分的宽度/高度。
-
-除了 scrollLeft/scrollTop 之外，所有属性都是只读的。如果更改，浏览器会使元素滚动。
+点击返回[个人笔记导航😊](../README.md)
