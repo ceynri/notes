@@ -14,25 +14,25 @@ date: "2019-08-10"
 
 ### JavaScript 编程语言
 
-- [JavaScript 入门基础](./chapter1/01.入门基础.md)
+- [JavaScript 入门基础](./chapter1/01.basic-introduction.md)
 
-- [函数](./chapter1/02.函数.md)
+- [函数](./chapter1/02.function.md)
 
-- [Objects 对象基础（1）](./chapter1/03.Objects-1.md)
+- [Objects 对象基础（1）](./chapter1/03.objects-1.md)
 
-- [Objects 对象基础（2）](./chapter1/04.Objects-2.md)
+- [Objects 对象基础（2）](./chapter1/04.objects-2.md)
 
-- [数据类型](./chapter1/05.数据类型.md)
+- [数据类型](./chapter1/05.data-type.md)
 
-- [Array 类型](./chapter1/06.Array类型.md)
+- [Array 类型](./chapter1/06.array.md)
 
-- [Map 与 Set 类型](./chapter1/07.Map&Set.md)
+- [Map 与 Set 类型](./chapter1/07.map&set.md)
 
-- [Objects 对象类型](./chapter1/08.Objects对象类型.md)
+- [Objects 对象类型](./chapter1/08.objects-3.md)
 
 - 更新中...（最后更新时间：2019/08/26）
 
-- [Class 类](./chapter1/Class类.md)
+- [Class 类](./chapter1/class.md)
 
 - Throw、Try 与 Catch
 
@@ -40,7 +40,7 @@ date: "2019-08-10"
 
 ### JavaScript 与 浏览器
 
-- [基础介绍与应用](./chapter2/简介.md)
+- [基础介绍与应用](./chapter2/introduction.md)
 
 - [HTML DOM（1）](./chapter2/html-dom-1.md)
 

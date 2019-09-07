@@ -12,7 +12,7 @@ date: "2019-08-01"
 - 📃 [Markdown 上手教程](./markdown/README.md) [已完成]  
   记录常用的 Markdown 语法，建议花一个下午时间好好上手。
   
-- ⚰ [JavaScript 入门教程笔记](./javascript/README.md) [更新中]  
+- 🚀 [JavaScript 入门教程笔记](./javascript/README.md) [更新中]  
   由 Java/C 语言基础过渡到 JavaScript，适合快速上手 JavaScript。
 
 - ⛓ [Git 学习笔记](./git/README.md) [刚开始]  

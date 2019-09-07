@@ -66,7 +66,11 @@ document.getElementById("header");
 - `window.innerHeight`
 - `window.innerWidth`
 
-但是**不建议**使用 `window.innerHeight/Width` 属性。原因是当页面存在滚动条的时候，innerHeight/Width 会忽略滚动条，如果是需要绘制或者定位某些东西的时候，可能会被滚动条所遮挡。
+::: warning
+
+**不建议**使用 `window.innerHeight/Width` 属性。原因是当页面存在滚动条的时候，innerHeight/Width 会忽略滚动条，如果是需要绘制或者定位某些东西的时候，可能会被滚动条所遮挡。
+
+:::
 
 <br/>
 
@@ -81,7 +85,11 @@ document.getElementById("header");
 | scrollWidth | 元素宽度、内边距、溢出尺寸 | 边框和外边距         | 可读写 |
 | style.width | 元素宽度                   | 内边距、边框和外边距 | 可读写 |
 
+::: warning
+
 不建议从 css 直接读取宽高属性。
+
+:::
 
 <br/>
 
