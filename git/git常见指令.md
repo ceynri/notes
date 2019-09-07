@@ -119,6 +119,7 @@ Changes to be committed:
 ```bash
 git rm -r --cached <file>
 ```
+`-r` 参数：即 `--recursive`，递归删除目录及其内容（用于文件夹）
 
 ### 取消修改/退回文件版本
 
