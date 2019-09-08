@@ -285,13 +285,3 @@ window 对象允许以指定的时间间隔执行代码,这些时间间隔称为
     ```js
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     ```
-
-<br>
-
----
-
-<br>
-
-## 更多内容 <!-- omit in toc -->
-
-点击返回[个人笔记导航😊](../README.md)

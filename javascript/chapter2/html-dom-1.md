@@ -331,16 +331,6 @@ element.addEventListener("click", function(){ myFunction(p1, p2); });
 
 在 `addEventListener(event, function[, useCapture])` 方法中可以通过使用 `useCapture` 参数来规定传播类型：默认值是 `false`，将使用冒泡传播，如果该值设置为 `true`，则事件使用捕获传播。  
 
-<br>
-
----
-
-<br>
-
-## 更多内容 <!-- omit in toc -->
-
-点击返回[个人笔记导航😊](../README.md)
-
 <!-- 变量区 -->
 
 [DOM 树]: https://www.w3school.com.cn/i/ct_htmltree.gif
