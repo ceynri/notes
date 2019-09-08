@@ -457,16 +457,6 @@ document.getElementById("myImage").src = "landscape.jpg";
 </script>
 ```
 
-<br>
-
----
-
-<br>
-
-## 更多内容 <!-- omit in toc -->
-
-点击返回[个人笔记导航😊](../README.md)
-
 <!-- 变量区 -->
 
 [DOM 树]: https://www.w3school.com.cn/i/ct_htmltree.gif

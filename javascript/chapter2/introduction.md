@@ -205,13 +205,3 @@ document.write(5 + 6);
 ```
 
 `window.alert()` 能够使用弹出警告框来显示数据；`console.log()` 方法能够在浏览器控制台显示数据。（略）
-
-<br>
-
----
-
-<br>
-
-## 更多内容 <!-- omit in toc -->
-
-点击返回[个人笔记导航😊](../README.md)

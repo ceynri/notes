@@ -164,13 +164,3 @@ div.setAttribute('order-state', 'canceled');
   不过，如果使用 `data-` 来设置特性值，就可以 `dataset` 来获取属性值。
 - 我们想要读取到 `HTML` 的展示内容。  
   比如 `href` 属性总是一个绝对路径，但是我们只想要相对路径。
-
-<br>
-
----
-
-<br>
-
-## 更多内容 <!-- omit in toc -->
-
-点击返回[个人笔记导航😊](../README.md)
