@@ -3,7 +3,7 @@ title: "VS Code Git"
 date: "2019-08-29"
 ---
 
-# 在 VS Code 中使用 Git
+# VS Code 中的 Git
 
 当编辑器打开项目文件的更根目录时，如果包含有 `.git` 文件，则会自动识别并标上符号与颜色。
 

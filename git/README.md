@@ -9,15 +9,15 @@ date: "2019-08-22"
 
 ## 目录
 
-- [git 常见指令](./git常见指令.md)
+- [git 常见指令](./git-command.md)
 
 - [上传至 Github](./upload2github.md)
 
-- [在 VS Code 中使用 Git](./git-in-vscode.md)
+- [VS Code 中的 Git](./git-in-vscode.md)
 
 <br>
 
 ## 推荐参考
 
 - [Git - Book](https://git-scm.com/book/zh/v2)  
-  Git官方教程，好用。
+  Git官方教程，好用👍
