@@ -329,7 +329,14 @@ element.addEventListener("click", function(){ myFunction(p1, p2); });
 >
 > - 捕获：首先处理 `<div>` 元素的点击事件，然后是 `<p>` 元素的点击事件。
 
-在 `addEventListener(event, function[, useCapture])` 方法中可以通过使用 `useCapture` 参数来规定传播类型：默认值是 `false`，将使用冒泡传播，如果该值设置为 `true`，则事件使用捕获传播。  
+在 `addEventListener(event, function[, useCapture])` 方法中可以通过使用 `useCapture` 参数来规定传播类型：
+
+| 布尔值            | 传播方式 |
+| ----------------- | -------- |
+| `false`（默认值） | 冒泡     |
+| `true`            | 捕获     |
+
+由于 IE 的 attachEvent 仅支持冒泡，为了统一性，一般使用默认值。
 
 <!-- 变量区 -->
 
