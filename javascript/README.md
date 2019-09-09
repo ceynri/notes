@@ -59,12 +59,12 @@ date: "2019-08-10"
 
 ### 其他
 
-- [索引对照表](./others/索引对照表.md)  
+- [索引对照表](./others/parallel-table.md)  
   收录一些常用方法（以及属性等）
 
-- [浏览器调试与代码测试](./others/调试与测试.md)
+- [浏览器调试与代码测试](./others/debug&test.md)
 
-- [JavaScript 性能](./others/性能.md)
+- [JavaScript 性能](./others/performance.md)
 
 - 正则表达式
 

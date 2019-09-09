@@ -368,12 +368,14 @@ findIndex 和 find 类似，但返回索引而不是值。
 
 **插入 HTML**
 
-| 方法                                | 插入位置                 |
-| ----------------------------------- | ------------------------ |
-| *elem*.beforebegin(*where*, *html*) | elem 开头位置前插入 html |
-| *elem*.afterbegin(*where*, *html*)  | elem 开头位置后插入 html |
-| *elem*.beforeend(*where*, *html*)   | elem 结束位置前插入 html |
-| *elem*.afterend(*where*, *html*)    | elem 结束位置后插入 html |
+*element*.insertAdjacentHTML(*position*, *html*);
+
+| *position* 字符串值 | 插入位置                 |
+| ------------------- | ------------------------ |
+| beforebegin         | elem 开头位置前插入 html |
+| afterbegin          | elem 开头位置后插入 html |
+| beforeend           | elem 结束位置前插入 html |
+| afterend            | elem 结束位置后插入 html |
 
 <br/>
 
