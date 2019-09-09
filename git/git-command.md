@@ -38,7 +38,16 @@ date: "2019-08-22"
 git add <file>
 ```
 
-添加 `-A` 或 `-all` 参数，可以一次性添加当前文件夹下所有文件。
+以下参数可以一次性添加所有文件：
+
+| 参数/符号 | 全称             | 区别                                          |
+| --------- | ---------------- | --------------------------------------------- |
+| `.`       | 即工作区的状态树 | 包括文件内容修改、新文件，不包括被删除文件    |
+| `*`       | 通配符           | 会忽视.gitignore 把所有文件加入（其他的不会） |
+| `-u`      | `--update`       | 仅监控已经被 add 的文件，不会提交新文件       |
+| `-A`      | `--all`          | 既包含删除文件，也会提交新文件                |
+
+<br>
 
 ### 提交文件
 
@@ -46,11 +55,15 @@ git add <file>
 git commit -m <message>
 ```
 
+<br>
+
 ### 查看暂存状态
 
 ```bash
 git status
 ```
+
+<br>
 
 ### 发送至远程仓库
 
@@ -63,11 +76,15 @@ git push
 | -f / --force | 强制覆盖远程仓库       |
 | -u           | 选择当前为默认仓库分支 |
 
+<br>
+
 ### 克隆其他仓库
 
 ```bash
 git clone <url> [renamed-name]
 ```
+
+<br>
 
 ### 从远程仓库更新本地
 
@@ -78,6 +95,7 @@ git fetch <远程主机名> [<远程分支名>[:<本地分支名>]]
 git merge FETCH_HEAD
 ```
 
+<br>
 
 ## 撤销操作
 
@@ -92,6 +110,8 @@ git commit --amend
 ```
 
 该情况下，最终只会产生一个提交，第二个提交命令修正了第一个的提交内容。
+
+<br>
 
 ### 取消暂存的文件
 
@@ -112,6 +132,8 @@ Changes to be committed:
         modified:   benchmarks.rb
 ```
 
+<br>
+
 ### 删除暂存的文件
 
 不删除物理文件，仅将该文件从缓存中删除：
@@ -120,6 +142,8 @@ Changes to be committed:
 git rm -r --cached <file>
 ```
 `-r` 参数：即 `--recursive`，递归删除目录及其内容（用于文件夹）
+
+<br>
 
 ### 取消修改/退回文件版本
 
@@ -141,6 +165,8 @@ Changes to be committed:
 
 注意：此方法会覆盖你修改好的文件且无法找回，使用前需确保操作正确。建议使用 tashing 和分支来处理此问题。
 
+<br>
+
 ## 冷门指令
 
 收一些我用了一次的指令
@@ -153,4 +179,4 @@ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 
 其中的 url 使用 HTTPS 或者 SSh 都可以。
 
-
+<br>
