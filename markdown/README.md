@@ -820,7 +820,7 @@ $$
 
 图片实例（防止不支持）：
 
-![公式样例](./imgs/formula.jpg)
+![公式样例]
 
 <br/>
 
@@ -855,3 +855,7 @@ $$
 ## 本文参考
 
 > [Markdown 教程 | 菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)
+
+<!-- 变量区 -->
+
+[公式样例]: https://i.loli.net/2019/09/08/PRU8K49CJ2FuDiE.jpg

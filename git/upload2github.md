@@ -53,7 +53,7 @@ date: "2019-08-24"
 
     根据指示输入指令：
 
-    ![github-new-repo](pics/github-new-repo.jpg)
+    ![github-new-repo]
 
     ```bash
     # 指定远程仓库
@@ -72,7 +72,7 @@ date: "2019-08-24"
 
 1. 如果远程仓库已经有了文件怎么办？
 
-    ![仓库已初始化](./pics/q-pull.jpg)
+    ![仓库已初始化]
 
     原因：
 
@@ -87,3 +87,9 @@ date: "2019-08-24"
     然后在 vim 编辑器模式下编写完 commit 信息后保存即可重新 push。
 
     另：如果你确认远程仓库里的文件都不需要或者可以被本地文件替代，可以在 push 时添加 `-f` 或 `--force` 参数，会强制覆盖远程仓库的文件。但这是一个需要谨慎使用的参数，特别是在团队合作中。
+
+<!-- 变量区 -->
+
+[github-new-repo]: https://i.loli.net/2019/09/08/IYie7NqmvhF1Wjc.jpg
+
+[仓库已初始化]: https://i.loli.net/2019/09/08/x2v7yieZUNnHYC1.jpg
