@@ -106,7 +106,7 @@ git merge FETCH_HEAD
 ```bash
 git commit -m 'initial commit'
 git add forgotten_file
-git commit --amend
+git commit --amend -m 'initial commit'
 ```
 
 该情况下，最终只会产生一个提交，第二个提交命令修正了第一个的提交内容。
