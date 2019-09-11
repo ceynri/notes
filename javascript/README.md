@@ -1,11 +1,11 @@
 ---
-title: "JavaScript 教程笔记导航"
+title: "JavaScript 笔记手册导航"
 date: "2019-08-10"
 ---
 
-# JavaScript 笔记导航
+# JavaScript 笔记手册导航
 
-本笔记是我对于一些 JavaScript 教程内容的整理和相关知识的记录，会部分省略或快速带过热门语言（如C语言、Java）都拥有的相类似的基础内容，默认读者非零基础且了解 HTML 语言，适合想要快速上手过渡到 Javascript 的同学阅读。
+本笔记是我对于一些 JavaScript 教程内容的整理和相关知识的记录，会部分省略或快速带过热门语言（如C语言、Java）都拥有的相类似的基础内容，默认读者非零基础且了解 HTML 语言，个人认为内容偏向于**参考手册**的风格，适合想要快速上手 Javascript 或者作温习参考的同学阅读。
 
 - **JavaScript 编程语言** 内容偏向于**理论**（即作为一门编程语言进行学习）。
 - **JavaScript 与浏览器** 内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
