@@ -23,7 +23,7 @@ date: "2019-08-01"
 
 ## 其他
 
-- 👺 [个人命名规范](.others/naming-convention.md)  
+- 👺 [个人命名规范](./others/naming-convention.md)  
   统一一下各种名的命名规范（以后可能会搬运特定语言的编程风格规范吧）
 
 <br/>
