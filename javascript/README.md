@@ -77,4 +77,5 @@ date: "2019-08-10"
 - [javascript.info 在线教程](https://zh.javascript.info)
 - [W3school JavaScript 教程](https://www.w3school.com.cn/js/index.asp)
 
-<font size=2 color=gray>注：由于参考的教程都是经外文翻译而成，原文带有一定的翻译腔，本笔记相当于精简+润色语调。如想要更加系统的学习 JavaScript，可以将本笔记作为参考与其他资料结合进行学习。</font>
+
+<font size=2 color=gray>需要指出的是，W3school 的教程虽然很好但是稍微内容稍微有些过时，虽然不妨碍大部分内容的学习，但是之后需要对学的内容再进行补充与修改，故选择教程时最好注意教程的新旧程度，并且可以多份教程互相补充地学习。</font>、
