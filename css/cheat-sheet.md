@@ -7,7 +7,28 @@ date: "2019-09-27"
 
 层叠样式表 (**C**ascading **S**tyle **S**heets)
 
-## 创建
+## 目录 <!-- omit in toc -->
+
+- [创建样式](#创建样式)
+- [层叠次序](#层叠次序)
+- [选择器](#选择器)
+  - [种类](#种类)
+  - [书写格式](#书写格式)
+  - [属性选择器](#属性选择器)
+- [链接](#链接)
+- [表格](#表格)
+- [框模型](#框模型)
+  - [结构](#结构)
+  - [边距的值复制](#边距的值复制)
+  - [外边距合并](#外边距合并)
+- [position 属性](#position-属性)
+- [媒介类型](#媒介类型)
+- [过渡动画](#过渡动画)
+- [参考手册](#参考手册)
+
+<br/>
+
+## 创建样式
 
 **外部样式表**
 
@@ -280,6 +301,26 @@ Ps:这玩意真的用过么¿
 
 @media print {
     p.test {font-family:times,serif; font-size:10px}
+}
+```
+
+<br/>
+
+## 过渡动画
+
+```css
+span {
+    transition: <prop> <time>;
+    -webkit-transition: <prop> <time>;
+}
+```
+
+如：
+```css
+span {
+    transition: all 0.5s;
+    /* 或者 */
+    transition: background 0.5s;
 }
 ```
 
