@@ -1,5 +1,5 @@
 ---
-title: "Git 学习笔记"
+title: "Git 学习笔记导航"
 date: "2019-08-22"
 ---
 
@@ -13,7 +13,9 @@ date: "2019-08-22"
 
 - [上传至 Github](./upload2github.md)
 
-- [VS Code 中的 Git](./git-in-vscode.md)
+## 其他
+
+- [VS Code 中的 Git](./git-in-vscode.md) [没什么用]
 
 <br>
 
