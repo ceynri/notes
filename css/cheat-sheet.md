@@ -60,12 +60,12 @@ date: "2019-09-27"
 
 **内联样式**
 
-<p style="color: lightgreen; margin-left: 20px">
+<p style="color: darkgreen; margin-left: 20px">
 直接给元素添加属性：
 </p>
 
 ```html
-<p style="color: lightgreen; margin-left: 20px">
+<p style="color: darkgreen; margin-left: 20px">
 直接给元素添加属性：
 </p>
 ```
