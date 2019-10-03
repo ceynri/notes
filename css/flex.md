@@ -9,6 +9,8 @@ date: "2019-10-03"
 
 Flex 布局，即 **Flex**ible Box 布局（弹性布局），基于盒状模型提供了更大的灵活性。
 
+注：😥本篇笔记为 markdown 生成 HTML 文档，内嵌的 CSS 代码在某些编辑器下无法显示。如果显示效果有问题（如 github），建议从个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)
+
 ## 基本概念
 
 任何容器都可以通过设置`display: flex;`指定为 Flex 布局，被指定的容器称为“flex container”（简称**容器**），而它的子成员则会自动成为“flex item”（简称**项目**）。
@@ -160,7 +162,7 @@ wrap 即换行，该属性指定项目一行塞不下时如何**换行**。
 | baseline          |项目的第一行文字的基线对齐                     |
 | stretch（默认值） | 占满整个容器的高度（项目未设置高度或设为auto） |
 
-样例：（如果显示效果有问题则为 markdown 编辑器支持不佳）
+样例：
 
 <div class="flex">
   <div>
@@ -434,8 +436,12 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 - [Flex 布局教程：语法篇 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
-<!-- 以下为本文用到的样式 -->
+<br/>
+
 <style>
+/*
+ * 以下为本文所用到的样式
+ */
     /* flex */
     .flex {
         display: flex;
