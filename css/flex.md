@@ -434,8 +434,139 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 - [Flex 布局教程：语法篇 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
-<!-- 本文用到的样式 -->
+<!-- 以下为本文用到的样式 -->
+<style>
+    /* flex */
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 12px auto;
+    }
 
-<head>
-  <link rel="stylesheet" href="ref-css/flex.css">
-</head>
+    .figure-title {
+        text-align: center;
+        margin: 0 0 12px;
+        padding: 0;
+    }
+
+    /* align-items */
+    .align-items {
+        height: 120px;
+        padding: 10px;
+        margin: 12px;
+        border-radius: 6px;
+        background: #282c34;
+    }
+
+    .align-items.flex-start {
+        align-items: flex-start;
+    }
+
+    .align-items.flex-end {
+        align-items: flex-end;
+    }
+
+    .align-items.center {
+        align-items: center;
+    }
+
+    .align-items.baseline {
+        align-items: baseline;
+    }
+
+    .align-items.stretch {
+        align-items: stretch;
+    }
+
+    /* align-content */
+    .align-content {
+        width: 240px;
+        height: 128px;
+        margin: 12px;
+        padding: 10px;
+        border-radius: 6px;
+        background: #282c34;
+    }
+
+    .align-content.flex-start {
+        align-content: flex-start;
+    }
+
+    .align-content.flex-end {
+        align-content: flex-end;
+    }
+
+    .align-content.center {
+        align-content: center;
+    }
+
+    .align-content.space-around {
+        align-content: space-around;
+    }
+
+    .align-content.space-between {
+        align-content: space-between;
+    }
+
+    .align-content.stretch {
+        align-content: stretch;
+    }
+
+    /* block */
+    .block {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #282c34;
+        line-height:30px;
+        text-align: center;
+        background: #fa0;
+        color: #282c34;
+    }
+
+    .block.l{
+        height: 50px;
+    }
+
+    .block.xl{
+        height: 70px;
+    }
+
+    .block.xxl {
+        height: 90px;
+    }
+
+    .block.sink {
+        line-height: 50px;
+    }
+
+    .block.nosize {
+        height: auto;
+    }
+
+    /* line block */
+    .line-block {
+        height: 30px;
+        width: 28px;
+        border: 1px solid #282c34;
+        line-height: 30px;
+        text-align: center;
+        background: #fa0;
+        color: #111;
+    }
+
+    .line-block.l {
+        width: 58px;
+    }
+
+    .line-block.xl {
+        width: 88px;
+    }
+
+    .line-block.xxl {
+        width: 118px;
+    }
+
+    .line-block.no-height {
+        height: auto;
+    }
+</style>
