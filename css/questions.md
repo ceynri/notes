@@ -5,17 +5,24 @@ date: "2019-09-27"
 
 # 一些遇到过的问题
 
+## 目录 <!-- omit in toc -->
+
+- [CSS](#css)
+  - [Q: 放入\<img>元素后，\<a>标签高度比里面的\<img>高度要高 4px/5px](#q-放入img元素后a标签高度比里面的img高度要高-4px5px)
+  - [Q: display: none、visibility: hidden、opacity: 0 之间的区别？](#q-display-nonevisibility-hiddenopacity-0-之间的区别)
+  - [Q: more...](#q-more)
+
 ## CSS
 
 ### Q: 放入\<img>元素后，\<a>标签高度比里面的\<img>高度要高 4px/5px
 
-在a元素或者div元素下有一个匿名文本，该文本外存在一个匿名行级盒子，由于 `line-height` 存在使其有了高度。因为默认 `vertical-align` 为 `baseline` 对齐的原因，这个匿名盒子就会下沉，撑开一些距离，于是把a撑高了。
+在\<a>元素或者\<div>元素下有一个匿名文本，该文本外存在一个匿名行级盒子，由于 `line-height` 存在使其有了高度。因为默认 `vertical-align` 为 `baseline` 对齐的原因，这个匿名盒子就会下沉，撑开一些距离，于是把\<a>撑高了。
 
 解决办法：
 
-1. 消除掉匿名盒子的高度，给a设置`line-height:0`或`font-size:0`；
-2. 给两者`vertical-align:top`，让其`top`对齐，而不是`baseline`对齐；
-3. 给img以`display:block`，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒。img是行内元素，默认`display: inline`，它与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。将``display``设置为`block`即可消除上面说的几个像素的差别。
+1. 消除掉匿名盒子的高度，给a设置`line-height: 0`或`font-size: 0`；
+2. 给两者`vertical-align: top`，让其`top`对齐，而不是`baseline`对齐；
+3. 给\<img>以`display: block`，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒。\<img>是行内元素，默认`display: inline`，它与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。将`display`设置为`block`即可消除上面说的几个像素的差别。
 
 <br/>
 
