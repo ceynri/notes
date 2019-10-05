@@ -10,15 +10,18 @@ date: "2019-09-27"
 - [CSS](#css)
   - [Q: 放入\<img>元素后，\<a>标签高度比里面的\<img>高度要高 4px/5px](#q-放入img元素后a标签高度比里面的img高度要高-4px5px)
   - [Q: display: none、visibility: hidden、opacity: 0 之间的区别？](#q-display-nonevisibility-hiddenopacity-0-之间的区别)
+  - [Q: 内联元素之间有间隙](#q-内联元素之间有间隙)
   - [Q: more...](#q-more)
 
 ## CSS
 
 ### Q: 放入\<img>元素后，\<a>标签高度比里面的\<img>高度要高 4px/5px
 
-在\<a>元素或者\<div>元素下有一个匿名文本，该文本外存在一个匿名行级盒子，由于 `line-height` 存在使其有了高度。因为默认 `vertical-align` 为 `baseline` 对齐的原因，这个匿名盒子就会下沉，撑开一些距离，于是把\<a>撑高了。
+- 原因：
 
-解决办法：
+    在\<a>元素或者\<div>元素下有一个匿名文本，该文本外存在一个匿名行级盒子，由于 `line-height` 存在使其有了高度。因为默认 `vertical-align` 为 `baseline` 对齐的原因，这个匿名盒子就会下沉，撑开一些距离，于是把\<a>撑高了。
+
+- 解决办法：
 
 1. 消除掉匿名盒子的高度，给a设置`line-height: 0`或`font-size: 0`；
 2. 给两者`vertical-align: top`，让其`top`对齐，而不是`baseline`对齐；
@@ -35,6 +38,18 @@ date: "2019-09-27"
 | `display: none`      | 彻底消失     | ✘        | ✘，父元素不在了，子元素也不会显示           | ✘                | ✘                |
 | `visibility: hidden` | 视觉上不可见 | ✔        | ✔，如果设置子元素可见则仍然可以使子元素显示 | ✘                | ✘                |
 | `opacity: 0`         | 透明度为0    | ✔        | ✔，子元素无法通过设置 `opacity` 值显示      | ✔                | ✔                |
+
+<br/>
+
+### Q: 内联元素之间有间隙
+
+- 原因：
+
+    在 HTML 中，内联元素是类似于当作文本处理的。两个内联元素的 HTML 标签之间如果有换行，则会将换行符自动转换为一个空格。
+
+- 解决办法：
+
+    元素标签之间不换行即可。如果你的内联元素是`inline-block`，还可以给父元素设置`font-size: 0`。
 
 <br/>
 
