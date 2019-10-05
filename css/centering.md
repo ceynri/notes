@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "CSS 居中专项讲解"
 date: "2019/10/04"
 ---
 
@@ -46,6 +46,13 @@ date: "2019/10/04"
 
 <br/>
 
+::: tip
+
+文中所列出的 CSS 样式并非效果的所有样式，如发现实现的效果有出入可以直接查看本页面对应示例的源码（示例的样式全部内嵌于HTML标签中）。
+
+:::
+
+
 ## 水平居中
 
 ### 内联元素
@@ -59,8 +66,9 @@ date: "2019/10/04"
 ```
 
 效果：
-<p style="text-align: center;">centered text</p>
-
+<div style="border: 1px dotted">
+    <p style="text-align: center;">centered text</p>
+</div>
 <br/>
 
 ### 块元素
@@ -74,13 +82,15 @@ date: "2019/10/04"
 ```
 
 效果：
+<div style="border: 1px dotted">
 <div style="
     width: 120px;
     height: 60px;
     background: #fa0;
     color: #000;
     margin: 0 auto;
-    ">a sample block</div>
+    "></div>
+</div>
 
 <br/>
 
@@ -107,55 +117,59 @@ date: "2019/10/04"
 ```
 
 效果：
-<div style="text-align: center">
-    <div style="
-        display: inline-block;
-        text-align: left;
-        width: 60px;
-        height: 60px;
-        margin: 4px;
-        background: #fa0;
-        "></div>
-    <div style="
-        display: inline-block;
-        text-align: left;
-        width: 60px;
-        height: 80px;
-        margin: 4px;
-        background: #fa0;
-        "></div>
-    <div style="
-        display: inline-block;
-        text-align: left;
-        width: 60px;
-        height: 70px;
-        margin: 4px;
-        background: #fa0;
-        "></div>
+<div style="border: 1px dotted">
+    <div style="text-align: center; font-size: 0;">
+        <div style="
+            display: inline-block;
+            text-align: left;
+            width: 60px;
+            height: 60px;
+            margin: 4px;
+            background: #fa0;
+            "></div>
+        <div style="
+            display: inline-block;
+            text-align: left;
+            width: 60px;
+            height: 80px;
+            margin: 4px;
+            background: #fa0;
+            "></div>
+        <div style="
+            display: inline-block;
+            text-align: left;
+            width: 60px;
+            height: 70px;
+            margin: 4px;
+            background: #fa0;
+            "></div>
+    </div>
 </div>
 <p style="text-align: center; margin: 0 0 24px;">inline block</p>
 
-<div style="display: flex; justify-content: center;">
-    <div style="
-        width: 60px;
-        height: 80px;
-        margin: 4px;
-        background: #fa0;
-        "></div>
-    <div style="
-        width: 60px;
-        height: 80px;
-        margin: 4px;
-        background: #fa0;
-        "></div>
-    <div style="
-        width: 60px;
-        height: 80px;
-        margin: 4px;
-        background: #fa0;
-        "></div>
+<div style="border: 1px dotted">
+    <div style="display: flex; justify-content: center;">
+        <div style="
+            width: 60px;
+            height: 80px;
+            margin: 4px;
+            background: #fa0;
+            "></div>
+        <div style="
+            width: 60px;
+            height: 80px;
+            margin: 4px;
+            background: #fa0;
+            "></div>
+        <div style="
+            width: 60px;
+            height: 80px;
+            margin: 4px;
+            background: #fa0;
+            "></div>
+    </div>
 </div>
-<p style="text-align: center; margin: 0 0 24px;">flexbox</p>
+<p style="text-align: center; margin: 0 0 24px;">flexbox（默认自动拉伸）</p>
 
 <br/>
 
@@ -185,8 +199,7 @@ date: "2019/10/04"
 
 <div style="
     padding: 40px 12px;
-    background: #fa0;
-    color: #000;
+    border: 1px dotted;
     ">
     <span>用padding来撑起垂直居中</span>
 </div>
@@ -195,14 +208,15 @@ date: "2019/10/04"
 
 <div style="
     line-height: 110px;
-    background: #fa0;
     padding: 0 12px;
-    color: #000;
     white-space: nowrap;
     overflow: hidden;
+    border: 1px dotted;
     ">
     <span>用line-height的方法垂直居中</span>
 </div>
+
+line-height 方法存在的小问题就是用鼠标去划取选中文字时能够看到不太正常的行高，但有的时候（比如一个\<a>链接按钮）能够提供更大的选中范围，利于操作。
 
 <br/>
 
@@ -227,7 +241,7 @@ date: "2019/10/04"
 ```
 
 效果：
-<div style="height: 120px; width: 300px; background: #21252b; position: relative;">
+<div style="height: 120px; border: 1px dotted; position: relative;">
     <div style="height: 40px; width: 60px; background: #fa0; position: absolute; top: 50%; transform: translateY(-50%);"></div>
 </div>
 
@@ -262,7 +276,7 @@ child {
 ```
 
 效果：
-<div style="height: 120px; width: 300px; background: #21252b; display: flex;">
+<div style="height: 120px; border: 1px dotted; display: flex;">
     <div style="height: 40px; width: 60px; background: #fa0; margin: auto 0;">
     </div>
 </div>
@@ -271,7 +285,7 @@ child {
 
 当然，下面 [多个元素](#多个元素) 小节介绍的方法大多也可以应用于单个块元素上。
 
-> 还有一种利用 CSS table-cell 的 trick，介于不太符合一般情况下的语义环境故不介绍了。
+> 还有一种利用 CSS table-cell 的 trick，可以使用`vertical-align: center`垂直居中。介于不太符合一般情况下的语义环境故不介绍了。
 
 <br/>
 
@@ -294,7 +308,7 @@ child {
 效果：（每个元素被点框框起来以易于区分）
 <div style="
     height: 300px;
-    width: 600px;
+    max-width: 1000px;
     padding: 12px;
     display: flex;
     flex-direction: column;
@@ -324,7 +338,7 @@ child {
 
 <div style="
     height: 300px;
-    width: 600px;
+    max-width: 1000px;
     padding: 12px;
     display: flex;
     align-items: center;
@@ -353,7 +367,7 @@ child {
 
 <div style="
     height: 300px;
-    width: 600px;
+    max-width: 1000px;
     padding: 12px;
     display: flex;
     align-content: center;
@@ -386,10 +400,11 @@ span {
 ```
 
 效果：
-<p>
-这是一个位于段落中的<span style="display: inline-block; vertical-align: middle;background: #fa0; width:40px; height: 40px;"></span>橙色方块。
-</p>
-
+<div style="border: 1px dotted;">
+    <p>
+        这是一个位于段落中的<span style="display: inline-block; vertical-align: middle;background: #fa0; width:40px; height: 40px;"></span>橙色方块。
+    </p>
+</div>
 <br/>
 
 由此可以引申出关于在父元素内垂直居中还有一种奇淫技巧——“ghost element”（了解即可）
@@ -416,14 +431,20 @@ span {
 
 效果：
 
-<div style="position: relative; background: #21252b; height: 160px; width:600px">
+<div style="position: relative; background: #21252b; color: #ccc; height: 160px; max-width:1000px;">
     <div style="
         height: 100%;
         width: 0px;
         display: inline-block;
         vertical-align: middle;
-    "></div>
-    <p style="display: inline-block; vertical-align: middle; width: 500px; border: 1px dotted #ccc; background: #282c34;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    "></div><p style="
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 1000px;
+        border: 1px dotted #ccc;
+        background: #282c34;
+        ">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
 </div>
 
 <br/>
@@ -524,8 +545,7 @@ span {
 ```
 
 效果：
-
-<div style="display: grid; height: 200px; width: 300px; background: #21252b;">
+<div style="display: grid; height: 200px; background: #21252b; color: #ccc;">
     <div style="margin: auto;">
         <span style="border: 1px dotted #ccc; background: #282c34;">I'm centered!</span>
         <span style="border: 1px dotted #ccc; background: #282c34;">I'm centered!</span>
