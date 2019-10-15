@@ -95,17 +95,37 @@ JavaScript 字符串用单引号。
 
 <br/>
 
-## 文件
+## 文件 / 文件夹
 
 文件名使用连字符连接
+
+### 常用文件夹命名
+
+| 名字              | 简写               | 存放内容                              |
+| ----------------- | ------------------ | ------------------------------------- |
+| src               | source             | 源代码                                |
+| lib/dep           | library/dependence | 引入的第三方库（jquery）              |
+| bin               | binary             | 二进制文件                            |
+| docs              | document           | 需求文档，开发文档                    |
+| dist/build        | distribution/build | 最终发布的代码（或软件）              |
+| examples/demo     |                    | 实例                                  |
+| asset             |                    | 资源（图片、音乐）                    |
+| static            |                    | 静态资源（html、js、css、图片、音乐） |
+| common/public     |                    | 公共资源（公共图片，公共音乐，公共）  |
+| tpl               | template           | 模板文件（jade、ftl）                 |
+| conf              | config             | 配置文件（xml、json）                 |
+| util/tools        |                    | 工具（工具类库）                      |
+| logs              |                    | 日志文件                              |
+| temp/tmp          | temporary          | 临时文件（缓存文件）                  |
+| test/\_\_test\_\_ |                    | 单元测试文件                          |
+| client            |                    | 前端源代码                            |
+| server            |                    | 后端端源代码                          |
 
 <br/>
 
 ## 项目
 
-项目名使用 PascalCase
-
-也可以使用 kebab-case，各有所好。
+项目名使用 PascalCase，也可以使用 kebab-case，各有所好。
 
 <br/>
 
