@@ -11,6 +11,7 @@ date: "2019-09-27"
 
 - [创建样式](#创建样式)
 - [层叠次序](#层叠次序)
+- [定位](#定位)
 - [选择器](#选择器)
   - [种类](#种类)
   - [选择器分组](#选择器分组)
@@ -19,19 +20,19 @@ date: "2019-09-27"
   - [伪类](#伪类)
   - [伪元素](#伪元素)
   - [属性选择器](#属性选择器)
-- [链接](#链接)
-- [表格](#表格)
 - [框模型](#框模型)
   - [结构](#结构)
   - [边距的值复制](#边距的值复制)
   - [外边距合并](#外边距合并)
-- [position 属性](#position-属性)
+- [链接](#链接)
+- [表格](#表格)
 - [媒介类型](#媒介类型)
+- [属性前缀](#属性前缀)
 - [动画](#动画)
   - [transition](#transition)
   - [animation](#animation)
     - [cubic-bezier](#cubic-bezier)
-- [参考手册](#参考手册)
+- [参考](#参考)
 
 <br/>
 
@@ -87,6 +88,32 @@ date: "2019-09-27"
 - 外部样式表
 - 内部样式表
 - 内联样式
+
+<br/>
+
+## 定位
+
+说到 CSS 定位，就离不开 position 属性。position 的六个属性值：
+
+- **static**（默认）  
+  默认值，元素出现在正常的流中。
+
+- **relative**  
+  相对定位，元素框相对原位置偏移某个距离，元素仍然会占据原来的空间。
+
+- **absolute**  
+  绝对定位，相对于其第一个非 static 定位的父元素定位，在文档流完全删除。
+
+- **fixed**  
+  绝对定位，相对于浏览器窗口进行定位。
+
+- **sticky**  
+  （CSS3 新增属性）类似于 relative 与 fixed 的混合：一开始是 relative，随着滚动超过阈值时转变为 fixed 定位。
+
+- **inherit**  
+  从父元素继承 position 属性的值。
+
+使用绝对定位后，需要使用 top/bottom/left/right/z-index 等属性去调整位置。
 
 <br/>
 
@@ -204,30 +231,6 @@ Ps:这玩意真的用过么¿
 
 <br/>
 
-## 链接
-
-- a:link - 未访问的链接
-- a:visited - 已访问的链接
-- a:hover - 鼠标指针位于链接的上方
-- a:active - 链接被点击的时刻
-
-同时设置多个状态时，需要注意顺序： a:hover 必须位于 a:link、a:visited 之后，a:active 必须位于最后。
-
-<br/>
-
-## 表格
-
-奇数行上色：
-
-```css
-.table-name tr.alt td
-{
-    background-color:#EAF2D3;
-}
-```
-
-<br/>
-
 ## 框模型
 
 ### 结构
@@ -287,24 +290,27 @@ Ps:这玩意真的用过么¿
 
 <br/>
 
-## position 属性
+## 链接
 
-- **static**  
-  默认值，元素出现在正常的流中。
+- a:link - 未访问的链接
+- a:visited - 已访问的链接
+- a:hover - 鼠标指针位于链接的上方
+- a:active - 链接被点击的时刻
 
-- **relative**  
-  相对定位，元素框相对原位置偏移某个距离，元素仍然会占据原来的空间。
+同时设置多个状态时，需要注意顺序： a:hover 必须位于 a:link、a:visited 之后，a:active 必须位于最后。
 
-- **absolute**  
-  绝对定位，相对于其第一个非 static 定位的父元素定位，在文档流完全删除。
+<br/>
 
-- **fixed**  
-  绝对定位，相对于浏览器窗口进行定位。
+## 表格
 
-- **inherit**  
-  从父元素继承 position 属性的值。
+奇数行上色：
 
-绝对定位们可以搭配 z-index 属性食用。
+```css
+.table-name tr.alt td
+{
+    background-color:#EAF2D3;
+}
+```
 
 <br/>
 
@@ -323,6 +329,40 @@ Ps:这玩意真的用过么¿
     p.test {font-family:times,serif; font-size:10px}
 }
 ```
+
+除了判断使用设备种类以外，对于响应式布局，我们也可以通过检查屏幕的宽度来判断是否是 PC/移动设备。
+
+```css
+/*  移动设备  */
+@media screen and (min-device-width: 480px) and (max-device-width: 750px){
+    ...
+}
+/*  PC  */
+@media screen and (min-width: 960px){
+    ...
+}
+```
+
+关于 min/max-width 与 min/max-device-width 的区别：
+
+- width 获得的是浏览器宽度，device-width 是设备屏幕的宽度。
+- min/max-width 会随着浏览器窗口的大小变化而变化，往往用于 PC 端不同页面尺寸。
+- min/max-device-width 则不会随着浏览器或者手机由竖屏转向横屏而变化，适用于手机端适配。
+
+<br/>
+
+## 属性前缀
+
+为了兼容性，前端在许多方面产生了对不同浏览器进行单独定义的情况。CSS 亦不例外，某些为了兼容旧版本浏览器的历史遗留问题，或者使用某些浏览器最新的、暂未统一标准的实验性属性，都有可能出现带属性前缀的属性。
+
+常见属性前缀：
+
+- `-webkit-`代表 safari、chrome 私有属性
+- `-moz-`代表 firefox 浏览器私有属性
+- `-ms-`代表 ie 浏览器私有属性
+- `-o-`代表 Opera 浏览器
+
+值得注意的是：从网上阅读 CSS 文章时也要注意文章的发表日期，有可能以前存在的兼容性问题在新版本中已经不用考虑了。
 
 <br/>
 
@@ -378,10 +418,8 @@ animation: <duration> <scope> cubic-bezier(<x1>, <y1>, <x2>, <y2>) [infinite];
 
 <br/>
 
-## 参考手册
+## 参考
 
-<font color="gray" size="2">
-W3School CSS 教程：<a href="https://www.w3school.com.cn/css/index.asp">https://www.w3school.com.cn/css/index.asp</a>
-
-W3School CSS 参考手册：<a href='https://www.w3school.com.cn/cssref/index.asp'>https://www.w3school.com.cn/cssref/index.asp</a>
-</font>
+- W3School CSS 教程：<https://www.w3school.com.cn/css/index.asp>
+- W3School CSS 参考手册：<https://www.w3school.com.cn/cssref/index.asp>
+- 掘金 | CSS布局说：<https://juejin.im/post/59c9baac5188253fbe465bfd> | [@zimo](https://juejin.im/user/59354d1eac502e0068b3305d)
