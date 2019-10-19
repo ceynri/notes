@@ -12,6 +12,7 @@ date: "2019-09-27"
   - [Q: display: none、visibility: hidden、opacity: 0 之间的区别？](#q-display-nonevisibility-hiddenopacity-0-之间的区别)
   - [Q: 内联元素之间有间隙](#q-内联元素之间有间隙)
   - [Q: 如何隐藏滚动条？](#q-如何隐藏滚动条)
+  - [Q: 如何实现图片在给定宽高的容器里不变形地覆盖整个容器？](#q-如何实现图片在给定宽高的容器里不变形地覆盖整个容器)
   - [Q: more...](#q-more)
 
 ## CSS
@@ -22,11 +23,13 @@ date: "2019-09-27"
 
     在\<a>元素或者\<div>元素下有一个匿名文本，该文本外存在一个匿名行级盒子，由于 `line-height` 存在使其有了高度。因为默认 `vertical-align` 为 `baseline` 对齐的原因，这个匿名盒子就会下沉，撑开一些距离，于是把\<a>撑高了。
 
-- 解决办法：
+- 解决办法（任选其一）：
 
-1. 消除掉匿名盒子的高度，给a设置`line-height: 0`或`font-size: 0`；
-2. 给两者`vertical-align: top`，让其`top`对齐，而不是`baseline`对齐；
-3. 给\<img>以`display: block`，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒。\<img>是行内元素，默认`display: inline`，它与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。将`display`设置为`block`即可消除上面说的几个像素的差别。
++ 消除掉匿名盒子的高度，给a设置`line-height: 0`或`font-size: 0`；
+
++ 给两者`vertical-align: top`，让其`top`对齐，而不是`baseline`对齐；
+
++ 给\<img>以`display: block`，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒。\<img>是行内元素，默认`display: inline`，它与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。将`display`设置为`block`即可消除上面说的几个像素的差别。
 
 <br/>
 
@@ -60,7 +63,7 @@ date: "2019-09-27"
 
     对于一些固定尺寸的窗口需要塞入超过窗口大小的内容时，`overflow: scroll`是个不错的选择，但很多时候其产生的滚动条并不美观，于是便需要想办法将滚动条隐藏起来。
 
-- 解决方法：
+- 解决办法：
 
     ```css
     .scroll-area {
@@ -72,15 +75,44 @@ date: "2019-09-27"
         /* firefox 64 去除滚动条 */
         scrollbar-width: none;
     }
-    
+
     /* Chrome 去除滚动条 */
     .scroll-area::-webkit-scrollbar {
         width: 0;
         height: 0;
     }
     ```
-    
+
     其中“隐藏滚动条”代表只能将滚动条透明化，其仍然能被点击到，且占据原有的空间，只是视觉上不可见。
+
+<br/>
+
+### Q: 如何实现图片在给定宽高的容器里不变形地覆盖整个容器？
+
+- 情况：
+
+    每当使用图片时往往会采用img标签，但仅通过设置img标签往往并不能兼顾宽度自适应与高度自适应。
+
+- 解决办法：
+
+    用background设置图片的方式可以很容易地实现该需求。
+
+    可以使用这样的语法：
+
+    ```css
+    /* background: <bg-image> <position>/<bg-size> <repeat-style> */
+    .image {
+        background: url(imgs/img.jpg) center/cover no-repeat;
+    }
+    ```
+
+    其中，`background-size`只能跟在`position`后面，中间用斜杠隔开。
+
+    `center`代表居中，`cover`代表覆盖。
+
+    如果`background-size`使用`contain`值，则为包含，效果与`max-width: 100%; max-height: 100%;`相类似。
+
+
 
 <br/>
 
