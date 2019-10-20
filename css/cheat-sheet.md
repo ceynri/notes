@@ -20,8 +20,9 @@ date: "2019-09-27"
   - [伪类](#伪类)
   - [伪元素](#伪元素)
   - [属性选择器](#属性选择器)
-- [框模型](#框模型)
+- [盒模型](#盒模型)
   - [结构](#结构)
+  - [border-box](#border-box)
   - [边距的值复制](#边距的值复制)
   - [外边距合并](#外边距合并)
 - [链接](#链接)
@@ -231,7 +232,7 @@ Ps:这玩意真的用过么¿
 
 <br/>
 
-## 框模型
+## 盒模型
 
 ### 结构
 
@@ -251,6 +252,12 @@ Ps:这玩意真的用过么¿
 对于一个元素，width 属性指的是内容区的宽度而不包含 padding、border（这两个仅在IE6之前的版本会包含在 width 中）。
 
 :::
+
+<br/>
+
+### border-box
+
+默认的盒模型为`content-box`，但现在`border-box`在许多情况下更加合适我们的页面布局。`border-box`能够将padding与border算入box的宽与高中，这样你就不用再做出改变了padding、border后还要调整width、height使其变得糟糕的行为。
 
 <br/>
 
@@ -287,6 +294,8 @@ Ps:这玩意真的用过么¿
 ![margin-merge1](https://www.w3school.com.cn/i/ct_css_margin_collapsing_example_4.gif)
 
 ![margin-merge2](https://www.w3school.com.cn/i/ct_css_margin_collapsing_example_2.gif)
+
+哪怕父元素没有外边距而子元素有外边距，最终两个元素加在一起也会产生外边距，这是值得注意的地方。
 
 <br/>
 
