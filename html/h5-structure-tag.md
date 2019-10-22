@@ -13,18 +13,11 @@ date: "2019-10-15"
 
 ## nav
 
-　　nav 即 navigator 导航栏，用来定义导航链接。将页面具有导航性质的链接元素归纳于 nav 元素区域内。
-
-　　以下场合都可以使用 nav 元素：
-
-- 传统导航条
-- 侧边栏导航
-- 页内导航
-- 翻页操作
+　　nav 即 navigator 导航栏，用来定义导航链接。将页面具有导航性质的链接元素（如站内导航、页内导航、翻页导航等）归纳于 nav 元素区域内。
 
 ## article
 
-　　article 元素往往定义的是一篇比较独立的文章、日志之类的内容，其内部常常包含 header 元素、section 元素与 h1~h6 元素。所谓独立便是页面其他内容与该 article 元素内容无直接关联，在此处更换内容性质类似的 article 并不会影响整个页面的布局。
+　　article 元素往往定义的是一篇比较独立的文章、日志、评论之类的内容，其内部常常包含 header 元素、section 元素与 h1~h6 元素。所谓独立便是页面其他内容与该 article 元素内容无直接关联，在此处更换内容性质类似的 article 并不会影响整个页面的布局。
 
 ## section
 
@@ -34,26 +27,6 @@ date: "2019-10-15"
 
 　　同时，如果内容更适合用其他语义化标签（article、aside、nav），优先使用其他标签。
 
-```html
-<article>
-    <header>
-        <h2>小张的个人介绍</h2>
-    </header>
-    <p>小张是一个好学生，是一个帅哥。。。</p>
-    <section>
-        <h2>评论</h2>
-        <article>
-            <h3>评论者：A</h3>
-            <p>小张真的很帅</p>
-        </article>
-        <article>
-            <h3>评论者：B</h3>
-            <p>小张是一个好学生</p>
-        </article>
-    </section>
-</article>
-```
-
 ## aside
 
 　　aside 元素用于定义页面的侧边栏，往往内容是一些介绍、内容相关的其他信息甚至广告等。宽度一般小于正文栏。
@@ -61,3 +34,75 @@ date: "2019-10-15"
 ## footer
 
 　　footer 元素定义定义一个页面或者区域的底部内容，在这方面它和 header 元素非常的相似。一般底部内容都是相关信息或者一些信息标识。
+
+## 示例
+
+最后做一个简单的“无样式”示例，使用以上H5结构元素构建一个页面：
+
+```html
+<body>
+  <header>
+    <h1>个人网站</h1>
+    <span>一个兴趣使然的个人网站</span>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">博客</a></li>
+      <li><a href="#">关于</a></li>
+    </ul>
+  </nav>
+
+  <div style="display: flex;">
+    <div style="flex: 1;">
+      <article>
+        <header>
+          <h1>一篇文章</h1>
+          <span>作者：ceynri</span>
+        </header>
+
+        <h2>章节一</h2>
+        <p>文段一</p>
+
+        <footer>
+          <p>本文允许转载，禁止用于商业用途</p>
+        </footer>
+      </article>
+
+      <article>
+        <h1>评论</h1>
+        <section>
+          <header>
+            <h1>Well</h1>
+            <span>评论者：Tom</span>
+          </header>
+          <p>Explosion is art!</p>
+        </section>
+
+        <section>
+          <header>
+            <h1>OMG!</h1>
+            <span>评论者：Mary</span>
+          </header>
+          <p>I'm coming</p>
+        </section>
+      </article>
+    </div>
+
+    <aside>
+      <h1>广告</h1>
+      <img src="ad.png" alt="ad">
+    </aside>
+  </div>
+
+  <footer>
+    <a href="#">关于本站</a>
+    <a href="#">友情链接</a>
+  </footer>
+</body>
+```
+
+效果如下：
+
+![h5-structure-tag-exercise-marked.jpg](https://i.loli.net/2019/10/22/ycTx5WwKM6FoG4C.jpg)
