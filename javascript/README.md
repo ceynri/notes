@@ -74,8 +74,11 @@ date: "2019-08-10"
 
 ## 参考教程
 
+- [JavaScript 指南 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)
 - [javascript.info 在线教程](https://zh.javascript.info)
 - [W3school JavaScript 教程](https://www.w3school.com.cn/js/index.asp)
-- [JavaScript 指南 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)
 
-<font size=2 color=gray>需要指出的是，W3school 的教程虽然很好但是稍微内容稍微有些过时，虽然不妨碍大部分内容的学习，但是之后需要对学的内容再进行补充与修改，故选择教程时最好注意教程的新旧程度，并且可以多份教程互相补充地学习。</font>、
+<font size=2 color=gray>
+需要指出的是，W3school 的教程虽然很好但是稍微内容稍微有些过时，虽然不妨碍大部分内容的学习，但是之后需要对学的内容再进行补充与修改，故选择教程时最好注意教程的新旧程度，并且可以多份教程互相补充地学习。<br/>
+个人最推荐 MDN 的教程，足够系统与详尽，且经常有维护更新。
+</font>
