@@ -94,7 +94,7 @@ DOM 节点的属性主要有：
   ```js
   <body>
     <p>你好</p>
-    <div id="test"><h5>就是喜欢你</h5></div>
+    <div id="test"><h5>？</h5></div>
     <script>
       var inner = document.getElementById("test").innerHTML;
       var outer = document.getElementById("test").outerHTML;
@@ -106,10 +106,10 @@ DOM 节点的属性主要有：
   // 输出结果：
   
   // inner
-  <h5>就是喜欢你</h5>
+  <h5>？</h5>
   
   // outer
-  <div id="test"><h5>就是喜欢你</h5></div>
+  <div id="test"><h5>？</h5></div>
   ```
 
   修改 innerHTML 只会改变元素的内容，修改 outerHTML 会产生新的元素覆盖掉旧的元素。
@@ -194,36 +194,60 @@ DOM 元素即 DOM 元素节点，是节点的其中一种。
 
 ### 查找 HTML 元素
 
-| 方法                                            | 描述                          |
-| ----------------------------------------------- | ----------------------------- |
-| document.getElementById(*id*)                   | 通过 id 来查找 HTML 元素      |
-| document.getElementsByTagName(*name*)           | 通过标签名来查找 HTML 元素    |
-| document.getElementsByClassName(*name*)         | 通过类名来查找 HTML 元素      |
-| document.querySelectorAll(*name-with-selector*) | 通过 CSS 选择器查找 HTML 元素 |
+| 方法                                            | 描述                                                |
+| ----------------------------------------------- | --------------------------------------------------- |
+| document.getElementById(*id*)                   | 通过 id 来查找 HTML 元素                            |
+| document.getElementsByTagName(*name*)           | 通过标签名来查找 HTML 元素                          |
+| document.getElementsByClassName(*name*)         | 通过类名来查找 HTML 元素                            |
+| document.querySelector(*name-with-selector*)    | 通过 CSS 选择器查找 HTML 元素，返回找到的第一个元素 |
+| document.querySelectorAll(*name-with-selector*) | 通过 CSS 选择器查找 HTML 元素，返回找到的全部元素   |
 
 **注意getElement与getElement<u>s</u>的区别**
 
 <br>
 
-一些方法因为能够匹配多个 HTML 元素（带“`s`”的），返回的是 HTMLCollection 或 NodeList 对象（两者几乎相同），都具有 `length` 属性，可以通过中括号索引访问对应元素。
+一些方法因为能够匹配多个 HTML 元素（带“s”的），返回的是 HTMLCollection 或 NodeList 对象（两者几乎相同），都具有 `length`属性，可以通过中括号索引访问对应元素。
 
-> HTMLCollection 与 NodeList 对象的区别：
->
-> 返回值区别：
->
-> - 如使用 getElementsByClassName() 方法，某些旧浏览器会返回 NodeList 对象，其他返回 HTMLCollection 对象。
-> - 所有浏览器都会为 childNodes 属性返回 NodeList 对象。
-> - 大多数浏览器会为 querySelectorAll() 方法返回 NodeList 对象。
->
-> 结构区别：
->
-> - 访问 HTMLCollection 项目可以通过它们的名称、id 或索引号。
-> - 访问 NodeList 项目只能通过它们的索引号。
-> - 只有 NodeList 对象能包含属性节点和文本节点。
+::: tip HTMLCollection 与 NodeList 对象的区别
 
-还可以通过 HTML 对象选择器来查找 HTML 对象，如 document 的 `froms`、`images`、`links` 属性。
+返回值区别：
 
-（带“`s`”的往往都是对象数组，注意使用中括号进行索引）
+- 如使用 getElementsByClassName() 方法，某些旧浏览器会返回 NodeList 对象，其他返回 HTMLCollection 对象。
+- 所有浏览器都会为 childNodes 属性返回 NodeList 对象。
+- 大多数浏览器会为 querySelectorAll() 方法返回 NodeList 对象。
+
+结构区别：
+
+- 访问 HTMLCollection 项目可以通过它们的名称、id 或索引号。
+- 访问 NodeList 项目只能通过它们的索引号。
+- 只有 NodeList 对象能包含属性节点和文本节点。
+
+其他：
+
+- NodeList 有 forEach 方法而 HTMLCollection 没有。
+
+还可以通过 HTML 对象选择器来查找 HTML 对象，如`document`的`froms`、`images`、`links`属性。
+
+（带“s”的往往都是对象数组，注意使用中括号进行索引）
+
+:::
+
+<br>
+
+::: tip getElementsByXxx 与 querySelectorAll 如何选择
+
+从性能而言 getElementsXxx 之流要比 querySelectorAll 好，但是 querySelectorAll 最大的优点是在复杂的选择情况（如多层级的后代选择）写起来要方便得多，权衡性能与方便后选择合适的方法即可。
+
+```js
+let selectedBtn = document.getElementById('id')
+    .getElementsByClassName('class')
+    .getElementsByTagName('button');
+
+SelectedBtn = document.querySelectorAll('#id .class button');
+```
+
+:::
+
 
 <br>
 
@@ -337,7 +361,7 @@ DOM 元素即 DOM 元素节点，是节点的其中一种。
 
 以上是旧方法，我们仍然能够在各种老的脚本里看到它们，所以认识它们还是有必要的。使用新方法，看起来会更加直观可靠。
 
-<br/>
+<br>
 
 #### 新方法
 
@@ -355,7 +379,7 @@ DOM 元素即 DOM 元素节点，是节点的其中一种。
 
 注意：如果方法调用者*node*是个已经存在于文档中的节点，“插入方法”在这里应该被称为“移动方法”，会直接移动该节点到指定的地方，而不会原处留下旧节点。
 
-<br/>
+<br>
 
 此方法可以围绕节点添加字符串或者节点，文本的所有内容会以安全的方式插入：
 
@@ -384,7 +408,7 @@ DOM 元素即 DOM 元素节点，是节点的其中一种。
 | beforeend           | elem 结束位置前插入 html |
 | afterend            | elem 结束位置后插入 html |
 
-<br/>
+<br>
 
 样例：
 
@@ -401,13 +425,13 @@ DOM 元素即 DOM 元素节点，是节点的其中一种。
 <p>Bye</p>
 ```
 
-<br/>
+<br>
 
 **移除 HTML**
 
 使用 `node.remove()` 代替 `parent.removeChild(node)` 更加简洁直观。
 
-<br/>
+<br>
 
 ### 改变 HTML 元素
 
@@ -420,7 +444,7 @@ DOM 元素即 DOM 元素节点，是节点的其中一种。
 
 其中，*element* 可以通过上面的“查找 HTML 元素”来获得对应的元素。
 
-<br/>
+<br>
 
 例子：
 
