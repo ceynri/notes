@@ -1,9 +1,9 @@
 ---
-title: "HTML DOM（2）"
+title: "HTML DOM 节点"
 date: "2019-08-25"
 ---
 
-# JavaScript | HTML DOM（2）
+# JavaScript | HTML DOM 节点
 
 文档对象模型 **D**ocument **O**bject **M**odel（DOM）
 
@@ -187,6 +187,8 @@ DOM 节点还有其他属性，具体内容则取决于它们的类。例如：`
 <br>
 
 ## DOM 元素
+
+DOM 元素即 DOM 元素节点，是节点的其中一种。
 
 注：*斜体*表示应该被对应内容替换的标记
 
