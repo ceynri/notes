@@ -1,209 +1,30 @@
 ---
-title: "HTML DOM（1）"
+title: "HTML DOM 事件"
 date: "2019-08-24"
 ---
 
-# JavaScript | HTML DOM（1）
+# JavaScript | HTML DOM 事件
 
-文档对象模型 **D**ocument **O**bject **M**odel（DOM）
+交互性是互联网应用非常重要的一部分，而事件是交互的关键。
 
 ## 目录 <!-- omit in toc -->
 
-- [什么是 HTML DOM？](#什么是-html-dom)
-- [HTML DOM模型能做什么](#html-dom模型能做什么)
-- [document 对象](#document-对象)
-- [DOM 动画](#dom-动画)
-- [DOM 事件](#dom-事件)
-  - [事件种类](#事件种类)
-  - [代码调用方式](#代码调用方式)
-  - [分配事件方式](#分配事件方式)
-  - [事件监听器](#事件监听器)
+- [HTML 事件](#html-事件)
+- [事件种类](#事件种类)
+- [代码调用方式](#代码调用方式)
+- [分配事件方式](#分配事件方式)
+- [事件监听器](#事件监听器)
+- [其他概念](#其他概念)
+  - [事件对象](#事件对象)
   - [事件冒泡 / 事件捕获](#事件冒泡--事件捕获)
 
 <br>
 
 ---
 
-<br>
+## HTML 事件
 
-## 什么是 HTML DOM？
-
-HTML DOM 是 HTML 的标准对象模型和编程接口，是关于如何获取、更改、添加或删除 HTML 元素的标准。
-
-它定义了：
-
-- 作为对象的 HTML 元素
-- 所有 HTML 元素的属性
-- 访问所有 HTML 元素的方法
-- 所有 HTML 元素的事件
-
-
-HTML DOM模型可以被结构化为对象树：
-
-![HTML DOM树][DOM 树]
-
-<br>
-
-## HTML DOM模型能做什么
-
-- 改变页面中的所有 HTML 元素、HTML 属性、CSS 样式
-- 删除已有的或添加新的 HTML 元素和属性
-- 对页面中所有已有的 HTML 事件作出反应
-- 在页面中创建新的 HTML 事件
-
-<br>
-
-例子：
-
-```html
-<html>
-<body>
-
-<p id="demo"></p>
-
-<script>
-  document.getElementById("demo").innerHTML = "Hello World!";
-</script>
-
-</body>
-</html>
-```
-
-- `getElementById` 方法  
-  在上例中使用 `id="demo"` 来查找元素。
-
-- `innerHTML` 属性  
-  可用于获取或改变任何 HTML 元素，包括 `<html>` 和 `<body>`。
-
-<br>
-
-## document 对象
-
-HTML DOM 文档对象（document）代表了你的网页，是网页中所有其他对象的拥有者。
-
-想要访问 HTML 页面中的其他元素，往往就是从访问 document 对象开始的。
-
-<br>
-
-## DOM 动画
-
-JavaScript 提供了一个定时器 `setInterval()` 的方法，可以用来制作简易的动画。
-
-**注意**：本段的 DOM 动画 Demo 仅用来加深对 JavaScript 与 DOM 的理解，实际情况下直接修改 DOM 会产生很大的性能问题，故**不推荐使用此方法**制作动画。
-
-<br>
-
-首先，创建一个 HTML 页面，使用一层 div 作为容器元素包裹 div 动画元素。
-
-```html
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>我的第一部 JavaScript 动画</h1>
-
-<div id ="container">
-  <div id="animation">我的动画在这里。</div>
-</div>
-
-</body>
-</html>
-```
-
-然后添加样式：
-
-```css
-#container {
-  width: 400px;
-  height: 400px;
-  position: relative;
-  background: gray;
-}
-#animate {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background: orange;
-}
-```
-
-然后使用 JavaScript，思路是借助定时器，每隔一段时间执行一次移动任务，当间隔时间足够短时动画看起来便足够连贯。
-
-setInterval 的语法：
-
-```js
-setInterval(code,millisec[,"lang"])
-```
-
-`code` 为每次执行的代码串（函数），`millisec` 为执行 `code` 的时间周期（毫秒单位）。
-
-常用的解构如下：
-
-```js
-var id = setInterval(frame, 5);
-
-function frame() {
-    if (/* 测试是否完成 */) {
-        clearInterval(id);    // 调用后，停止 id 计时器
-    } else {
-         /* 改变元素样式的代码 */
-    }
-}
-```
-
-最后完成的动画 Demo 如下：
-
-```html
-<!DOCTYPE html>
-<html>
-<style>
-#container {
-  width: 400px;
-  height: 400px;
-  position: relative;
-  background: gray;
-}
-#animate {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background: orange;
-}
-</style>
-<body>
-
-<p><button onclick="myMove()">单击此处</button></p>
-
-<div id ="container">
-  <div id ="animate"></div>
-</div>
-
-<script>
-function myMove() {
-  var elem = document.getElementById("animate");
-  var pos = 0;
-  var id = setInterval(frame, 5);
-  function frame() {
-    if (pos == 350) {
-      clearInterval(id);
-    } else {
-      pos++;
-      elem.style.top = pos + "px";
-      elem.style.left = pos + "px";
-    }
-  }
-}
-</script>
-
-</body>
-</html>
-```
-
-<br>
-
-## DOM 事件
-
-HTML 事件有许多例子：
+HTML 的事件有许多例子：
 
 - 点击鼠标时
 - 用户敲击按键时
@@ -215,7 +36,9 @@ HTML 事件有许多例子：
 
 通过 HTML DOM，我们可以编写 JavaScript 代码对 HTML 事件作出反应。
 
-### 事件种类
+<br/>
+
+## 事件种类
 
 | 事件名                   | 描述                                             |
 | ------------------------ | ------------------------------------------------ |
@@ -225,7 +48,9 @@ HTML 事件有许多例子：
 | onmousedown / onmouseup  | 鼠标按钮 按下/抬起时                             |
 | onclick                  | 鼠标按钮点击后（按下与抬起动作都在元素上方完成） |
 
-### 代码调用方式
+<br/>
+
+## 代码调用方式
 
 我们可以直接插入 JS 代码，或者通过调用 JS 函数的方式执行代码：
 
@@ -250,7 +75,9 @@ HTML 事件有许多例子：
 
 但这是一种不好的方式，非常不利于后期维护，且不利于收索引擎理解页面。不建议使用该方法添加 DOM 事件。
 
-### 分配事件方式
+<br/>
+
+## 分配事件方式
 
 除了直接在标签中添加事件属性，也可以使用 JavaScript 代码向 HTML 元素分配事件：
 
@@ -273,7 +100,9 @@ HTML 事件有许多例子：
 
 使用 js 代码直接为 DOM 元素的事件属性虽然方便，但是也存在一些缺点，例如后面添加的值会覆盖前面的值，从而无法更好的管理多个事件触发器。
 
-### 事件监听器
+<br/>
+
+## 事件监听器
 
 使用 `addEventListener()` 方法可以为 HTML 元素（或 DOM 对象）指定事件处理程序。这也是最推荐的添加事件监听的方式。
 
@@ -319,6 +148,30 @@ window.addEventListener("resize", function(){
 element.addEventListener("click", function(){ myFunction(p1, p2); });
 ```
 
+<br/>
+
+## 其他概念
+
+一下内容为关于 DOM 事件的高级概念，阅读它们可以有助于理解一些其他的代码模式。
+
+### 事件对象
+
+addEventListener所回调的函数可以附带一个参数（常常被命名为 e/evt/event），它被称为事件对象。事件对象具有一个`target`属性，永远表示触发事件发生的元素的引用。通过使用事件对象，我们可以不用使用复杂的选择去获得被点击的元素（如果你对许多元素添加了相同的监听）。
+
+一个例子：
+
+```js
+function bgChange(e) {
+  // 获得随机颜色
+  var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+  // 将触发事件的元素的背景颜色设置为一个随机的颜色
+  e.target.style.backgroundColor = rndCol;
+  console.log(e);
+}
+```
+
+<br/>
+
 ### 事件冒泡 / 事件捕获
 
 在 HTML DOM 中有两种事件传播的方法：冒泡和捕获。
@@ -339,6 +192,8 @@ element.addEventListener("click", function(){ myFunction(p1, p2); });
 | `true`            | 捕获     |
 
 由于 IE 的 attachEvent 仅支持冒泡，为了统一性，一般使用默认值。
+
+<br/>
 
 <!-- 变量区 -->
 
