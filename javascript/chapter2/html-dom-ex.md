@@ -1,5 +1,5 @@
 ---
-title: "HTML DOM（3）"
+title: "HTML DOM 拓展内容"
 date: "2019-09-04"
 ---
 
@@ -9,6 +9,7 @@ date: "2019-09-04"
 
 ## 目录 <!-- omit in toc -->
 
+- [DOM 动画](#dom-动画)
 - [属性与特性](#属性与特性)
   - [方法](#方法)
   - [对比](#对比)
@@ -19,6 +20,126 @@ date: "2019-09-04"
 <br>
 
 ---
+
+<br>
+
+## DOM 动画
+
+JavaScript 提供了一个定时器 `setInterval()` 的方法，可以用来制作简易的动画。
+
+::: warning 注意
+
+本段的 DOM 动画 Demo 仅用来加深对 JavaScript 与 DOM 的理解，实际情况下直接修改 DOM 会产生很大的性能问题，故**不推荐使用此方法**制作动画。
+
+:::
+
+<br>
+
+首先，创建一个 HTML 页面，使用一层 div 作为容器元素包裹 div 动画元素。
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>我的第一部 JavaScript 动画</h1>
+
+<div id ="container">
+  <div id="animation">我的动画在这里。</div>
+</div>
+
+</body>
+</html>
+```
+
+然后添加样式：
+
+```css
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: gray;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: orange;
+}
+```
+
+然后使用 JavaScript，思路是借助定时器，每隔一段时间执行一次移动任务，当间隔时间足够短时动画看起来便足够连贯。
+
+setInterval 的语法：
+
+```js
+setInterval(code,millisec[,"lang"])
+```
+
+`code` 为每次执行的代码串（函数），`millisec` 为执行 `code` 的时间周期（毫秒单位）。
+
+常用的解构如下：
+
+```js
+var id = setInterval(frame, 5);
+
+function frame() {
+    if (/* 测试是否完成 */) {
+        clearInterval(id);    // 调用后，停止 id 计时器
+    } else {
+         /* 改变元素样式的代码 */
+    }
+}
+```
+
+最后完成的动画 Demo 如下：
+
+```html
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: gray;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: orange;
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">单击此处</button></p>
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + "px";
+      elem.style.left = pos + "px";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+```
 
 <br>
 
