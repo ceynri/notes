@@ -14,9 +14,9 @@ date: "2019-08-24"
 - [document 对象](#document-对象)
 - [DOM 动画](#dom-动画)
 - [DOM 事件](#dom-事件)
+  - [事件种类](#事件种类)
   - [代码调用方式](#代码调用方式)
   - [分配事件方式](#分配事件方式)
-  - [事件种类](#事件种类)
   - [事件监听器](#事件监听器)
   - [事件冒泡 / 事件捕获](#事件冒泡--事件捕获)
 
@@ -215,6 +215,16 @@ HTML 事件有许多例子：
 
 通过 HTML DOM，我们可以编写 JavaScript 代码对 HTML 事件作出反应。
 
+### 事件种类
+
+| 事件名                   | 描述                                             |
+| ------------------------ | ------------------------------------------------ |
+| onload / onunload        | 进入/离开 页面时                                 |
+| onchange                 | 内容 被改变 时                                   |
+| onmouseover / onmouseout | 移入/移出 某个元素的上方时                       |
+| onmousedown / onmouseup  | 鼠标按钮 按下/抬起时                             |
+| onclick                  | 鼠标按钮点击后（按下与抬起动作都在元素上方完成） |
+
 ### 代码调用方式
 
 我们可以直接插入 JS 代码，或者通过调用 JS 函数的方式执行代码：
@@ -223,22 +233,22 @@ HTML 事件有许多例子：
 <!DOCTYPE html>
 <html>
 <body>
+  <!-- 方法 1 -->
+  <h1 onclick="this.innerHTML = 'Hello~'">点我</h1>
 
-<!-- 方法 1 -->
-<h1 onclick="this.innerHTML = 'Hello~'">点我</h1>
+  <!-- 方法 2 -->
+  <h1 onclick="changeText(this)">点我我</h1>
 
-<!-- 方法 2 -->
-<h1 onclick="changeText(this)">点我我</h1>
-
-<script>
-function changeText(id) {
-    id.innerHTML = "Hello :)";
-}
-</script>
-
+  <script>
+    function changeText(id) {
+        id.innerHTML = "Hello :)";
+    }
+  </script>
 </body>
 </html>
 ```
+
+但这是一种不好的方式，非常不利于后期维护，且不利于收索引擎理解页面。不建议使用该方法添加 DOM 事件。
 
 ### 分配事件方式
 
@@ -261,25 +271,17 @@ function changeText(id) {
 </html>
 ```
 
-### 事件种类
-
-| 事件名                   | 描述                                             |
-| ------------------------ | ------------------------------------------------ |
-| onload / onunload        | 进入/离开 页面时                                 |
-| onchange                 | 内容 被改变 时                                   |
-| onmouseover / onmouseout | 移入/移出 某个元素的上方时                       |
-| onmousedown / onmouseup  | 鼠标按钮 按下/抬起时                             |
-| onclick                  | 鼠标按钮点击后（按下与抬起动作都在元素上方完成） |
+使用 js 代码直接为 DOM 元素的事件属性虽然方便，但是也存在一些缺点，例如后面添加的值会覆盖前面的值，从而无法更好的管理多个事件触发器。
 
 ### 事件监听器
 
-使用 `addEventListener()` 方法可以为 HTML 元素（或 DOM 对象）指定事件处理程序。
+使用 `addEventListener()` 方法可以为 HTML 元素（或 DOM 对象）指定事件处理程序。这也是最推荐的添加事件监听的方式。
 
 语法：
 
 ```js
+// 参数类型 | 被调用的函数 | 布尔值（指定事件冒泡/事件捕获，后讲）
 element.addEventListener(event, function[, useCapture]);
-//                    参数类型，被调用的函数，布尔值（指定事件冒泡/事件捕获，后讲）
 ```
 
 由于该方法不会覆盖已有的事件处理程序，我们可以给一个元素添加多个相同或不相同类型的事件处理程序。
