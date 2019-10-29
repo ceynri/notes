@@ -42,11 +42,11 @@ date: "2019-08-10"
 
 - [基础介绍与应用](./chapter2/introduction.md)
 
-- [HTML DOM（1）](./chapter2/html-dom-1.md)
+- [HTML DOM 节点](./chapter2/html-dom-node.md)
 
-- [HTML DOM（2）](./chapter2/html-dom-2.md)
+- [HTML DOM 事件](./chapter2/html-dom-event.md)
 
-- [HTML DOM（3）](./chapter2/html-dom-3.md)
+- [HTML DOM 拓展内容](./chapter2/html-dom-ex.md)
 
 - [BOM](./chapter2/bom.md)
 
