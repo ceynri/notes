@@ -11,7 +11,7 @@ Flex 布局，即 **Flex**ible Box 布局（弹性布局），基于盒状模型
 
 ---
 
-😥注意！本篇笔记为 markdown 生成 HTML 文档，内嵌的 CSS 代码在某些编辑器下无法显示。如果显示效果有问题（如 github），建议从个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)，阅读体验更佳。
+😥注意！本篇笔记为 markdown 生成 HTML 文档，内嵌的 CSS 代码在某些编辑器下无法显示。如果显示效果有问题（如 github），强烈建议从个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)，阅读体验更佳。
 
 ---
 
@@ -167,7 +167,7 @@ wrap 即换行，该属性指定项目在主轴空间塞不下时如何**换行*
 | baseline          | 项目的第一行文字的基线对齐                     |
 | stretch（默认值） | 占满整个容器的高度（项目未设置高度或设为auto） |
 
-样例：
+样例（如果无法看到样例，请访问个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)）：
 
 <div class="flex">
   <div>
@@ -456,7 +456,7 @@ flex-end ---|-------> [c]      |  align-self
         margin: 0 0 12px;
         padding: 0;
     }
-
+    
     /* align-items */
     .align-items {
         height: 120px;
@@ -465,27 +465,27 @@ flex-end ---|-------> [c]      |  align-self
         border-radius: 6px;
         background: #282c34;
     }
-
+    
     .align-items.flex-start {
         align-items: flex-start;
     }
-
+    
     .align-items.flex-end {
         align-items: flex-end;
     }
-
+    
     .align-items.center {
         align-items: center;
     }
-
+    
     .align-items.baseline {
         align-items: baseline;
     }
-
+    
     .align-items.stretch {
         align-items: stretch;
     }
-
+    
     /* align-content */
     .align-content {
         width: 240px;
@@ -495,31 +495,31 @@ flex-end ---|-------> [c]      |  align-self
         border-radius: 6px;
         background: #282c34;
     }
-
+    
     .align-content.flex-start {
         align-content: flex-start;
     }
-
+    
     .align-content.flex-end {
         align-content: flex-end;
     }
-
+    
     .align-content.center {
         align-content: center;
     }
-
+    
     .align-content.space-around {
         align-content: space-around;
     }
-
+    
     .align-content.space-between {
         align-content: space-between;
     }
-
+    
     .align-content.stretch {
         align-content: stretch;
     }
-
+    
     /* block */
     .block {
         width: 30px;
@@ -530,27 +530,27 @@ flex-end ---|-------> [c]      |  align-self
         background: #fa0;
         color: #282c34;
     }
-
+    
     .block.l{
         height: 50px;
     }
-
+    
     .block.xl{
         height: 70px;
     }
-
+    
     .block.xxl {
         height: 90px;
     }
-
+    
     .block.sink {
         line-height: 50px;
     }
-
+    
     .block.nosize {
         height: auto;
     }
-
+    
     /* line block */
     .line-block {
         height: 30px;
@@ -561,19 +561,19 @@ flex-end ---|-------> [c]      |  align-self
         background: #fa0;
         color: #111;
     }
-
+    
     .line-block.l {
         width: 58px;
     }
-
+    
     .line-block.xl {
         width: 88px;
     }
-
+    
     .line-block.xxl {
         width: 118px;
     }
-
+    
     .line-block.no-height {
         height: auto;
     }
