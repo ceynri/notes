@@ -9,6 +9,7 @@ date: "2019-08-10"
 
 - **JavaScript 编程语言** 内容偏向于**理论**（即作为一门编程语言进行学习）。
 - **JavaScript 与浏览器** 内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
+- **JavaScript 框架 | Vue** 则开始介绍非常适合新手入门的 JavaScript 框架 Vue，使其按照新手易懂的顺序继续学习。
 
 ## 导航
 
@@ -32,7 +33,7 @@ date: "2019-08-10"
 
 - 更新中...（最后更新时间：2019/08/26）
 
-- [Class 类](./chapter1/class.md)
+- [Class 类](./chapter1/class.md) [没写完]
 
 - Throw、Try 与 Catch
 
@@ -54,6 +55,13 @@ date: "2019-08-10"
 
 - 浏览器兼容
 
+<br/>
+
+### JavaScript 框架 | Vue
+
+- [Vue 基础语法入门](./vue/basic-grammar.md)
+
+- 更新中... （最后更新时间：2019/11/13）
 
 <br>
 
@@ -72,11 +80,12 @@ date: "2019-08-10"
 
 <br>
 
-## 参考教程
+## 参考教程 / 文档
 
 - [JavaScript 指南 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)
 - [javascript.info 在线教程](https://zh.javascript.info)
 - [W3school JavaScript 教程](https://www.w3school.com.cn/js/index.asp)
+- [Vue.js 渐进式框架 官方文档](https://cn.vuejs.org/)
 
 <font size=2 color=gray>
 需要指出的是，W3school 的教程虽然很好但是稍微内容稍微有些过时，虽然不妨碍大部分内容的学习，但是之后需要对学的内容再进行补充与修改，故选择教程时最好注意教程的新旧程度，并且可以多份教程互相补充地学习。<br/>
