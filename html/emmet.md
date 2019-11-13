@@ -77,13 +77,14 @@ span
 
 但是 Emmet 并不会检测该单词是否为合法的 HTML 标签，所以要注意自己的拼写。
 
-还有某些标签的常见的属性支持使用`:`连接以自动补全，长标签名支持缩写。这些虽然方便但是数量比较多且比较零散，待 Emmet 使用熟练后可以去查找有多少支持这样的写法。
+还有某些标签的常见的属性支持使用`:`连接以自动补全，长标签名支持缩写。这些虽然方便但是数量比较多且比较零散，待 Emmet 使用熟练后可以去查找有多少支持这样的写法（如果编辑器支持 Emmet 提示则更好）。
 
 **例子**（每一行都是独立的）
 
 ```html
 script:src
 link
+link:css
 a:link
 inp
 input
@@ -97,6 +98,7 @@ btn:s
 ```html
 <script src=""></script>
 <link rel="stylesheet" href="">
+<link rel="stylesheet" href="style.css">
 <a href="http://"></a>
 <input type="text" name="" id="">
 <input type="text">
