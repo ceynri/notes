@@ -398,3 +398,11 @@ lock-x(A)...lock-s(B)...lock-s(C)...unlock(A)...unlock(C)...unlock(B)
 ```
 lock-x(A)...unlock(A)...lock-s(B)...unlock(B)...lock-s(C)...unlock(C)
 ```
+
+---
+
+## 参考
+
+> - CyC2018 CS-Notes <https://github.com/CyC2018/CS-Notes#floppy_disk-%E6%95%B0%E6%8D%AE%E5%BA%93>
+
+<br/>
