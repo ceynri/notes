@@ -72,15 +72,13 @@ date: "2019-09-24"
 - 在 JavaScript 中，连字符连接的词组无法作为变量名/属性名，所以某些情况使用 javacript 操纵 HTML 时需要注意。
 - 在 HTML DOM 与 JavaScript 之间的某些操作，会出现 JavaScript 定义的 camelCase 自动转换为 kebab-case，反之类同。
 
-::: tip 大小写敏感性问题
-
-- HTML 自己不区分大小写
-- CSS 对 HTML 的 id、class 区分大小写；标签选择器、属性名、属性值不区分大小写
-- JavaScript 对 HTML 的 Id、ClassName 大小写敏感，对 TagName 不敏感
-
-所以 HTML 文档内容编写要规范😿
-
-:::
+> ❓**大小写敏感性问题**
+>
+> - HTML 自己不区分大小写
+> - CSS 对 HTML 的 id、class 区分大小写；标签选择器、属性名、属性值不区分大小写
+> - JavaScript 对 HTML 的 Id、ClassName 大小写敏感，对 TagName 不敏感
+>
+> 所以 HTML 文档内容编写要规范😿
 
 <br/>
 
