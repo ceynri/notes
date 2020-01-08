@@ -9,24 +9,9 @@ date: "2019-10-03"
 
 Flex 布局，即 **Flex**ible Box 布局（弹性布局），基于盒状模型提供了更大的灵活性。
 
----
+> 😥注意！本篇笔记为 markdown 生成 HTML 文档，内嵌的 CSS 代码在某些编辑器下无法显示。如果显示效果有问题（如 github），强烈建议从个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)，阅读体验更佳。
 
-😥注意！本篇笔记为 markdown 生成 HTML 文档，内嵌的 CSS 代码在某些编辑器下无法显示。如果显示效果有问题（如 github），强烈建议从个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)，阅读体验更佳。
-
----
-
-## 基本概念
-
-任何容器都可以通过设置`display: flex;`指定为 Flex 布局，被指定的容器称为“flex container”（简称**容器**），而它的子成员则会自动成为“flex item”（简称**项目**）。
-
-容器存在两根轴：
-
-- 主轴（main axis）默认为水平方向的轴。
-- 交叉轴（cross axis）默认为垂直方向的轴。
-
-项目沿主轴排列，主轴的方向可以通过设置`flex-direction`改变，本文默认主轴为水平方向。
-
-一般来说，水平方向的轴的起点为容器的最左边，终点为最右边；垂直方向的轴的起点为容器的最上面，终点为最下面。
+<br/>
 
 ## 属性速览
 
@@ -34,9 +19,9 @@ Flex 布局，即 **Flex**ible Box 布局（弹性布局），基于盒状模型
   - [flex-flow](#flex-flow)
     - [flex-direction](#flex-direction) 排列方向
     - [flex-wrap](#flex-wrap) 换行方式
-  - [justify-content](#justify-content) 水平对齐
-  - [align-items](#align-items) 垂直对齐
-  - [align-content](#align-content) 垂直排列分布
+  - [justify-content](#justify-content) 水平排列**分布**
+  - [align-content](#align-content) 垂直排列**分布**
+  - [align-items](#align-items) 垂直**对齐**
 
 - **项目**
   - [order](#order) 顺序
@@ -45,6 +30,25 @@ Flex 布局，即 **Flex**ible Box 布局（弹性布局），基于盒状模型
     - [flex-shrink](#flex-shrink) 缩小自身时的比例
     - [flex-basis](#flex-basis) 界定是否换行的宽度
   - [align-self](#align-self) 特立独行的对齐方式
+
+<br/>
+
+## 基本概念
+
+使用`display: flex;`语句，为元素指定 Flex 布局方式。
+
+Flex 默认表现为块级元素，你也可以指定为`inline-flex`属性，则该元素会表现出内联的性质。
+
+被指定应用 Flex 布局的父元素称为“flex container”（简称**容器**），而它的子成员则会自动成为“flex item”（简称**项目**）。
+
+容器存在两根轴：
+
+- **主轴**（main axis）默认为水平方向的轴。
+- **交叉轴**（cross axis）默认为垂直方向的轴。
+
+项目沿主轴排列，主轴的方向可以通过设置`flex-direction`改变，本文默认主轴为水平方向。
+
+一般来说，水平方向的轴的起点为容器的最左边，终点为最右边；垂直方向的轴的起点为容器的最上面，终点为最下面。
 
 <br/>
 
@@ -121,15 +125,15 @@ wrap 即换行，该属性指定项目在主轴空间塞不下时如何**换行*
 
 ### justify-content
 
-定义了项目在**主轴**上的**对齐方式**。
+定义了项目在**主轴**上的**排列分布方式**。
 
-| 值                   | 对齐方式                   |
+| 值                   | 分布方式                   |
 | -------------------- | -------------------------- |
-| flex-start（默认值） | 左对齐                     |
-| flex-end             | 右对齐                     |
-| center               | 居中                       |
-| space-between        | 两端对齐，项目之间间隔相等 |
-| space-around         | 每个项目两侧的间隔相等     |
+| flex-start（默认值） | 靠左分布                     |
+| flex-end             | 靠右分布                     |
+| center               | 集中分布                       |
+| space-between        | 两端对齐分布，项目之间间隔相等 |
+| space-around         | 每个项目两侧的间隔相等分布     |
 
 ```
 # flex-start
@@ -155,73 +159,9 @@ wrap 即换行，该属性指定项目在主轴空间塞不下时如何**换行*
 
 <br/>
 
-### align-items
-
-设置项目在**交叉轴**上的**对齐方式**。
-
-| 值                | 对齐方式                                       |
-| ----------------- | ---------------------------------------------- |
-| flex-start        | 交叉轴的起点对齐                               |
-| flex-end          | 交叉轴的终点对齐                               |
-| center            | 交叉轴的中点对齐                               |
-| baseline          | 项目的第一行文字的基线对齐                     |
-| stretch（默认值） | 占满整个容器的高度（项目未设置高度或设为auto） |
-
-样例（如果无法看到样例，请访问个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)）：
-
-<div class="flex">
-  <div>
-    <div class="flex align-items flex-start">
-      <div class="block">1</div>
-      <div class="block xl">2</div>
-      <div class="block">3</div>
-      <div class="block l">4</div>
-    </div>
-    <p class="figure-title">flex-start</p>
-  </div>
-  <div>
-    <div class="flex align-items flex-end">
-      <div class="block">1</div>
-      <div class="block xl">2</div>
-      <div class="block">3</div>
-      <div class="block l">4</div>
-    </div>
-    <p class="figure-title">flex-end</p>
-  </div>
-  <div>
-    <div class="flex align-items center">
-      <div class="block">1</div>
-      <div class="block xl">2</div>
-      <div class="block">3</div>
-      <div class="block l">4</div>
-    </div>
-    <p class="figure-title">center</p>
-  </div>
-  <div>
-    <div class="flex align-items baseline">
-      <div class="block"><u>1</u></div>
-      <div class="block xl sink"><u>2</u></div>
-      <div class="block"><u>3</u></div>
-      <div class="block xxl sink"><u>4</u></div>
-    </div>
-    <p class="figure-title">baseline</p>
-  </div>
-  <div>
-    <div class="flex align-items stretch">
-      <div class="block nosize">1</div>
-      <div class="block nosize xl">2</div>
-      <div class="block nosize">3</div>
-      <div class="block nosize l">4</div>
-    </div>
-    <p class="figure-title">stretch</p>
-  </div>
-</div>
-
-<br/>
-
 ### align-content
 
-定义了**多根主轴线**之间的**排列分布方式**（注意与 align-items 属性的区别）。
+定义了**多根主轴线**之间的**排列分布方式**。
 
 假设交叉轴为从上到下方向：
 
@@ -320,6 +260,72 @@ wrap 即换行，该属性指定项目在主轴空间塞不下时如何**换行*
       <div class="line-block no-height"></div>
       <div class="line-block no-height l"></div>
       <div class="line-block no-height"></div>
+    </div>
+    <p class="figure-title">stretch</p>
+  </div>
+</div>
+
+> 如果无法看到样例，请访问个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)
+
+<br/>
+
+### align-items
+
+设置项目在**交叉轴**上的**对齐方式**（注意与`align-content`属性的区别）。
+
+| 值                | 对齐方式                                       |
+| ----------------- | ---------------------------------------------- |
+| flex-start        | 交叉轴的起点对齐                               |
+| flex-end          | 交叉轴的终点对齐                               |
+| center            | 交叉轴的中点对齐                               |
+| baseline          | 项目的第一行文字的基线对齐                     |
+| stretch（默认值） | 占满整个容器的高度（项目未设置高度或设为 auto） |
+
+样例：
+
+<div class="flex">
+  <div>
+    <div class="flex align-items flex-start">
+      <div class="block">1</div>
+      <div class="block xl">2</div>
+      <div class="block">3</div>
+      <div class="block l">4</div>
+    </div>
+    <p class="figure-title">flex-start</p>
+  </div>
+  <div>
+    <div class="flex align-items flex-end">
+      <div class="block">1</div>
+      <div class="block xl">2</div>
+      <div class="block">3</div>
+      <div class="block l">4</div>
+    </div>
+    <p class="figure-title">flex-end</p>
+  </div>
+  <div>
+    <div class="flex align-items center">
+      <div class="block">1</div>
+      <div class="block xl">2</div>
+      <div class="block">3</div>
+      <div class="block l">4</div>
+    </div>
+    <p class="figure-title">center</p>
+  </div>
+  <div>
+    <div class="flex align-items baseline">
+      <div class="block"><u>1</u></div>
+      <div class="block xl sink"><u>2</u></div>
+      <div class="block"><u>3</u></div>
+      <div class="block xxl sink"><u>4</u></div>
+    </div>
+    <p class="figure-title">baseline</p>
+  </div>
+  <div>
+    <div class="flex align-items stretch">
+      <div class="block nosize">1</div>
+      <div class="block nosize xl">2</div>
+      <div class="block nosize">3</div>
+      <div class="block nosize l">4</div>
     </div>
     <p class="figure-title">stretch</p>
   </div>
