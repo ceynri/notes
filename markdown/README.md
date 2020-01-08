@@ -35,6 +35,7 @@ Markdown 是个好东西，希望大家都能花一个下午时间认真学会�
   - [注释](#注释)
   - [脚注](#脚注)
 - [HTML元素](#html元素)
+- [HTML 属性](#html-属性)
 - [转义](#转义)
 - [公式](#公式)
   - [编写工具](#编写工具)
@@ -185,52 +186,89 @@ ___粗斜体文本___
 
 ---
 
-*注：以下内容，有些编辑器并不支持过时的u标签、font标签与center标签，最好不要依赖这些标签*
+*注：以下内容，许多编辑器已经不再支持过时的u标签、font标签与center标签，最好不要再使用这些标签*
 
 ## 下划线
 
 **样例**
 
-借助HTML的 `<u>` 标签实现：
-```md
-<u>下划线文本</u>
-```
-
-**效果**
-
-<u>下划线文本</u>
+> 借助HTML的 `<u>` 标签实现：
+> 
+> ```md
+> <u>下划线文本</u>
+> ```
+> 
+> **效果**
+> 
+> <u>下划线文本</u>
 
 <br/>
 
 ## 定制字体样式
 
-可以借助HTML的 `<font>` 标签实现：
-
-**样例**
-
-```md
-<font color=#2196F3 size=1 face="宋体">大小为1的蓝色宋体</font>
-```
-
-**效果**
-
-<font color=#2196F3 size=1 face="宋体">大小为1的蓝色宋体</font>
+> 可以借助HTML的 `<font>` 标签实现：
+> 
+> **样例**
+> 
+> ```md
+> <font color="#2196F3" size="1" face="宋体">大小为1的蓝色宋体</font>
+> ```
+> 
+> **效果**
+> 
+> <font color="#2196F3" size="1" face="宋体">大小为1的蓝色宋体</font>
 
 <br/>
 
 ## 居中
 
-可以使用HTML的 `<center>` 标签。
+> 可以使用HTML的 `<center>` 标签。
+>
+> **样例**
+>
+> ```md
+> <center>居中文本</center>
+> ```
+>
+> **效果**
+>
+> <center>居中文本</center>
+
+<br/>
+
+虽然过时标签不再被支持，但目前 Github 等仍然支持一些过时标签属性（虽然不支持 style 样式），我们可以使用带有`align`属性的`<div>`标签去包裹想要实现居中的元素。
 
 **样例**
 
 ```md
-<center>居中文本</center>
+<div align="center">
+    <img width="200px" src="https://ceynri.github.io/imgs/avatar.jpg" />
+</div>
 ```
 
 **效果**
 
-<center>居中文本</center>
+<div align="center">
+    <img width="200px" src="https://ceynri.github.io/imgs/avatar.jpg" />
+</div>
+
+<br/>
+
+文本居中也是类似的：
+
+**样例**
+
+```md
+<p align="center">
+    找个位置随便坐
+</p>
+```
+
+**效果**
+
+<p align="center">
+    找个位置随便坐
+</p>
 
 <br/>
 
@@ -818,6 +856,14 @@ Markdown 支持很多 HTML 元素，可以补充 Markdown 某些不具备的高�
 **效果**
 
 使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
+
+<br/>
+
+## HTML 属性
+
+虽然越来越多的 markdown 预览不支持过时 HTML 标签，也不支持 style 样式，这给样式设置带来了很多麻烦。在 HTML 元素中设置样式是不符合规范的，但在编写 markdown 文档，可以借助一些过时的 HTML 样式属性来实现我们想要的效果，毕竟没有其他更好的方法了。
+
+常见的属性例如居中用的`align`，设置宽高`width`和`height`，仍然还有一定的支持度，如果有必要时可以使用，但最好能够消除对这些属性的依赖，也不要养成这样的习惯。
 
 <br/>
 
