@@ -247,11 +247,7 @@ Ps:这玩意真的用过么¿
 
 ![box-model.jpg](https://i.loli.net/2019/09/28/h9wWfyePTgOJ5IV.jpg)
 
-::: warning 注意
-
-对于一个元素，width 属性指的是内容区的宽度而不包含 padding、border（这两个仅在IE6之前的版本会包含在 width 中）。
-
-:::
+> **⚠注意：**对于一个元素，width 属性指的是内容区的宽度而不包含 padding、border（这两个仅在IE6之前的版本会包含在 width 中）。
 
 <br/>
 

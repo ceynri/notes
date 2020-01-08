@@ -46,18 +46,11 @@ date: "2019/10/04"
 
 <br/>
 
-::: warning 显示问题😥
+> **关于显示问题**😥
+>
+> 一些对于在 markdown 内嵌 HTML 支持较差的编辑器（如 github）会影响本文示例的正常显示，建议[点击此处](https://ceynri.github.io/notes/css/centering.html)阅读本文。
 
-一些对于在 markdown 内嵌 HTML 支持较差的编辑器（如 github）会影响本文示例的正常显示，建议[点击此处](https://ceynri.github.io/notes/css/centering.html)阅读本文。
-
-:::
-
-::: tip
-
-文中所列出的 CSS 样式并非效果的所有样式，如发现实现的效果有出入可以直接<kbd>右键</kbd>查看本页面对应示例的源码（示例的样式全部内嵌于HTML标签中）。
-
-:::
-
+> ⚠ 文中所列出的 CSS 样式并非效果的所有样式，如发现实现的效果有出入可以直接<kbd>右键</kbd>查看本页面对应示例的源码（示例的样式全部内嵌于HTML标签中）。
 
 ## 水平居中
 
