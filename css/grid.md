@@ -7,9 +7,7 @@ date: "2020-01-08"
 
 CSS Grid 布局系统是一个比较新的布局方式，它借鉴了表格布局的思想，将网页划分为不同的网格，实现网页的**二维布局**效果。它和 Flex 布局有点像，但较为明显的区别是，Flex 布局往往应用于一维层次的布局（轴线布局），没有 Grid 那么强的灵活性。
 
-<div align="center">
-  <img width="100%" src="https://www.wangbase.com/blogimg/asset/201903/1_bg2019032501.png">
-</div>
+<img width="100%" src="https://www.wangbase.com/blogimg/asset/201903/1_bg2019032501.png">
 
 这样的特性决定了 Grid 布局往往被应用于网页的大框架的划分而 Flex 布局更适合应用于小部件的排列，两者并不会有太大的地位冲突，应该结合起来使用。
 
@@ -326,12 +324,16 @@ grid-auto-flow: (row | column) [dense];
 
 设置项目在容器区域内**水平对齐**与**垂直对齐**的方式，可以取四个值：
 
+<div align="center">
+
 | 值                | 对齐方式                   |
 | ----------------- | -------------------------- |
 | start             | 对齐单元格的起始边缘       |
 | end               | 对齐单元格的结束边缘       |
 | center            | 单元格内部居中             |
 | stretch（默认值） | 拉伸，占满单元格的整个宽度 |
+
+</div>
 
 <br/>
 
@@ -366,6 +368,8 @@ place-items: <align-items>[ <justify-items>];
 
 两种属性都可取名字相同的七种值（下以`justify-content`为例）：
 
+<div align="center">
+
 | 值              | 分布方式                               |
 | --------------- | -------------------------------------- |
 | start（默认值） | 靠左对齐                               |
@@ -375,6 +379,8 @@ place-items: <align-items>[ <justify-items>];
 | space-between   | 两端对齐，项目之间间隔相等             |
 | space-around    | 每个项目两侧的间隔相等                 |
 | space-evenly    | 项目与项目、项目与容器边框之间间隔相等 |
+
+</div>
 
 <br/>
 
@@ -467,12 +473,16 @@ place-content: <align-content>[ <justify-content>];
 
 这四个属性用于指定项目的边框应该定位到哪一条网格线上。
 
+<div align="center">
+
 | 属性              | 对应网格线             |
 | ----------------- | ---------------------- |
 | grid-column-start | 左边框所在的垂直网格线 |
 | grid-column-end   | 右边框所在的垂直网格线 |
 | grid-row-start    | 上边框所在的水平网格线 |
 | grid-row-end      | 下边框所在的水平网格线 |
+
+</div>
 
 <br/>
 
