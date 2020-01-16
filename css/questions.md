@@ -13,6 +13,7 @@ date: "2019-09-27"
   - [Q: 内联元素之间有间隙](#q-内联元素之间有间隙)
   - [Q: 如何隐藏滚动条？](#q-如何隐藏滚动条)
   - [Q: 如何实现图片在给定宽高的容器里不变形地覆盖整个容器？](#q-如何实现图片在给定宽高的容器里不变形地覆盖整个容器)
+  - [Q: hover 某元素使另一元素遮挡住该元素而导致闪烁怎么办？](#q-hover-某元素使另一元素遮挡住该元素而导致闪烁怎么办)
   - [Q: more...](#q-more)
 
 ## CSS
@@ -112,9 +113,37 @@ date: "2019-09-27"
 
     如果`background-size`使用`contain`值，则为包含，效果与`max-width: 100%; max-height: 100%;`相类似。
 
-
-
 <br/>
+
+### Q: hover 某元素使另一元素遮挡住该元素而导致闪烁怎么办？
+
+- 情况：
+  
+    有时候我们需要实现鼠标悬停在某元素上时，该元素变为另外一个元素的效果，但另外一个元素如歌出现在该元素的上面，则相当于将鼠标与该元素隔开，使得该效果失效。
+
+- 解决方法：
+
+    使用 JavaScript 是一种思路，但更好的方法是直接使用 CSS3 相应的属性`pointer-events`。
+    
+    语法：
+
+    ```
+    pointer-events: auto（默认值） | none;
+    // 以下值仅对SVG元素有效
+    pointer-events: visiblepainted | visiblefill | visiblestroke | visible | painted | fill | stroke | all
+    ```
+
+    像 mouseover 这样的效果，都是由光标产生的事件，如果不想让新出现的元素遮挡住旧元素，可以设置：
+    
+    ```css
+    .new-element {
+        pointer-events: none;
+    }
+    ```
+
+    当值为`none`时，该元素就会不再与鼠标产生任何交互，鼠标悬停的判定会穿透该元素至下层。
+
+<br>
 
 ### Q: more...
 
