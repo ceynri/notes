@@ -50,6 +50,8 @@ HTML 的事件有许多例子：
 | onmousedown / onmouseup  | 鼠标按钮 按下/抬起时                             |
 | onclick                  | 鼠标按钮点击后（按下与抬起动作都在元素上方完成） |
 
+> 更多事件种类：<https://www.runoob.com/jsref/dom-obj-event.html>
+
 <br/>
 
 ## 创建监听
