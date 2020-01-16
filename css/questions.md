@@ -14,6 +14,7 @@ date: "2019-09-27"
   - [Q: 如何隐藏滚动条？](#q-如何隐藏滚动条)
   - [Q: 如何实现图片在给定宽高的容器里不变形地覆盖整个容器？](#q-如何实现图片在给定宽高的容器里不变形地覆盖整个容器)
   - [Q: hover 某元素使另一元素遮挡住该元素而导致闪烁怎么办？](#q-hover-某元素使另一元素遮挡住该元素而导致闪烁怎么办)
+  - [Q: 将内容复制到用户的剪贴板上？](#q-将内容复制到用户的剪贴板上)
   - [Q: more...](#q-more)
 
 ## CSS
@@ -142,6 +143,44 @@ date: "2019-09-27"
     ```
 
     当值为`none`时，该元素就会不再与鼠标产生任何交互，鼠标悬停的判定会穿透该元素至下层。
+
+<br>
+
+### Q: 将内容复制到用户的剪贴板上？
+
+- 情况：
+    
+    想要实现用户点击按钮即可复制文本的效果。
+
+- 实现方法：
+    
+    js 提供了`execCommand`方法，它允许使用命令来操纵可编辑区域的内容。
+    
+    虽然表面上和我们想要达到的效果并没有直接关系，但该方法有一个参数——`copy`，可以让我们对可编辑区域中已经选中的文本内容执行复制操作。
+
+    如果想要实现的效果不是从编辑区域中获取要复制的文本，则可以构造一个带有我们想要的文本的`input`元素添加到页面中，选中并复制完后立即移除该元素即可。
+
+    代码如下：
+
+    ```js
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click',() => {
+        // 创建可编辑区域
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        // 设置输入框的内容（会被复制）
+        input.setAttribute('value', '复制的内容');
+        // 选中输入框内容
+        input.select();
+        // 执行复制操作
+        if (document.execCommand('copy')) {
+            document.execCommand('copy');
+            console.log('复制成功');
+        }
+    // 移除该元素
+    document.body.removeChild(input);
+    })
+    ```
 
 <br>
 
