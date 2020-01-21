@@ -170,17 +170,23 @@ date: "2019-09-27"
         document.body.appendChild(input);
         // 设置输入框的内容（会被复制）
         input.setAttribute('value', '复制的内容');
+        // 设置输入框为只读属性，避免唤起手机键盘
+        input.setAttribute('readonly', 'readonly');
         // 选中输入框内容
         input.select();
+        // 如遇 input.select() 未选择到文本内容的情况，试下下面的代码
+        // input.setSelectionRange(0, 9999);
         // 执行复制操作
         if (document.execCommand('copy')) {
             document.execCommand('copy');
             console.log('复制成功');
         }
-    // 移除该元素
-    document.body.removeChild(input);
+        // 移除该元素
+        document.body.removeChild(input);
     })
     ```
+
+    > 还有第三方库方法：clipboard.js，这里不做赘述。
 
 <br>
 
