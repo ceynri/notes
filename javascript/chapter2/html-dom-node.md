@@ -202,11 +202,13 @@ DOM 元素即 DOM 元素节点，是节点的其中一种。
 | document.querySelector(*name-with-selector*)    | 通过 CSS 选择器查找 HTML 元素，返回找到的第一个元素 |
 | document.querySelectorAll(*name-with-selector*) | 通过 CSS 选择器查找 HTML 元素，返回找到的全部元素   |
 
-**注意getElement与getElement<u>s</u>的区别**
+> **😵注意**
+>
+> - getElement 与 getElement**s**
+> - 一些方法因为能够匹配多个 HTML 元素（带“s”的），返回的是 HTMLCollection 或 NodeList 对象（两者几乎相同），都具有 `length`属性，可以通过中括号索引访问对应元素。
+> - `getElementById`方法只能由`document`对象调用，而`getElementsByClassName`方法可以由一般的`HTMLCollection`对象调用。
 
 <br>
-
-一些方法因为能够匹配多个 HTML 元素（带“s”的），返回的是 HTMLCollection 或 NodeList 对象（两者几乎相同），都具有 `length`属性，可以通过中括号索引访问对应元素。
 
 ::: tip HTMLCollection 与 NodeList 对象的区别
 
