@@ -15,6 +15,8 @@ date: "2019-09-27"
   - [Q: 如何实现图片在给定宽高的容器里不变形地覆盖整个容器？](#q-如何实现图片在给定宽高的容器里不变形地覆盖整个容器)
   - [Q: hover 某元素使另一元素遮挡住该元素而导致闪烁怎么办？](#q-hover-某元素使另一元素遮挡住该元素而导致闪烁怎么办)
   - [Q: 将内容复制到用户的剪贴板上？](#q-将内容复制到用户的剪贴板上)
+  - [Q: JavaScript 获取不到 CSS 设置的属性值？](#q-javascript-获取不到-css-设置的属性值)
+  - [Q: JavaScript 设置的样式覆盖不了 CSS 样式？](#q-javascript-设置的样式覆盖不了-css-样式)
   - [Q: more...](#q-more)
 
 ## CSS
@@ -190,8 +192,37 @@ date: "2019-09-27"
 
 <br>
 
+### Q: JavaScript 获取不到 CSS 设置的属性值？
+### Q: JavaScript 设置的样式覆盖不了 CSS 样式？
+
+- 情况：
+
+    问题1：在 javascript 中访问`elem.style.<attr>`，得到的属性返回空；
+
+    问题2：在 javascript 中使用`elem.style.<attr> = <val>`为样式规则赋值，样式没有应用上。
+
+- 原因：
+
+    问题1：在 javascript 中访问元素的样式属性，虽然它是可读可写的，但它不能获得在其他地方（如 CSS）中设置的样式值。（联想到在 HTML 标签的 style 属性中设置样式与使用 CSS 引入样式的差别）
+    
+    问题2：虽然 javascript 代码没有编写错，但 CSS 那边对相同的样式规则应用了不同的属性值，使得将 js 设置的样式给覆盖掉了。
+
+- 解决方法：
+
+    1. 可以将 CSS 的样式转移到 JavaScript 代码中来设置，这样就便于管理相关的值了。
+    2. 使用以下语句计算获得当前元素的样式并取得目标样式规则的值：
+    
+        ```js
+        getComputedStyle(<elem>, null).getPropertyValue(<prop-name>);
+        ```
+
+        > 旧 IE 使用 elem.currentStyle.getAttribute('style'); 
+
+        但第2种方法不能设置样式属性值。
+
+
+<br>
+
 ### Q: more...
-
-
 
 <br/>
