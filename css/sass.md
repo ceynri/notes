@@ -809,6 +809,14 @@ $gutter-width: 10px;
 
 <br>
 
+## 拓展链接
+
+关于某些细节内容，有需要的时候可以查阅这些链接：
+
+- Sass关于颜色函数的乐趣 | JollyLee <https://www.cnblogs.com/ylliap/p/6094241.html>
+
+<br>
+
 ## 本文参考
 
 - Sass 教程 | 菜鸟教程 <https://www.runoob.com/sass/sass-tutorial.html>
