@@ -8,7 +8,7 @@ date: "2019-09-27"
 ## 目录 <!-- omit in toc -->
 
 - [CSS](#css)
-  - [Q: 在\<div>或\<a>元素中放入\<img>元素后，父元素高度比里面的\<img>高度要高 4px/5px](#q-在div或a元素中放入img元素后父元素高度比里面的img高度要高-4px5px)
+  - [Q: 在父元素中单独放入\<img>元素后，\<img>底部或后面有空白怎么办？](#q-在父元素中单独放入img元素后img底部或后面有空白怎么办)
   - [Q: display: none、visibility: hidden、opacity: 0 之间的区别？](#q-display-nonevisibility-hiddenopacity-0-之间的区别)
   - [Q: 内联元素之间有间隙](#q-内联元素之间有间隙)
   - [Q: 如何隐藏滚动条？](#q-如何隐藏滚动条)
@@ -21,19 +21,22 @@ date: "2019-09-27"
 
 ## CSS
 
-### Q: 在\<div>或\<a>元素中放入\<img>元素后，父元素高度比里面的\<img>高度要高 4px/5px
+### Q: 在父元素中单独放入\<img>元素后，\<img>底部或后面有空白怎么办？
 
 - 原因：
 
-    在\<a>元素或者\<div>元素下有一个匿名文本，该文本外存在一个匿名行级盒子，由于 `line-height` 存在使其有了高度。因为默认 `vertical-align` 为 `baseline` 对齐的原因，\<img>之类的`inline-block`元素会使得这个匿名盒子下沉，撑开一些距离，于是把\<a>撑高了。
+    1. 在\<a>元素或者\<div>等元素下有一个匿名文本，该文本外存在一个匿名行级盒子，由于 `line-height` 存在使其有了高度。
+    
+        因为默认 `vertical-align` 为 `baseline` 对齐的原因，\<img>之类的`inline-block`元素会使得这个匿名盒子下沉，撑开一些距离，于是把父元素撑高了。
+
+    2. HTML 文档中，换行或者空格会被翻译成一个空白的文本节点（`#text`），导致会出现一个空格跟在\<img>后面的情况。
 
 - 解决办法（任选其一）：
 
-+ 消除掉匿名盒子的高度，给\<a>设置`line-height: 0`或`font-size: 0`；
-
-+ 给两者`vertical-align: top`，让其`top`对齐，而不是`baseline`对齐；
-
-+ 如果\<img>元素是单独一行的话，可以给\<img>以`display: block`，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒。\<img>是行内元素，默认`display: inline-block`，与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。
+    + 消除掉匿名盒子的高度，给\<a>设置`line-height: 0`或`font-size: 0`；
+    + 给两者`vertical-align: top`，让其`top`对齐，而不是`baseline`对齐；
+    + 如果\<img>元素是单独一行的话，可以给\<img>以`display: block`或者`float: left`，让它和匿名行级盒子不在一个布局上下文中，也就不存在行级盒。\<img>是行内元素，默认为 inline-block，与文本的默认行为类似，下边缘是与基线对齐，而不是紧贴容器下边缘。
+    + 对于多个`inline-block`元素之间的空格，可以使用`letter-spacing: -4px`（字符之间的间距）或`word-spacing: -4px`（单词之间的间距）。
 
 <br/>
 
