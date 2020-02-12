@@ -15,21 +15,21 @@ date: "2019-08-10"
 
 ### JavaScript 编程语言
 
-- [JavaScript 入门基础](./chapter1/01.basic-introduction.md)
+- [JavaScript 入门基础](./chapter1/basic-introduction.md)
 
-- [函数](./chapter1/02.function.md)
+- [函数](./chapter1/function.md)
 
-- [Objects 对象基础（1）](./chapter1/03.objects-1.md)
+- [Objects 对象基础（1）](./chapter1/objects-1.md)
 
-- [Objects 对象基础（2）](./chapter1/04.objects-2.md)
+- [Objects 对象基础（2）](./chapter1/objects-2.md)
 
-- [数据类型](./chapter1/05.data-type.md)
+- [数据类型](./chapter1/data-type.md)
 
-- [Array 类型](./chapter1/06.array.md)
+- [Array 类型](./chapter1/array.md)
 
-- [Map 与 Set 类型](./chapter1/07.map&set.md)
+- [Map 与 Set 类型](./chapter1/map&set.md)
 
-- [Objects 对象类型（3）](./chapter1/08.objects-3.md)
+- [Objects 对象类型（3）](./chapter1/objects-3.md)
 
 - 更新中...（最后更新时间：2019/08/26）
 
