@@ -29,7 +29,7 @@ date: "2019-08-10"
 
 - [Map 与 Set 类型](./chapter1/07.map&set.md)
 
-- [Objects 对象类型](./chapter1/08.objects-3.md)
+- [Objects 对象类型（3）](./chapter1/08.objects-3.md)
 
 - 更新中...（最后更新时间：2019/08/26）
 
