@@ -33,13 +33,14 @@ date: "2019-08-10"
 
 - [Objects 对象类型（3）](./chapter1/objects-3.md)
 
-- 更新中...（最后更新时间：2019/08/26）
-
 - [JSON 类型](./chapter1/json.md)
+
+- 更新中...（最后更新时间：2020/02/12）
+
+- [异常处理语句](./chapter1/exception-handling.md)
 
 - [Class 类](./chapter1/class.md) [没写完]
 
-- Throw、Try 与 Catch
 
 <br>
 

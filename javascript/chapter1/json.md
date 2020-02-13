@@ -103,8 +103,6 @@ JSON.stringify(value[, replacer, space]);
 - space  
   为JSON字符串添加缩进、空格和换行符
 
-<br>
-
 ### 参数 replacer
 
 当我们只想指定某些属性导出为 JSON 时（比如某些属性存在循环引用问题），可以创建一个包含需要的属性的数组作为`replacer`的值。
@@ -139,8 +137,6 @@ let json = JSON.stringify(meetup, function (key, value) {
   return (key == 'occupiedBy') ? undefined : value;
 });
 ```
-
-<br>
 
 ### 参数 spacer
 
@@ -185,8 +181,6 @@ let value = JSON.parse(str[, reviver]);
   为每个 (key,value) 对调用该`reviver`函数进行转换
 
 str 参数需要严格遵守 JSON 格式规范，否则会产生错误（这常见于手写 JSON 的情况）。
-
-<br>
 
 ### 参数 reviver
 
