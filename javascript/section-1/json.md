@@ -3,7 +3,7 @@ title: "JSON 类型"
 date: "2020-02-12"
 ---
 
-# JSON 类型 <!-- omit in toc -->
+# JavaScript | JSON 类型 <!-- omit in toc -->
 
 介绍一种非常流行的通用数据格式——JSON（**J**ava**S**cript **O**bject **N**otation）
 
