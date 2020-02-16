@@ -1,9 +1,9 @@
 ---
-title: "JavaScript与浏览器"
+title: "JavaScript 与 HTML"
 date: "2019-08-23"
 ---
 
-# JavaScript | 基础介绍与应用
+# JavaScript | JavaScript 与 HTML
 
 根据 W3school 的 JavaScript 教程进行整理，需要 HTML 基础。
 

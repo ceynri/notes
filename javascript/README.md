@@ -23,9 +23,9 @@ date: "2019-08-10"
 
 - [JavaScript 入门基础](./section-1/basic-introduction.md)
 - [函数](./section-1/function.md)
+- [数据类型](./section-1/data-type.md)
 - [Objects 对象基础（1）](./section-1/objects-1.md)
 - [Objects 对象基础（2）](./section-1/objects-2.md)
-- [数据类型](./section-1/data-type.md)
 - [Array 类型](./section-1/array.md)
 
 ### 进阶知识
@@ -38,7 +38,7 @@ date: "2019-08-10"
 
 - [Class 类](./section-1/class.md) [没写完]
 
-### 特殊的数据类型
+### 更多的数据类型
 
 - [Map 与 Set 类型](./section-1/map&set.md)
 - [JSON 类型](./section-1/json.md)
