@@ -5,7 +5,7 @@ date: "2019-08-20"
 
 # JavaScript | Map 与 Set 类型 <!-- omit in toc -->
 
-介绍 Map 类型与 Set 类型的特性与方法。
+介绍 ES6 新出现的 Map 类型与 Set 类型的特性与方法。
 
 ## 目录 <!-- omit in toc -->
 
