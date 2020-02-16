@@ -12,8 +12,9 @@ date: "2020-02-12"
 ## 目录  <!-- omit in toc -->
 
 - [try...catch 语句](#trycatch-语句)
-- [throw 语句](#throw-语句)
 - [异常对象](#异常对象)
+- [throw 语句](#throw-语句)
+- [...finally 语句](#finally-语句)
 
 <br>
 
@@ -42,23 +43,6 @@ try {
 
 <br>
 
-## throw 语句
-
-直接用`try...catch`语句就可以捕获由系统产生的异常错误了，但如果我们想自己设置一个错误抛出，可以使用`throw`语句可以抛出一个异常。
-
-在 JavaScript 中，异常可以抛出任意对象或基本类型。
-
-```js
-throw "Error";    // String 类型
-throw 42;         // Number 类型
-throw true;       // Boolean 类型
-throw { toString: function() { return "I'm an object!"; } };  // 对象类型
-```
-
-但比较规范的写法还是新建一个“异常对象”，然后抛出它。
-
-<br>
-
 ## 异常对象
 
 当异常发生时，JavaScript 会生成一个包含异常的细节的对象，作为参数传递给`catch`语句。
@@ -73,13 +57,81 @@ throw { toString: function() { return "I'm an object!"; } };  // 对象类型
 还有许多非标准的属性，在很多情况下都能够使用，其中使用最广泛的是：
 
 - `stack`  
-  当前调用栈，
+  当前调用栈
+
+JavaScript 内置一些常用的异常的构造器，我们可以直接使用它们来创建异常对象。
+
+```js
+let error = new Error(message);
+let error = new SyntaxError(message);
+let error = new ReferenceError(message);
+// ...
+```
+
+你也可以新建一个自定义的“异常对象”，然后抛出它。
+
+```js
+// 新建一个用户异常
+function UserException (message){
+  this.message = message;
+  this.name = "UserException";
+}
+// 定义toString方法
+UserException.prototype.toString = function (){
+  return this.name + ': "' + this.message + '"';
+}
+
+// ...
+
+// 如果某个地方不符合我们的预期
+if (!something) {
+    // 创建对象类型的实例并抛出它
+    throw new UserException("Value too high");
+}
+```
+
 
 <br>
 
+## throw 语句
+
+直接用`try...catch`语句就可以捕获由系统产生的异常错误了，但如果我们想自己设置一个错误抛出，可以使用`throw`语句可以抛出一个异常。
+
+```js
+throw <error>;
+```
+
+在 JavaScript 中，异常可以抛出任意对象或基本类型。
+
+```js
+throw "Error";    // String 类型
+throw 42;         // Number 类型
+throw true;       // Boolean 类型
+throw { toString: function() { return "I'm an object!"; } };  // 对象类型
+```
 
 <br>
 
-> To be continue...
+## ...finally 语句
+
+`try...catch`语句一般时候已经够用了，但它还有另外的语法：`try...catch...finally`和`try...finally`。
+
+`finally`语句包裹了一个绝对会被执行的代码块，不论`try`和`catch`代码块内发生了什么，是捕捉到了错误还是正常运行，甚至已经`return`或`break`准备跳出函数体/循环体了，`finally`代码块内的语句仍然会被执行。
+
+这很可靠，因为它保证了某些语句一定会被执行，提供了可读性更好的代码写法。
+
+```js
+function func() {
+  // 开始做需要被完成的操作
+  try {
+    // 可能会发生异常的操作
+  } catch (e) {
+    // 处理捕捉到的异常
+  } finally {
+    // 完成必须要做的事情，即使 try 里面执行失败，或者已经 return，或者在 catch 中抛出了新的异常
+    // 如果省略了上面的 catch 语句部分，且发生了异常，则不会处理它，让他被丢出函数外
+  }
+}
+```
 
 <br>

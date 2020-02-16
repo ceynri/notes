@@ -35,9 +35,9 @@ date: "2019-08-10"
 
 - [JSON 类型](./chapter1/json.md)
 
-- 更新中...（最后更新时间：2020/02/12）
-
 - [异常处理语句](./chapter1/exception-handling.md)
+
+- 更新中...（最后更新时间：2020/02/16）
 
 - [Class 类](./chapter1/class.md) [没写完]
 
