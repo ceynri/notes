@@ -5,7 +5,7 @@ date: "2019-08-10"
 
 # JavaScript 笔记手册导航
 
-本笔记是我对于一些 JavaScript 教程内容的整理和相关知识的记录，会部分省略或快速带过热门语言（如C语言、Java）都拥有的相类似的基础内容，默认读者非零基础且了解 HTML 语言，个人认为内容偏向于**参考手册**的风格，适合想要快速上手 Javascript 或者作温习参考的同学阅读。
+本笔记是我对于一些 JavaScript 教程内容的整理和相关知识的记录，默认读者非零编程基础且了解 HTML，个人认为内容大部分偏向于**参考手册**的风格，适合想要快速上手 Javascript 或者作温习参考的同学阅读。
 
 笔记目前分为三个部分：
 
@@ -13,75 +13,60 @@ date: "2019-08-10"
 - **JavaScript 与浏览器** 内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
 - **JavaScript 框架 | Vue** 则开始介绍非常适合新手入门的 JavaScript 框架 Vue，使其按照新手易懂的顺序继续学习。
 
-## 导航
+阅读没有绝对的顺序，可以根据需要选择性翻阅😳
 
-### JavaScript 编程语言
+<br>
+
+## JavaScript 编程语言
+
+### 基础知识
 
 - [JavaScript 入门基础](./section-1/basic-introduction.md)
-
 - [函数](./section-1/function.md)
-
 - [Objects 对象基础（1）](./section-1/objects-1.md)
-
 - [Objects 对象基础（2）](./section-1/objects-2.md)
-
 - [数据类型](./section-1/data-type.md)
-
 - [Array 类型](./section-1/array.md)
 
-- [Map 与 Set 类型](./section-1/map&set.md)
+### 进阶知识
 
+- [高阶函数专题](./section-1/higher-order-functions.md)
 - [Objects 对象类型（3）](./section-1/objects-3.md)
-
-- [JSON 类型](./section-1/json.md)
-
 - [异常处理语句](./section-1/exception-handling.md)
 
-- 更新中...（最后更新时间：2020/02/16）
+### ES6
 
 - [Class 类](./section-1/class.md) [没写完]
 
+### 特殊的数据类型
+
+- [Map 与 Set 类型](./section-1/map&set.md)
+- [JSON 类型](./section-1/json.md)
 
 <br>
 
-### JavaScript 与 浏览器
+## JavaScript 与 浏览器
 
 - [基础介绍与应用](./section-2/introduction.md)
-
 - [HTML DOM 节点](./section-2/html-dom-node.md)
-
 - [HTML DOM 事件](./section-2/html-dom-event.md)
-
 - [HTML DOM 拓展内容](./section-2/html-dom-ex.md)
-
 - [BOM](./section-2/bom.md)
-
-- 更新中... （最后更新时间：2019/11/01）
-
-- 浏览器兼容
 
 <br/>
 
-### JavaScript 框架 | Vue
+## JavaScript 框架 | Vue
 
 - [Vue 基础语法入门](./vue/basic-grammar.md)
 
-- 更新中... （最后更新时间：2019/11/13）
-
 <br>
 
-### 其他
+## 其他
 
-- [索引对照表](./others/parallel-table.md)  
-  收录一些常用方法（以及属性等）
-
+- [索引对照表](./others/parallel-table.md)  （收录一些常用方法以及属性等）
 - [浏览器调试与代码测试](./others/debug&test.md)
-
 - [JavaScript 性能](./others/performance.md)
-
 - 正则表达式
-
-- ES6
 
 <br>
 
