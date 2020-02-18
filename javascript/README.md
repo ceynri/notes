@@ -30,6 +30,7 @@ date: "2019-08-10"
 
 ### 进阶知识
 
+- [类型转换专题](./section-1/type-conversion.md)
 - [高阶函数专题](./section-1/higher-order-functions.md)
 - [Objects 对象类型（3）](./section-1/objects-3.md)
 - [异常处理语句](./section-1/exception-handling.md)
