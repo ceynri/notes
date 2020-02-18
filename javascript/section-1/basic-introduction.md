@@ -134,7 +134,7 @@ let test = prompt("Test", ''); // <-- for IE
 
 ## 数据类型
 
-JavaScript一共有**七种**基本数据类型。
+JavaScript 一共有**七种**基本数据类型。
 
 - number 用于任何类型的数字：整数或者浮点数。
 - string 用于字符串。一个字符串可以包含一个或多个字符，所以没有单独的单字符类型。
@@ -144,7 +144,9 @@ JavaScript一共有**七种**基本数据类型。
 - object 用于更复杂的数据结构。
 - symbol 用于唯一的标识符。
 
-*大多数语言都具有的`Array`数组，在JavaScript中属于对象类型，放在[以后的章节][数组]介绍。*
+其中，object 不属于原始类型，所以原始类型目前只有六种。
+
+> 大多数语言都具有的`Array`数组，在JavaScript中属于对象类型，放在[以后的章节](./array.md)介绍。
 
 ### 1. number 类型
 
@@ -237,7 +239,7 @@ I m 5.
 
 ### 7. symbol 类型
 
-创建对象得唯一标识符。
+创建对象的唯一标识符。（symbol 是一个比较底层的类型，可以稍微晚一点再了解）
 
 ### typeof 运算符 <!-- omit in toc -->
 
@@ -272,7 +274,7 @@ typeof alert        // "function"
 
 > - Math 是一个提供数学运算的内建对象，此处作为一个对象的例子。  
 > - typeof null 的结果是 "object"是官方在 typeof 方面承认的错误。  
-> - typeof alert 的结果是 "function"，但在语言中没有一个特别的 “function” 类型，函数隶属于 object 类型。但是 typeof 会对函数区分对待。这不正确，但在实践中非常方便。
+> - typeof alert 的结果是 "function"，但在语言中没有一个特别的 “function” 类型，函数实际上隶属于 object 类型，只不过 typeof 会对函数区分对待。这不正确，但在实践中非常方便。
 
 <br>
 
@@ -281,10 +283,7 @@ typeof alert        // "function"
 ### 转换为 string
 
 ```js
-// good
-num + '';
-
-// bad
+num + '';  // 性能最好
 String(value);
 value.toString();
 ```
@@ -312,7 +311,7 @@ alert(1 - "2"); // -1
 alert(+"123"); // 123
 ```
 
-也可以使用 Number(value) 显式地转换为 number 类型，但更推荐使用 `+` 的做法（性能更好）。
+也可以使用 Number(value) 显式地转换为 number 类型（但更推荐使用 `+` 的做法，性能更好）。
 
 ```js
 let num = Number("123");
@@ -320,16 +319,18 @@ let num = Number("123");
 
 如果字符串不是一个有效的数字，转换的结果会是 `NaN`。
 
+其他原始类型对 number 类型的转换表：
+
 | 输入                    | 输出                              |
 | ----------------------- | --------------------------------- |
 | undefined               | NaN                               |
 | null                    | 0                                 |
-| true 和 false           | s1 and 0                          |
+| true 和 false           | 1 and 0                          |
 | string 纯数字           | 对应数字 （输入的首尾可以有空格） |
 | string 纯空格、空字符串 | 0                                 |
 | string 不是纯数字       | NaN                               |
 
-string例子：
+string 例子：
 
 ```js
 alert( Number("   123   ") );   // 123
@@ -347,6 +348,9 @@ alert( Number("-123") );        // -123
 ```js
 let num = 3.14;
 !!num;
+
+// 或者显式转换
+Boolean(num);
 ```
 
 在比较时，其他类型会自动转换为 boolean 类型。
@@ -356,7 +360,7 @@ let num = 3.14;
 | 假值（`0`、`""`、`null`、`undefined`和`NaN`） | `false` |
 | 其他                                          | `true`  |
 
-注意，"0"字符串也是`true`。
+> 注意，`"0"`字符串也是`true`。
 
 <br>
 
@@ -425,7 +429,3 @@ alert( null == undefined ); // true
 与`java`不同，`javaScript`的`switch`语句的`case`语句支持表达式、变量。
 
 *略*
-
-<!-- 变量区 -->
-
-[数组]: ./06.array.md
