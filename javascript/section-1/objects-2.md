@@ -95,11 +95,11 @@ admin['f'](); // Admin（使用方括号亦可）
 
 ::: warning `this`在匿名函数/箭头函数中有不同的表现：
 
-匿名函数的`this`表现得像是没有依附对象的`this`，会等于`undefined`或者`window`。所以在需要使用`this`的情况下，请不要使用匿名函数。
+`function() {...}` 匿名函数的命名空间处于全局对象上，所以匿名函数的`this`会等于`undefined`或者`window`。所以在需要使用`this`的情况下，请不要使用匿名函数。
 
-箭头函数自身没有`this`，在箭头函数内访问`this`会取得来自外部的`this`值，所以不适合使用箭头函数定义对象方法（`this`不会指向调用者本身，而是指向调用者的“上一级”比如`window`）。
+`() => {}` 箭头函数自身没有`this`，在箭头函数内访问`this`会取得来自外部的`this`值，所以不适合使用箭头函数定义对象方法（`this`不会指向调用者本身，而是指向调用者的“上一级”比如`window`）。
 
-但在一般情况下，使用箭头函数作为对象的方法需要用到的**回调函数**则非常合适，因为它正好指向了该对象本身，而不是调用者（调用该回调函数的方法所属的对象）。
+但在一般情况下，使用箭头函数作为对象的方法需要用到的**回调函数**则非常合适，因为它正好指向了该调用者所处上下文的对象，而不是调用者。
 
 当然，如果你并不期望这样的结果，就不应该在这种情况下使用箭头函数了。
 
@@ -125,7 +125,7 @@ function User(name) {
   // this = {};（隐式创建）
   this.name = name;
   this.isAdmin = false;
-  this.sayHi = new function() {
+  this.sayHi = function() {
     alert("Hello");
   };  // <-- 不要漏了这个分号
   // return this;（隐式返回）
@@ -136,7 +136,7 @@ let Haze = new User("Haze");
 let user = {
   name: "Haze",
   isAdmin: false,
-  sayHi: new function() {
+  sayHi: function() {
     alert("hello");
   }
 };
@@ -146,24 +146,35 @@ let user = {
 
 上面的例子中，隐式创建空对象与隐式返回`this`都是`new`的作用。
 
+> 使用`new`操作符调用函数，会自动执行以下步骤：
+> 
+> 1. 创建一个全新的对象
+> 2. 这个对象会被执行`[[Prototype]]`链接，将原型实例化（不懂可先忽略该行）
+> 3. 生成的新对象会绑定到函数调用的`this`上
+> 5. 如果函数没有返回对象类型，那么`new`表达式中的函数调用会自动返回这个新的对象
+
 在函数内部，我们可以使用`new.target`属性来检查该函数被调用时是否使用了`new`操作符：
 
 - 带 `new`，返回该函数（即 `function Func { ... }`）
 - 不带 `new`，则返回 `undefined`
 
-由此可以延伸出一个小 trick（但不推荐使用，因为不利于阅读）：
+这样做使得构造函数的调用变得安全，不会被误调用为普通函数。
 
-```js
-function User(name) {
-  if (!new.target) {          // 如果没有运行 new
-    return new User(name);    // 自动补上 new
-  }
-  this.name = name;
-}
-
-let john = User("John");
-let john = new User("John");  // 相同
-```
+> 由此特性还可以延伸出一个小 trick，当调用时没有使用`new`操作符，自动帮忙补上：
+> 
+> ```js
+> function User(name) {
+>   if (!new.target) {          // 如果没有运行 new
+>     return new User(name);    // 自动补上 new
+>   }
+>   this.name = name;
+> }
+> 
+> let john = User("John");
+> let john = new User("John");  // 相同
+> ```
+> 
+> 但该方法非常不推荐使用，因为不利于阅读。
 
 对于以下对象，我们建议使用其他方法代替使用 `new` 创建对象：
 
@@ -182,8 +193,8 @@ let john = new User("John");  // 相同
 
 一般来说都让它隐式返回`this`，如果显式`return`，则有以下规则：
 
-- 如果返回一个对象，则返回该对象，不返回this
-- 如果返回其他东西，则忽略，仍然返回this
+- 如果返回一个对象，则返回该对象，不返回`this`
+- 如果返回其他东西，则忽略，仍然返回`this`
 
 ### 其他 <!-- omit in toc -->
 
