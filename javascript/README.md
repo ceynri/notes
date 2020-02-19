@@ -32,16 +32,17 @@ date: "2019-08-10"
 
 - [类型转换专题](./section-1/type-conversion.md)
 - [高阶函数专题](./section-1/higher-order-functions.md)
-- [Objects 对象类型（3）](./section-1/objects-3.md)
 - [异常处理语句](./section-1/exception-handling.md)
 
 ### ES6
 
+- [Map 与 Set 类型](./section-1/map&set.md)
+- [Symbol 类型](./section-1/symbol.md)
+- [解构赋值](./section-1/destructuring-assignment.md)
 - [Class 类](./section-1/class.md) [没写完]
 
 ### 更多的数据类型
 
-- [Map 与 Set 类型](./section-1/map&set.md)
 - [JSON 类型](./section-1/json.md)
 
 <br>
