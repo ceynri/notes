@@ -3,9 +3,9 @@ title: "JavaScript 笔记手册导航"
 date: "2019-08-10"
 ---
 
-# JavaScript 笔记手册导航
+# JavaScript 笔记手册
 
-本笔记是我对于一些 JavaScript 教程内容的整理和相关知识的记录，默认读者非零编程基础且了解 HTML，个人认为内容大部分偏向于**参考手册**的风格，适合想要快速上手 Javascript 或者作温习参考的同学阅读。
+本笔记是我对于一些 JavaScript 教程内容的整理和相关知识的记录，默认读者非零编程基础且了解 HTML，个人认为内容简单的部分会快速带过，而特殊的部分讲解更加具体，适合想要快速上手 Javascript 或者作温习参考的同学阅读。
 
 笔记目前分为三个部分：
 
@@ -13,7 +13,7 @@ date: "2019-08-10"
 - **JavaScript 与浏览器** 内容偏向于 JavaScript 在 Web 中的**实际应用**，将省略在第一部分**JavaScript 编程语言**中学习过的内容。
 - **JavaScript 框架 | Vue** 则开始介绍非常适合新手入门的 JavaScript 框架 Vue，使其按照新手易懂的顺序继续学习。
 
-阅读没有绝对的顺序，可以根据需要选择性翻阅😳
+阅读没有绝对的顺序，阅读完“JavaScript 编程语言”的“基础知识”部分后，可以根据需要选择性翻阅其他内容😳
 
 <br>
 
@@ -36,8 +36,8 @@ date: "2019-08-10"
 
 ### ES6
 
-- [Map 与 Set 类型](./section-1/map&set.md)
 - [Symbol 类型](./section-1/symbol.md)
+- [Map 与 Set 类型](./section-1/map&set.md)
 - [解构赋值](./section-1/destructuring-assignment.md)
 - [Class 类](./section-1/class.md) [没写完]
 
