@@ -9,7 +9,7 @@ date: "2019-08-01"
 
 Markdown 是个好东西，希望大家都能花一个下午时间认真学会它。
 
-> 推荐原文地址浏览：<https://ceynri.github.io/notes/markdown/>
+> 推荐原文地址浏览：<https://docs.ceynri.cn/notes/markdown/>
 
 ## 内容目录 <!-- omit in toc -->
 
@@ -240,14 +240,14 @@ ___粗斜体文本___
 
 ```md
 <div align="center">
-    <img width="200px" src="https://ceynri.github.io/imgs/avatar.jpg" />
+    <img width="200px" src="https://docs.ceynri.cn/imgs/avatar.jpg" />
 </div>
 ```
 
 **效果**
 
 <div align="center">
-    <img width="200px" src="https://ceynri.github.io/imgs/avatar.jpg" />
+    <img width="200px" src="https://docs.ceynri.cn/imgs/avatar.jpg" />
 </div>
 
 <br/>
@@ -574,7 +574,7 @@ function demo {
 
 [该网站](https://www.baidu.com) 会帮我解决你的所有问题。
 
-这是我的 [头像](https://ceynri.github.io/imgs/avatar.jpg)
+这是我的 [头像](https://docs.ceynri.cn/imgs/avatar.jpg)
 ```
 
 **效果**
@@ -583,7 +583,7 @@ function demo {
 
 [该网站](https://www.baidu.com) 会帮我解决你的所有问题。
 
-这是我的 [头像](https://ceynri.github.io/imgs/avatar.jpg)
+这是我的 [头像](https://docs.ceynri.cn/imgs/avatar.jpg)
 
 <br/>
 

@@ -9,7 +9,7 @@ date: "2019-10-03"
 
 Flex 布局，即 **Flex**ible Box 布局（弹性布局），基于盒状模型提供了更大的灵活性。
 
-> 😥注意！本篇笔记为 markdown 生成 HTML 文档，内嵌的 CSS 代码在某些编辑器下无法显示。如果显示效果有问题（如 github），强烈建议从个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)，阅读体验更佳。
+> 😥注意！本篇笔记为 markdown 生成 HTML 文档，内嵌的 CSS 代码在某些编辑器下无法显示。如果显示效果有问题（如 github），建议从个人网站阅读本篇笔记：<https://docs.ceynri.cn/notes/css/flex.html>，阅读体验更佳。
 
 <br/>
 
@@ -265,7 +265,7 @@ wrap 即换行，该属性指定项目在主轴空间塞不下时如何**换行*
   </div>
 </div>
 
-> 如果无法看到样例，请访问个人网站阅读[本篇笔记](https://ceynri.github.io/notes/css/flex.html)
+> 如果无法看到样例，请访问个人网站阅读[本篇笔记](https://docs.ceynri.cn/notes/css/flex.html)
 
 <br/>
 
