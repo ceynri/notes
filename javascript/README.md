@@ -36,10 +36,12 @@ date: "2019-08-10"
 
 ### ES6
 
-- [Symbol 类型](./section-1/symbol.md)
-- [Map 与 Set 类型](./section-1/map&set.md)
-- [解构赋值](./section-1/destructuring-assignment.md)
-- [Class 类](./section-1/class.md) [没写完]
+- [...运算符](./section-1/es6/three-point-operator.md)
+- [解构赋值](./section-1/es6/destructuring-assignment.md)
+- [Symbol 类型](./section-1/es6/symbol.md)
+- [Map 与 Set 类型](./section-1/es6/map&set.md)
+- [Class 类](./section-1/es6/class.md) [没写完]
+<!-- - [更多特性...](./section-1/es6/es6.md) -->
 
 ### 更多的数据类型
 
