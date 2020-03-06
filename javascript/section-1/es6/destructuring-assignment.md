@@ -5,12 +5,13 @@ date: "2019-08-21"
 
 # JavaScript | 解构赋值
 
-没有解构赋值也可以写代码，但既然你都给了，那我就只好真香。
+简单，好用。
 
 ## 目录 <!-- omit in toc -->
 
 - [解构赋值](#解构赋值)
   - [数组解构](#数组解构)
+    - [简单用法](#简单用法)
   - [对象解构](#对象解构)
   - [智能函数参数](#智能函数参数)
 
@@ -22,7 +23,7 @@ date: "2019-08-21"
 
 ## 解构赋值
 
-[解构赋值语法]是一种 Javascript 表达式。通过解构赋值, 可以将属性/值从对象/数组中取出,赋值给其他变量。
+[解构赋值语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)是一种 Javascript 表达式。通过解构赋值, 可以将属性/值从对象/数组中取出,赋值给其他变量。
 
 ### 数组解构
 
@@ -65,7 +66,7 @@ alert(name);    // Julius (来自数组的值)
 alert(surname); // Anonymous (默认值被使用了)
 ```
 
-#### 简单用法 <!-- omit in toc -->
+#### 简单用法
 
 变量交换：
 
@@ -91,7 +92,7 @@ let a, b;
 语法：
 
 ```js
-let {var1, var2} = {
+let { var1, var2 } = {
     var1: ...,
     var2: ...
 }
@@ -106,7 +107,7 @@ let options = {
   height: 200
 };
 
-let {title, width, height} = options;
+let { title, width, height } = options;
 
 alert(title);  // Menu
 alert(width);  // 100
@@ -125,7 +126,7 @@ let options = {
 };
 
 // { 原属性：目标变量 }
-let {width: w, height: h, title} = options;
+let { width: w, height: h, title } = options;
 
 // width -> w
 // height -> h
@@ -136,11 +137,9 @@ alert(w);      // 100
 alert(h);      // 200
 ```
 
-对象解构同样支持使用等号（`=`）指定默认值。
+对象解构同样支持使用等号（`=`）指定默认值，还支持嵌套解构：
 
-支持嵌套解构：
-
-![嵌套结构图]
+![嵌套结构图](https://i.loli.net/2019/09/08/yAnEmKp2fJkNg7l.jpg)
 
 该例子最终会得到 width、height、item1、item2 和具有默认值的 title 变量。
 
@@ -149,20 +148,14 @@ alert(h);      // 200
 使用该方法可以略写采用默认值的函数参数，且无需注意参数顺序：
 
 ```js
+function showMenu({ title = "Default", width = 100, height = 200 } = {}) {
+    alert(`${title} ${width} ${height}`);
+}
+
 let options = {
-    title: Menu,
+    title: "Menu",
     width: 150
 };
 
-function showMenu({ title = "Default", width = 100, height = 200 } = {}) {
-  alert( `${title} ${width} ${height}` );
-}
-
 showMenu(options); // Menu 150 200
 ```
-
-<!-- 变量区 -->
-
-[解构赋值语法]: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-
-[嵌套结构图]: https://i.loli.net/2019/09/08/yAnEmKp2fJkNg7l.jpg
