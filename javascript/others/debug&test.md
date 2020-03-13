@@ -13,6 +13,7 @@ date: "2019-09-01"
 - [Chrome 调试快捷键](#chrome-调试快捷键)
 - [debugger 命令](#debugger-命令)
 - [日志记录](#日志记录)
+- [代码运行计时](#代码运行计时)
 - [代码编写规范](#代码编写规范)
 - [自动化测试](#自动化测试)
   - [常用库](#常用库)
@@ -76,6 +77,20 @@ console.log(msg);
 ```
 
 消息会发送到控制台中。
+
+<br>
+
+## 代码运行计时
+
+使用`console.time`要比`new Date() - time`要方便很多。
+
+```js
+console.time('timerName');
+for (let i = 0; i < 1000000; i++) {
+  // ...
+}
+console.timeEnd('timerName'); // timerName: 3.134033203125ms
+```
 
 <br>
 
