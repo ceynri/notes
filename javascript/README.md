@@ -67,7 +67,7 @@ date: "2019-08-10"
 
 ## 其他
 
-- [索引对照表](./others/parallel-table.md)  （收录一些常用方法以及属性等）
+- [API 速查表](./others/api-cheat-sheet.md)  （收录一些常用方法以及属性等）
 - [浏览器调试与代码测试](./others/debug&test.md)
 - [JavaScript 性能](./others/performance.md)
 - 正则表达式
