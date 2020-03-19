@@ -253,7 +253,7 @@ Ps:这玩意真的用过么¿
 
 ### border-box
 
-默认的盒模型为`content-box`，但现在`border-box`在许多情况下更加合适我们的页面布局。`border-box`能够将padding与border算入box的宽与高中，这样你就不用再做出改变了padding、border后还要调整width、height使其变得糟糕的行为。
+默认的盒模型为标准盒模型（`content-box`），但现在怪异盒模型（`border-box`）在许多情况下更加合适我们的页面布局。`border-box`能够将padding与border算入box的宽与高中，这样你就不用再做出改变了padding、border后还要调整width、height使其变得糟糕的行为。我们可以通过`box-sizing`属性来设置它。
 
 <br/>
 
