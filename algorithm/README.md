@@ -7,8 +7,11 @@ title: 算法
 
 考试求职，AC必备...
 
+> 代码模板以 JavaScript 语言为主，仅用于复习查阅
+
 ## 目录
 
-- [算法常见题型模板](./template.md)
+- [排序算法](./sort.md)
+- [二分法](./dichotomy.md)
 
 <br>
