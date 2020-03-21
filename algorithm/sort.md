@@ -201,7 +201,7 @@ function mergeSort(array) {
 }
 
 function merge(left, right) {
-    let result = [];
+    const result = [];
     let i = 0;
     let j = 0;
     // 双指针，谁小先取谁
@@ -273,7 +273,7 @@ function merge(left, right) {
 function quickSort(array, start = 0, end = array.length - 1) {
     if (array.length > 1 && start < end) {
         // 通过快排算法确定一个元素在整个数组中的位置
-        let index = devide(array, start, end);
+        const index = devide(array, start, end);
         // 对这个被确定好位置的元素的左右两部分元素递归执行快排
         quickSort(array, start, index - 1);
         quickSort(array, index + 1, end);
@@ -286,7 +286,7 @@ function devide(array, low, high) {
     // 如果只取第一位数作为基数，则可以注释掉下面这行代码
     swap(array, Math.floor((low + high) / 2), low);
     // 记录基数的下标
-    let pivot = low;
+    const pivot = low;
 
     while (low < high) {
         // 从后面往前找到一个小于基准的下标
@@ -319,7 +319,7 @@ function devide(array, low, high) {
 ```js
 function quickSort(array, start = 0, end = array.length - 1) {
     if (array.length > 1 && start < end) {
-        let index = partition(array, start, end);
+        const index = partition(array, start, end);
         quickSort(array, start, index - 1);
         quickSort(array, index + 1, end);
     }
@@ -332,7 +332,7 @@ function partition(array, low, high) {
     swap(array, Math.floor((low + high) / 2), low);
     // 取中数作为基准数
     // 要排序的数里不包含基准数（所以low++），最后会再将基准数插回去
-    let pivot = low++;
+    const pivot = low++;
 
     // 构建一个滑动窗口[low, high]，窗口里的数都满足大于等于基准数的条件
     for (let high = low; high <= end; high++) {
