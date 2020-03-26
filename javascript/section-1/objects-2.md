@@ -221,30 +221,66 @@ let user = {
 function Num() {
     this.value = 42;
     this.delayOutput = function() {
-        setTimeout(function () {      // 回调函数
+        setTimeout(function () {      // 回调一个匿名函数
             console.log(this.value);  // 这里有没有错误？
         }, 1000);
     }
 }
 
 let num = new Num();
-num.delayOutput();
 ```
 
 按照直观上的感觉，我们的`setTimeout`对一个匿名函数进行了1秒定时的回调，回调函数中会输出`this`所指向的也就是`Num`对象的`value`值，所以一秒之后控制台会输出`42`。
 
-但这是不对的。按照这么执行的结果，我们会得到一个`undefined`。这是为什么呢？
+但这是不对的。按照这么执行的结果，我们会得到一个`undefined`。
 
-这是因为，`this`在匿名函数/箭头函数中有不同的表现：
+```js
+num.delayOutput(); // undefined
+```
 
-- **匿名函数 `function() {...}` 的命名空间处于全局对象上**，所以匿名函数的`this`会等于`undefined`（严格模式下）或者`window`（非严格模式下）
+为什么呢？这是因为，`this`在匿名函数/箭头函数中有不同的表现：
+
+- 在没有进行绑定的情况下，**匿名函数 `function() {...}` 的命名空间处于全局对象上**，所以匿名函数的`this`会等于`undefined`（严格模式下）或者`window`（非严格模式下）
 - 箭头函数 `() => {}` 自身没有`this`，在**箭头函数内访问`this`会取得来自外部上下文中的`this`值**
 
 从这一点出发，上面的例子中的回调函数中的`this`实际上指向的是`window`全局对象，因为`window`上没有`value`属性，所以输出`undefined`。
 
-所以在需要使用`this`的情况下，请不要使用匿名函数。
+所以在回调函数中需要使用`this`的情况下，请不要使用匿名函数。
 
-而在这一点上，使用箭头函数作为对象的方法需要用到的回调函数则非常合适，因为它正好指向了箭头函数所处上下文的对象。在上面的例子中，匿名函数的外部上下文就是`Num`中，实例化后就是`num`对象。所以上例将匿名函数改为箭头函数，即可正常运行：
+::: tip 
+
+有人可能要说，欸那我之前定义对象的方法也是用的`function() {...}`，里面调用`this`看起来一切正常呀：
+
+```js
+this.num = NaN;
+// 一般对象
+let obj = {
+    num: 42,
+    getNum: function () {
+        return this.num
+    }
+}
+console.log(obj.getNum()); // 42
+// 构造函数创建对象
+let Constructor = function() {
+    this.num = 65535;
+    this.getNum = function() {
+        return this.num;
+    }
+}
+console.log(this.num); // NaN
+let a = new Constructor();
+console.log(a.num); // 65535
+console.log(a.getNum()); // 65535
+```
+
+实际上，这些都已经不是匿名函数了，他们绑定在了一个变量或者属性上，有了一个名字，这个时候`this`的值就被绑定在了这些对象上面。
+
+:::
+
+在回调函数这个领域中，箭头函数相对而言就显得非常合适，因为它正好指向了箭头函数所处上下文的对象。
+
+在上上一个的例子中，匿名函数的外部上下文就是`Num`中，实例化后就是`num`对象。所以上例将匿名函数改为箭头函数，即可正常运行：
 
 ```js
 function Num() {
