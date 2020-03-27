@@ -1,17 +1,24 @@
 ---
 date: 2020-03-14
-title: 算法
+title: 算法小结
 ---
 
-# 算法
+# 算法小结
 
 考试求职，AC必备...
 
-> 代码模板以 JavaScript 语言为主，仅用于复习查阅
+> 刚开始积累
 
 ## 目录
 
+### 技巧
+
+- [LeetCode 题解速览](./leetcode.md)
+
+### 模板
+
 - [排序算法](./sort.md)
+
 - [二分法](./dichotomy.md)
 
 <br>
