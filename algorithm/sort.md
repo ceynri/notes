@@ -253,19 +253,19 @@ function merge(left, right) {
 - 此时基数在整个数组中的位置被唯一确定
 - 再对基数左边与右边的两份未排序数组重复上面的算法即可
 
-`low == high` 时所指向元素一定小于 `pivot` 的理由：
-
-- 循环的一开始 `low` 并未移动，所以 `low <= pivot`
-- 而因为是 `high` 先向 `low` 靠拢，所以停下时一定有 `high <= pivot`
-  - 这个位置可能是 `high == low`
-    - 所以 `high == low <= pivot`
-    - **循环结束**
-  - 如果不是，也有 `high < pivot`
-  - 则让 `low` 向 `high` 移动，当停下时：
-    - 如果 `low == high`
-      - 因为`high < pivot`，所以 `low < pivot`
-      - **循环结束**
-    - 如果停在比 `pivot` 基数大的位置，则循环未结束
+> `low == high` 时所指向元素一定小于 `pivot` 的理由：
+> 
+> - 循环的一开始 `low` 并未移动，所以 `low <= pivot`
+> - 而因为是 `high` 先向 `low` 靠拢，所以停下时一定有 `high <= pivot`
+>   - 这个位置可能是 `high == low`
+>     - 所以 `high == low <= pivot`
+>     - **循环结束**
+>   - 如果不是，也有 `high < pivot`
+>   - 则让 `low` 向 `high` 移动，当停下时：
+>     - 如果 `low == high`
+>       - 因为`high < pivot`，所以 `low < pivot`
+>       - **循环结束**
+>     - 如果停在比 `pivot` 基数大的位置，则循环未结束
 
 ### 代码
 
@@ -318,7 +318,7 @@ function devide(array, low, high) {
 
 ```js
 function quickSort(array, start = 0, end = array.length - 1) {
-    if (array.length > 1 && start < end) {
+    if (start < end) {
         const index = partition(array, start, end);
         quickSort(array, start, index - 1);
         quickSort(array, index + 1, end);
@@ -354,23 +354,74 @@ function partition(array, low, high) {
 
 ### 标签
 
-- 
-- 时间复杂度 O(n^2)
+- Top K 问题小能手
+- 时间复杂度 O(nlogn)
+  - 建堆 O(n)
+  - 取一个最值 O(logn)
 - 空间复杂度 O(1)
-- 稳定
+- 不稳定
 
 ### 流程
 
-- 
+> 虽然概念是通过二叉树解释的，但实际实现一般是利用了二叉树与数组的映射关系，在数组上完成的。
+
+- 建堆（以升序为例，需要建最大堆）
+  - 从最底下、最靠右的具有子节点的节点`floor(len / 2) - 1`开始
+  - 调整自身的堆性质
+    - 在父节点`i`、左子节点`2 * i + 1`、右子节点`2 * i + 2`三者中
+    - 找一个最大的节点作为父节点，另外两个作为子节点
+    - 如果父节点在上一过程中发生了交换，则需要递归调整被交换的子树的堆性质
+  - 往前遍历，将前面的、等级更高的节点也进行堆调整（`i--`）
+  - 最后遍历到根节点，则每个节点都有“子节点比父节点小”的性质
+- 取堆顶，重新调整堆
+  - 将堆顶与最后一个节点进行交换
+  - 取出堆顶节点不再与堆保持连接（`len--`）
+  - 对剩余的堆从根节点进行一次堆调整
+- 重复取堆顶的操作，直到堆的元素被取完
 
 ### 代码
 
 ```js
-function Sort(array) {
-    for (let i = array.length - 1; i > 0; --i) {
-        for (let j = 0; j < i; j++) {
+function heapSort(array) {
+    // 用来指示数组的末尾
+    let len = array.length;
 
+    // 建立大顶堆
+    function buildMaxHeap(array) {
+        // 由完全二叉树性质可得到最后一个具有子节点的节点下标值
+        for (let i = Math.floor(len / 2) - 1; i >= 0; i--) {
+            heapify(array, i);
         }
+    }
+    // 堆调整
+    function heapify(array, i) {
+        // 由完全二叉树性质可得其左右子节点的下标值
+        let left = 2 * i + 1,
+            right = 2 * i + 2,
+            largest = i;
+        // 找到父节点与两个子节点中最大的节点作为父节点
+        if (left < len && array[left] > array[largest]) {
+            largest = left;
+        }
+        if (right < len && array[right] > array[largest]) {
+            largest = right;
+        }
+        if (largest != i) {
+            swap(array, i, largest);
+            // 调整因为交换而可能不再保持最大堆性质的子树
+            heapify(array, largest);
+        }
+    }
+    // 建堆
+    buildMaxHeap(array);
+    // 排序
+    for (let i = len - 1; i > 0; i--) {
+        // 最大值排到队尾
+        swap(array, 0, i);
+        // 最大值不再参与堆调整
+        len--;
+        // 从根节点开始调整堆
+        heapify(array, 0);
     }
     return array;
 }
@@ -383,3 +434,9 @@ function Sort(array) {
 ## 桶排序
 
 ## 基数排序
+
+- 基数排序：根据键值的每位数字来分配桶
+- 计数排序：每个桶只存储单一键值
+- 桶排序：每个桶存储一定范围的数值
+
+> 日后补上
