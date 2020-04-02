@@ -67,6 +67,7 @@ date: "2020-03-27"
 | 225  | 简单 | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)                                | 队列 栈 模拟 | 前n-1个数从队头出来返入队尾，原本的队尾即可从队头取出      |
 | 227  | 中等 | [基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii)                                        | 模拟         | 加减直接运算，乘除则先把之前加减的给吐出来运算完了再加回去 |
 | 235  | 简单 | [二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 二叉搜索树   | 利用搜索树性质，找到值在两数之间的数即可                   |
+| 289  | 中等 | [生命游戏](https://leetcode-cn.com/problems/game-of-life/)                                                   | 矩阵 卷积    | 状态值少，可以使用位运算，在不同的位保存不同阶段的状态     |
 | 300  | 中等 | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)                            | 动态规划     | 后面的dp从前面符合条件的dp取最大                           |
 | 300  | -    | -                                                                                                            | 贪心 二分法  | 维护一个序列：大的接在后面，小的找个位置挤掉一个相对大的   |
 | 322  | 中等 | [零钱兑换](https://leetcode-cn.com/problems/coin-change)                                                     | 动态规划     | `dp[i] = Math.min(dp[i], dp[i - coin] + 1)`                |
@@ -106,13 +107,14 @@ date: "2020-03-27"
 
 ## 1000+
 
-| 序号 | 难度 | 题目                                                                                                           | 标签   | 思路                 |
-| ---- | ---- | -------------------------------------------------------------------------------------------------------------- | ------ | -------------------- |
-| 1013 | 简单 | [将数组分成和相等的三个部分](https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum) |        |                      |
-| 1071 | 简单 | [字符串的最大公因子](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings)                      |        |                      |
-| 1103 | 简单 | [分糖果 II](https://leetcode-cn.com/problems/distribute-candies-to-people)                                     |        |                      |
-| 1160 | 简单 | [拼写单词](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)                       |        |                      |
-| 1162 | 中等 | [地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)                                     | 图 DFS | 多源DFS，visited数组 |
+| 序号 | 难度 | 题目                                                                                                           | 标签               | 思路                 |
+| ---- | ---- | -------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------- |
+| 1013 | 简单 | [将数组分成和相等的三个部分](https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum) |                    |                      |
+| 1071 | 简单 | [字符串的最大公因子](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings)                      |                    |                      |
+| 1103 | 简单 | [分糖果 II](https://leetcode-cn.com/problems/distribute-candies-to-people)                                     |                    |                      |
+| 1111 | 中等 | [有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 字符串 子序列 分组 | 利用奇偶性进行分组   |
+| 1160 | 简单 | [拼写单词](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)                       |                    |                      |
+| 1162 | 中等 | [地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)                                     | 图 DFS             | 多源DFS，visited数组 |
 
 ## 面试题系列
 
