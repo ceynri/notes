@@ -45,39 +45,42 @@ date: "2020-03-27"
 
 ## 1~500
 
-| 序号 | 难度 | 题目                                                                                                         | 标签         | 思路                                                       |
-| ---- | ---- | ------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------------------------------------- |
-| 1    | 简单 | [两数之和](https://leetcode-cn.com/problems/two-sum/)                                                        | 数组         | 利用哈希表的key，使key+value=target                        |
-| 2    | 中等 | [两数相加](https://leetcode-cn.com/problems/add-two-numbers/)                                                | 链表 模拟    | 进位状态、3while循环                                       |
-| 8    | 中等 | [字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)                            | 字符串       | 正则匹配 `/^(-|\+)?\d+/`                                  |
-| 11   | 中等 | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)                                | 数组 贪心    | 短板决定高度：两板中较短一版向中心找更长的板               |
-| 21   | 简单 | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)                                 | 链表         | -                                                          |
-| 24   | 中等 | [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)                                 | 链表         | 两两一组，每次记录前一组的最后一个                         |
-| 28   | 简单 | [实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)                                           | 字符串       | 暴力 / Sunday / KMP                                        |
-| 36   | 中等 | [有效的数独](https://leetcode-cn.com/problems/valid-sudoku)                                                  | 数组         | 用三个对象数组，空间换时间，可仅一次遍历                   |
-| 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组         | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`         |
-| 88   | 简单 | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)                                      | 数组         | 逆向思维，从后往前两两比较可以让出位置                     |
-| 94   | 中等 | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)                          | 树           | 左遍历压栈到底，弹出节点值，取其右节点继续左遍历           |
-| 100  | 简单 | [相同的树](https://leetcode-cn.com/problems/same-tree/)                                                      | 树           | 选一种遍历方式同时遍历两棵树即可                           |
-| 121  | 简单 | [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock)                       | 数组         | 线性遍历，记录当前已知最小值，相减以计算最大利润           |
-| 122  | 简单 | [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)                 | 数组         | 相邻相减，如果是正的就加起来                               |
-| 144  | 中等 | [二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)                         | 树           | 取节点值，右树压栈，往左树探                               |
-| 169  | 简单 | [多数元素](https://leetcode-cn.com/problems/majority-element)                                                | 数组         | 哈希表统计出现次数，某一值出现次数过半数则结束             |
-| 175  | 简单 | [组合两个表](https://leetcode-cn.com/problems/combine-two-tables)                                            | SQL JOIN     | `A left join B on A.key = B.key`                           |
-| 206  | 简单 | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list)                                             | 链表         | prev、current、current.next 三角恋                         |
-| 225  | 简单 | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)                                | 队列 栈 模拟 | 前n-1个数从队头出来返入队尾，原本的队尾即可从队头取出      |
-| 227  | 中等 | [基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii)                                        | 模拟         | 加减直接运算，乘除则先把之前加减的给吐出来运算完了再加回去 |
-| 235  | 简单 | [二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 二叉搜索树   | 利用搜索树性质，找到值在两数之间的数即可                   |
-| 289  | 中等 | [生命游戏](https://leetcode-cn.com/problems/game-of-life/)                                                   | 矩阵 卷积    | 状态值少，可以使用位运算，在不同的位保存不同阶段的状态     |
-| 300  | 中等 | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)                            | 动态规划     | 后面的dp从前面符合条件的dp取最大                           |
-| 300  | -    | -                                                                                                            | 贪心 二分法  | 维护一个序列：大的接在后面，小的找个位置挤掉一个相对大的   |
-| 322  | 中等 | [零钱兑换](https://leetcode-cn.com/problems/coin-change)                                                     | 动态规划     | `dp[i] = Math.min(dp[i], dp[i - coin] + 1)`                |
-| 322  | -    | -                                                                                                            | 贪心 回溯    | 每次贪心地选择尽量大的硬币（需回溯所有情况以保证最优）     |
-| 357  | 中等 | [计算各个位数不同的数字个数](https://leetcode-cn.com/problems/count-numbers-with-unique-digits)              | 数学         | 数的排列组合                                               |
-| 365  | 中等 | [水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem)                                           | DFS/BFS      | 遍历所有操作，消除重复情况以避免死循环                     |
-| 365  | -    | -                                                                                                            | 数学         | 存在 a、b 使得`ax + by = z`，即满足`z % gcd(x, y) = 0`     |
-| 404  | 简单 | [左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/)                                           | 树           | 给函数增加一个“当前节点是否为左节点”的标记                 |
-| 409  | 简单 | [最长回文串](https://leetcode-cn.com/problems/longest-palindrome)                                            | 哈希表       | 偶数个数字符直接对称，奇数个可丢掉一个变成偶数个加以利用   |
+| 序号 | 难度 | 题目                                                                                                         | 标签        | 思路                                                         |
+| ---- | ---- | ------------------------------------------------------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
+| 1    | 简单 | [两数之和](https://leetcode-cn.com/problems/two-sum/)                                                        | 数组        | 利用哈希表的key，使key+value=target                          |
+| 2    | 中等 | [两数相加](https://leetcode-cn.com/problems/add-two-numbers/)                                                | 链表 模拟   | 进位状态、3while循环                                         |
+| 8    | 中等 | [字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)                            | 字符串 正则 | 正则匹配 `/^(-|\+)?\d+/`                                     |
+| 11   | 中等 | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)                                | 数组 贪心   | 短板决定高度：两板中较短一版向中心找更长的板                 |
+| 21   | 简单 | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)                                 | 链表        | -                                                            |
+| 24   | 中等 | [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)                                 | 链表        | 两两一组，每次记录前一组的最后一个                           |
+| 28   | 简单 | [实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)                                           | 字符串      | 暴力 / Sunday / KMP                                          |
+| 36   | 中等 | [有效的数独](https://leetcode-cn.com/problems/valid-sudoku)                                                  | 数组        | 用三个对象数组，空间换时间，可仅一次遍历                     |
+| 42   | 困难 | [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)                                              | 数组 记忆化 | 遍历两次，记下每个元素的左最高元素和右最高元素，然后取交集   |
+| 42   | -    | -                                                                                                            | 数组 栈     | 高度向下时压栈，向上时元素出栈并与当前元素计算水槽宽高       |
+| 42   | -    | -                                                                                                            | 数组 双指针 | 从两边各自记录找到的最大值，矮的一边向中遍历，小于最大可倒水 |
+| 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组        | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
+| 88   | 简单 | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)                                      | 数组        | 逆向思维，从后往前两两比较可以让出位置                       |
+| 94   | 中等 | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)                          | 树          | 左遍历压栈到底，弹出节点值，取其右节点继续左遍历             |
+| 100  | 简单 | [相同的树](https://leetcode-cn.com/problems/same-tree/)                                                      | 树          | 选一种遍历方式同时遍历两棵树即可                             |
+| 121  | 简单 | [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock)                       | 数组        | 线性遍历，记录当前已知最小值，相减以计算最大利润             |
+| 122  | 简单 | [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)                 | 数组        | 相邻相减，如果是正的就加起来                                 |
+| 144  | 中等 | [二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)                         | 树          | 取节点值，右树压栈，往左树探                                 |
+| 169  | 简单 | [多数元素](https://leetcode-cn.com/problems/majority-element)                                                | 数组        | 哈希表统计出现次数，某一值出现次数过半数则结束               |
+| 175  | 简单 | [组合两个表](https://leetcode-cn.com/problems/combine-two-tables)                                            | SQL JOIN    | `A left join B on A.key = B.key`                             |
+| 206  | 简单 | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list)                                             | 链表        | prev、current、current.next 三角恋                           |
+| 225  | 简单 | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)                                | 队列 模拟   | 前n-1个数从队头出来返入队尾，原本的队尾即可从队头取出        |
+| 227  | 中等 | [基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii)                                        | 模拟        | 加减直接运算，乘除则先把之前加减的给吐出来运算完了再加回去   |
+| 235  | 简单 | [二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 二叉搜索树  | 利用搜索树性质，找到值在两数之间的数即可                     |
+| 289  | 中等 | [生命游戏](https://leetcode-cn.com/problems/game-of-life/)                                                   | 矩阵 卷积   | 状态值少，可以使用位运算，在不同的位保存不同阶段的状态       |
+| 300  | 中等 | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)                            | 动态规划    | 后面的dp从前面符合条件的dp取最大                             |
+| 300  | -    | -                                                                                                            | 贪心 二分法 | 维护一个序列：大的接在后面，小的找个位置挤掉一个相对大的     |
+| 322  | 中等 | [零钱兑换](https://leetcode-cn.com/problems/coin-change)                                                     | 动态规划    | `dp[i] = Math.min(dp[i], dp[i - coin] + 1)`                  |
+| 322  | -    | -                                                                                                            | 贪心 回溯   | 每次贪心地选择尽量大的硬币（需回溯所有情况以保证最优）       |
+| 357  | 中等 | [计算各个位数不同的数字个数](https://leetcode-cn.com/problems/count-numbers-with-unique-digits)              | 数学        | 数的排列组合                                                 |
+| 365  | 中等 | [水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem)                                           | DFS/BFS     | 遍历所有操作，消除重复情况以避免死循环                       |
+| 365  | -    | -                                                                                                            | 数学        | 存在 a、b 使得`ax + by = z`，即满足`z % gcd(x, y) = 0`       |
+| 404  | 简单 | [左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/)                                           | 树          | 给函数增加一个“当前节点是否为左节点”的标记                   |
+| 409  | 简单 | [最长回文串](https://leetcode-cn.com/problems/longest-palindrome)                                            | 哈希表      | 偶数个数字符直接对称，奇数个可丢掉一个变成偶数个加以利用     |
 
 ## 501~1000
 
