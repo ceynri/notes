@@ -93,7 +93,7 @@ let func = str => 'Ceynri: ' + str;
   
 - 没有`prototype`原型对象
 
-- 不能当做`Generator`函数，不能使用`yield`关键字
+- 不能当做`Generator`函数，不能使用`yield`关键字（不过，可以使用async/wait）
 
 - 没有`super`，没有`new.target`
 
