@@ -81,6 +81,7 @@ date: "2020-03-27"
 | 365  | -    | -                                                                                                            | 数学        | 存在 a、b 使得`ax + by = z`，即满足`z % gcd(x, y) = 0`       |
 | 404  | 简单 | [左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/)                                           | 树          | 给函数增加一个“当前节点是否为左节点”的标记                   |
 | 409  | 简单 | [最长回文串](https://leetcode-cn.com/problems/longest-palindrome)                                            | 哈希表      | 偶数个数字符直接对称，奇数个可丢掉一个变成偶数个加以利用     |
+| 460  | 困难 | [LFU缓存](https://leetcode-cn.com/problems/lfu-cache/)                                                       | 模拟 哈希表 | 双哈希表以不同的key记录同一个结果，以维护O(1)的增与查        |
 
 ## 501~1000
 
