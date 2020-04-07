@@ -9,7 +9,7 @@ date: "2020-03-27"
 
 > **⚠ 整理中**
 > 
-> 最近日期：03/30 未整理完成
+> 最近日期：04/7 题解未全部完成
 > 
 > 手动整理太慢，简单写了一份代码用于获得所有已通过的题目信息并生成markdown表格
 > 
@@ -58,7 +58,7 @@ date: "2020-03-27"
 | 42   | 困难 | [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)                                              | 数组 记忆化 | 遍历两次，记下每个元素的左最高元素和右最高元素，然后取交集   |
 | 42   | -    | -                                                                                                            | 数组 栈     | 高度向下时压栈，向上时元素出栈并与当前元素计算水槽宽高       |
 | 42   | -    | -                                                                                                            | 数组 双指针 | 从两边各自记录找到的最大值，矮的一边向中遍历，小于最大可倒水 |
-| 72   | 困难 | [编辑距离](https://leetcode-cn.com/problems/edit-distance/)                                                  | 动态规划    | 二维动归，抽象出三种修改方式的状态转移关系                     |
+| 72   | 困难 | [编辑距离](https://leetcode-cn.com/problems/edit-distance/)                                                  | 动态规划    | 二维动归，抽象出三种修改方式的状态转移关系                   |
 | 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组        | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
 | 88   | 简单 | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)                                      | 数组        | 逆向思维，从后往前两两比较可以让出位置                       |
 | 94   | 中等 | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)                          | 树          | 左遍历压栈到底，弹出节点值，取其右节点继续左遍历             |
@@ -127,6 +127,7 @@ date: "2020-03-27"
 | 序号          | 难度 | 题目                                                                                                          | 标签          | 思路                                                 |
 | ------------- | ---- | ------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------- |
 | 面试题 01.06  | 简单 | [字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci)                                           |               |                                                      |
+| 面试题 01.07  | 中等 | [旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)                                              | 矩阵 交换     | 分成4区，顺时针交换；或者先转置，再水平翻转          |
 | 面试题 04.03  | 中等 | [特定深度节点链表](https://leetcode-cn.com/problems/list-of-depth-lcci)                                       |               |                                                      |
 | 面试题 10.01  | 简单 | [合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci)                                          |               |                                                      |
 | 面试题 17.16  | 简单 | [按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci)                                                  |               |                                                      |
@@ -140,7 +141,7 @@ date: "2020-03-27"
 | 面试题46      | 中等 | [把数字翻译成字符串](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof)                |               |                                                      |
 | 面试题57 - II | 简单 | [和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof)              |               |                                                      |
 | 面试题59 - II | 中等 | [队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof)                                   |               |                                                      |
-| 面试题62      | 简单 | [圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)    | 约瑟夫环 数学 | 表面是循环链表，实际上最好用数学推导从来结果反推位置 |
+| 面试题62      | 简单 | [圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)    | 约瑟夫环 数学 | 表面是循环链表，实际可以用数学推导从结果反推起始位置 |
 
 ## LeetCode 周赛
 
