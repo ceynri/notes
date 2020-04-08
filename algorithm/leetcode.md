@@ -78,7 +78,7 @@ date: "2020-03-27"
 | 322  | 中等 | [零钱兑换](https://leetcode-cn.com/problems/coin-change)                                                     | 动态规划    | `dp[i] = Math.min(dp[i], dp[i - coin] + 1)`                  |
 | 322  | -    | -                                                                                                            | 贪心 回溯   | 每次贪心地选择尽量大的硬币（需回溯所有情况以保证最优）       |
 | 357  | 中等 | [计算各个位数不同的数字个数](https://leetcode-cn.com/problems/count-numbers-with-unique-digits)              | 数学        | 数的排列组合                                                 |
-| 365  | 中等 | [水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem)                                           | DFS/BFS     | 遍历所有操作，消除重复情况以避免死循环                       |
+| 365  | 中等 | [水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem)                                           | 遍历        | 遍历所有操作，消除重复情况以避免死循环                       |
 | 365  | -    | -                                                                                                            | 数学        | 存在 a、b 使得`ax + by = z`，即满足`z % gcd(x, y) = 0`       |
 | 404  | 简单 | [左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/)                                           | 树          | 给函数增加一个“当前节点是否为左节点”的标记                   |
 | 409  | 简单 | [最长回文串](https://leetcode-cn.com/problems/longest-palindrome)                                            | 哈希表      | 偶数个数字符直接对称，奇数个可丢掉一个变成偶数个加以利用     |
@@ -91,7 +91,7 @@ date: "2020-03-27"
 | 501  | 简单 | [二叉搜索树中的众数](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/)                 | 二叉搜索树 | 利用“中序遍历BST可得到递增数组”的性质                        |
 | 509  | 简单 | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number)                                         | 动态规划   | 非常经典的动规消除重复子问题 `dp[i] = dp[i - 1] + dp[i - 2]` |
 | 513  | 中等 | [找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/)                         | 树         | 记录当前遍历的深度，最深的最左叶子总是会第一个遍历到         |
-| 543  | 简单 | [二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)                                | 树 DFS     | 记录左树和右树高，记录最大的左右树高之和，返回1+最高子树高   |
+| 543  | 简单 | [二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)                                | 树 遍历    | 记录左树和右树高，记录最大的左右树高之和，返回1+最高子树高   |
 | 599  | 简单 | [两个列表的最小索引总和](https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists)               |            |                                                              |
 | 643  | 简单 | [子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i)                       |            |                                                              |
 | 695  | 中等 | [岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island)                                   |            |                                                              |
@@ -120,7 +120,7 @@ date: "2020-03-27"
 | 1103 | 简单 | [分糖果 II](https://leetcode-cn.com/problems/distribute-candies-to-people)                                     |                    |                      |
 | 1111 | 中等 | [有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 字符串 子序列 分组 | 利用奇偶性进行分组   |
 | 1160 | 简单 | [拼写单词](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)                       |                    |                      |
-| 1162 | 中等 | [地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)                                     | 图 DFS             | 多源DFS，visited数组 |
+| 1162 | 中等 | [地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)                                     | 图 遍历            | 多源DFS，visited数组 |
 
 ## 面试题系列
 
@@ -133,6 +133,7 @@ date: "2020-03-27"
 | 面试题 17.16  | 简单 | [按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci)                                                  |               |                                                      |
 | 面试题10- I   | 简单 | [斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof)                                    |               |                                                      |
 | 面试题11      | 简单 | [旋转数组的最小数字](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof)              |               |                                                      |
+| 面试题13      | 中等 | [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)                      | 矩阵 遍历     | DFS/BFS 仔细分析限制条件，只需向右/下走即可遍历所有  |
 | 面试题14- I   | 中等 | [剪绳子](https://leetcode-cn.com/problems/jian-sheng-zi-lcof)                                                 |               |                                                      |
 | 面试题26      | 中等 | [树的子结构](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof)                                         |               |                                                      |
 | 面试题27      | 简单 | [二叉树的镜像](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof)                                |               |                                                      |
