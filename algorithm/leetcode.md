@@ -9,7 +9,7 @@ date: "2020-03-27"
 
 > **⚠ 整理中**
 > 
-> 最近日期：04/7 题解未全部完成
+> 最近日期：04/09 题解未全部完成
 > 
 > 手动整理太慢，简单写了一份代码用于获得所有已通过的题目信息并生成markdown表格
 > 
@@ -60,7 +60,7 @@ date: "2020-03-27"
 | 42   | -    | -                                                                                                            | 数组 栈     | 高度向下时压栈，向上时元素出栈并与当前元素计算水槽宽高       |
 | 42   | -    | -                                                                                                            | 数组 双指针 | 从两边各自记录找到的最大值，矮的一边向中遍历，小于最大可倒水 |
 | 72   | 困难 | [编辑距离](https://leetcode-cn.com/problems/edit-distance/)                                                  | 动态规划    | 二维动归，抽象出三种修改方式的状态转移关系                   |
-| 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组        | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
+| 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组 查找   | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
 | 88   | 简单 | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)                                      | 数组        | 逆向思维，从后往前两两比较可以让出位置                       |
 | 94   | 中等 | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)                          | 树          | 左遍历压栈到底，弹出节点值，取其右节点继续左遍历             |
 | 100  | 简单 | [相同的树](https://leetcode-cn.com/problems/same-tree/)                                                      | 树          | 选一种遍历方式同时遍历两棵树即可                             |
@@ -87,30 +87,30 @@ date: "2020-03-27"
 
 ## 501~1000
 
-| 序号 | 难度 | 题目                                                                                                    | 标签       | 思路                                                         |
-| ---- | ---- | ------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------ |
-| 501  | 简单 | [二叉搜索树中的众数](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/)                 | 二叉搜索树 | 利用“中序遍历BST可得到递增数组”的性质                        |
-| 509  | 简单 | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number)                                         | 动态规划   | 非常经典的动规消除重复子问题 `dp[i] = dp[i - 1] + dp[i - 2]` |
-| 513  | 中等 | [找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/)                         | 树         | 记录当前遍历的深度，最深的最左叶子总是会第一个遍历到         |
-| 543  | 简单 | [二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)                                | 树 遍历    | 记录左树和右树高，记录最大的左右树高之和，返回1+最高子树高   |
-| 599  | 简单 | [两个列表的最小索引总和](https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists)               |            |                                                              |
-| 643  | 简单 | [子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i)                       |            |                                                              |
-| 695  | 中等 | [岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island)                                   |            |                                                              |
-| 744  | 简单 | [寻找比目标字母大的最小字母](https://leetcode-cn.com/problems/find-smallest-letter-greater-than-target) |            |                                                              |
-| 747  | 简单 | [至少是其他数字两倍的最大数](https://leetcode-cn.com/problems/largest-number-at-least-twice-of-others)  |            |                                                              |
-| 836  | 简单 | [矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap)                                          |            |                                                              |
-| 838  | 中等 | [推多米诺](https://leetcode-cn.com/problems/push-dominoes)                                              |            |                                                              |
-| 841  | 中等 | [钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)                                           |            |                                                              |
-| 876  | 简单 | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)                            |            |                                                              |
-| 892  | 简单 | [三维形体的表面积](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)                          |            |                                                              |
-| 905  | 简单 | [按奇偶排序数组](https://leetcode-cn.com/problems/sort-array-by-parity)                                 |            |                                                              |
-| 912  | 中等 | [排序数组](https://leetcode-cn.com/problems/sort-an-array/)                                             | 排序       | 任意实现一种排序                                             |
-| 914  | 简单 | [卡牌分组](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards)                             |            |                                                              |
-| 938  | 简单 | [二叉搜索树的范围和](https://leetcode-cn.com/problems/range-sum-of-bst)                                 |            |                                                              |
-| 945  | 中等 | [使数组唯一的最小增量](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique)         |            |                                                              |
-| 958  | 中等 | [二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree)              |            |                                                              |
-| 994  | 简单 | [腐烂的橘子](https://leetcode-cn.com/problems/rotting-oranges)                                          |            |                                                              |
-| 999  | 简单 | [可以被一步捕获的棋子数](https://leetcode-cn.com/problems/available-captures-for-rook)                  |            |                                                              |
+| 序号 | 难度 | 题目                                                                                                    | 标签        | 思路                                                         |
+| ---- | ---- | ------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------ |
+| 501  | 简单 | [二叉搜索树中的众数](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/)                 | 二叉搜索树  | 利用“中序遍历BST可得到递增数组”的性质                        |
+| 509  | 简单 | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number)                                         | 动态规划    | 非常经典的动规消除重复子问题 `dp[i] = dp[i - 1] + dp[i - 2]` |
+| 513  | 中等 | [找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/)                         | 树          | 记录当前遍历的深度，最深的最左叶子总是会第一个遍历到         |
+| 543  | 简单 | [二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)                                | 树 遍历     | 记录左树和右树高，记录最大的左右树高之和，返回1+最高子树高   |
+| 599  | 简单 | [两个列表的最小索引总和](https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists)               | 哈希表      | 将其中一表用\<list[i], i>存为哈希表，另一表线性遍历即可      |
+| 643  | 简单 | [子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i)                       | 数组        | 定宽滑动窗口                                                 |
+| 695  | 中等 | [岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island)                                   | 矩阵 遍历   | 典型矩阵DFS，每个位置做好visited标记后探索四个方向           |
+| 744  | 简单 | [寻找比目标字母大的最小字母](https://leetcode-cn.com/problems/find-smallest-letter-greater-than-target) | 数组 查找   | 尤其注意数组具有一个“有序”的条件，采取线性遍历或二分法       |
+| 747  | 简单 | [至少是其他数字两倍的最大数](https://leetcode-cn.com/problems/largest-number-at-least-twice-of-others)  | 数组        | 线性遍历找到第一大和第二大的数进行比较即可                   |
+| 836  | 简单 | [矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap)                                          | 几何        | max(x1, x3) < min(x2, x4) && max(y1, y3) < min(y2, y4)       |
+| 838  | 中等 | [推多米诺](https://leetcode-cn.com/problems/push-dominoes)                                              | 数组 双指针 | 双指针根据不同的情况进行区域划分，对区域做对应的操作         |
+| 841  | 中等 | [钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)                                           | 遍历        | DFS/BFS，把当前进入的房间内未去过的房间的钥匙拿到            |
+| 876  | 简单 | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)                            | 链表        | 经典快慢指针                                                 |
+| 892  | 简单 | [三维形体的表面积](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)                          | 几何        | 注意不能用三视图算 可先算所有立方体的表面积再减去被遮挡的面  |
+| 905  | 简单 | [按奇偶排序数组](https://leetcode-cn.com/problems/sort-array-by-parity)                                 |             |                                                              |
+| 912  | 中等 | [排序数组](https://leetcode-cn.com/problems/sort-an-array/)                                             | 排序        | 任意实现一种排序                                             |
+| 914  | 简单 | [卡牌分组](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards)                             |             |                                                              |
+| 938  | 简单 | [二叉搜索树的范围和](https://leetcode-cn.com/problems/range-sum-of-bst)                                 |             |                                                              |
+| 945  | 中等 | [使数组唯一的最小增量](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique)         |             |                                                              |
+| 958  | 中等 | [二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree)              |             |                                                              |
+| 994  | 简单 | [腐烂的橘子](https://leetcode-cn.com/problems/rotting-oranges)                                          |             |                                                              |
+| 999  | 简单 | [可以被一步捕获的棋子数](https://leetcode-cn.com/problems/available-captures-for-rook)                  |             |                                                              |
 
 ## 1000+
 
