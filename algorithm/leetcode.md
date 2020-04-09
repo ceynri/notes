@@ -52,6 +52,7 @@ date: "2020-03-27"
 | 8    | 中等 | [字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)                            | 字符串 正则 | 正则匹配 `/^(-|\+)?\d+/`                                     |
 | 11   | 中等 | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)                                | 数组 贪心   | 短板决定高度：两板中较短一版向中心找更长的板                 |
 | 21   | 简单 | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)                                 | 链表        | -                                                            |
+| 22   | 中等 | [括号生成](https://leetcode-cn.com/problems/generate-parentheses/)                                           | 回溯        | 还有'('时就插入'('，回溯，剩余')'多于'('就插入')'            |
 | 24   | 中等 | [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)                                 | 链表        | 两两一组，每次记录前一组的最后一个                           |
 | 28   | 简单 | [实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)                                           | 字符串      | 暴力 / Sunday / KMP                                          |
 | 36   | 中等 | [有效的数独](https://leetcode-cn.com/problems/valid-sudoku)                                                  | 数组        | 用三个对象数组，空间换时间，可仅一次遍历                     |
