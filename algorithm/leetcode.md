@@ -97,6 +97,7 @@ date: "2020-03-27"
 | 501  | 简单 | [二叉搜索树中的众数](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/)                 | 二叉搜索树    | 利用“中序遍历BST可得到递增数组”的性质                         |
 | 509  | 简单 | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number)                                         | 动态规划      | 非常经典的动规消除重复子问题 `dp[i] = dp[i - 1] + dp[i - 2]`  |
 | 513  | 中等 | [找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/)                         | 树            | 记录当前遍历的深度，最深的最左叶子总是会第一个遍历到          |
+| 542  | 中等 | [01 矩阵](https://leetcode-cn.com/problems/01-matrix/)                                                  | 矩阵 遍历     | 逆向思维，将“每个1都去找最近的0”变成“所有0组成超级源点去BFS”  |
 | 543  | 简单 | [二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)                                | 树 遍历       | 记录左树和右树高，记录最大的左右树高之和，返回1+最高子树高    |
 | 599  | 简单 | [两个列表的最小索引总和](https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists)               | 哈希表        | 将其中一表用\<list[i], i>存为哈希表，另一表线性遍历即可       |
 | 643  | 简单 | [子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i)                       | 数组          | 定宽滑动窗口                                                  |
