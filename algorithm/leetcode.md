@@ -61,6 +61,7 @@ date: "2020-03-27"
 | 42   | 困难 | [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)                                              | 数组 记忆化 | 遍历两次，记下每个元素的左最高元素和右最高元素，然后取交集   |
 | 42   | -    | -                                                                                                            | 数组 栈     | 高度向下时压栈，向上时元素出栈并与当前元素计算水槽宽高       |
 | 42   | -    | -                                                                                                            | 数组 双指针 | 从两边各自记录找到的最大值，矮的一边向中遍历，小于最大可倒水 |
+| 55   | 中等 | [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)                                                      | 数组 贪心   | 一步一步走，不断延拓我们能够达到的最大边界                   |
 | 56   | 中等 | [合并区间](https://leetcode-cn.com/problems/merge-intervals/)                                                | 数组        | 先以起始位置排序，再按顺序比较，接壤则合并                   |
 | 72   | 困难 | [编辑距离](https://leetcode-cn.com/problems/edit-distance/)                                                  | 动态规划    | 二维动归，抽象出三种修改方式的状态转移关系                   |
 | 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组 查找   | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
