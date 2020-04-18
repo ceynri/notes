@@ -1,9 +1,9 @@
 ---
-title: 计算机网络
+title: 浏览器与网络
 date: 2020-04-14
 ---
 
-# 计算机网络
+# 浏览器与网络
 
 OSI 模型的七层计算机网络体系结构
 
@@ -23,5 +23,7 @@ OSI 模型的七层计算机网络体系结构
 - [浏览器缓存](cache.md)
 - [DNS 协议](dns.md)
 - [传输层协议](transport-layer-protocol.md)
-- HTTP 协议
+- TCP 拥塞控制
+- [HTTP 协议](http.md)
+- cookie 与它的小伙伴们
 - SSL/TLS 协议
