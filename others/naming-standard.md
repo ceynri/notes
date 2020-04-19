@@ -29,13 +29,14 @@ date: "2019-09-24"
 
 <br/>
 
-## 变量
+## 字段
 
-| 语言       | 变量            | 常量       | 函数/方法                       | 类/对象    |
-| ---------- | --------------- | ---------- | ------------------------------- | ---------- |
-| Java       | camelCase       | UPPER_CASE | camelCase                       | PascalCase |
-| C          | underscore_case | UPPER_CASE | camelCase（有的人函数用Pascal） | PascalCase |
-| JavaScript | camelCase       | UPPER_CASE | camelCase                       | PascalCase |
+| 语言       | 变量            | 常量       | 函数/方法 | 类/对象    |
+| ---------- | --------------- | ---------- | --------- | ---------- |
+| Java       | camelCase       | UPPER_CASE | camelCase | PascalCase |
+| C          | underscore_case | UPPER_CASE | camelCase | PascalCase |
+| JavaScript | camelCase       | camelCase  | camelCase | PascalCase |
+| Python     | underscore_case | UPPER_CASE | camelCase | PascalCase |
 
 <br/>
 
@@ -146,7 +147,7 @@ date: "2019-09-24"
 
 <br/>
 
-### 版本号
+### 语义化版本
 
 使用语义版本号来管理代码：语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新：
 
@@ -155,5 +156,7 @@ date: "2019-09-24"
 - 如果有大变动，向下不兼容，需要更新X位
 
 除此以外还可以添加诸如 Alpha、Beta 等测试版本标识。
+
+> 详细规定：<https://semver.org/lang/zh-CN/>
 
 <br/>
