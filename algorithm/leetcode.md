@@ -74,6 +74,7 @@ date: "2020-03-27"
 | 151  | 中等 | [翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)                            | 字符串      | split -> reverse -> join                                     |
 | 169  | 简单 | [多数元素](https://leetcode-cn.com/problems/majority-element)                                                | 数组        | 哈希表统计出现次数，某一值出现次数过半数则结束               |
 | 175  | 简单 | [组合两个表](https://leetcode-cn.com/problems/combine-two-tables)                                            | SQL JOIN    | `A left join B on A.key = B.key`                             |
+| 200  | 中等 | [岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)                                              | 矩阵 遍历   | 典型 DFS / BFS / 并查集                                      |
 | 206  | 简单 | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list)                                             | 链表        | prev、current、current.next 三角恋                           |
 | 225  | 简单 | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)                                | 队列 设计   | 前n-1个数从队头出来返入队尾，原本的队尾即可从队头取出        |
 | 227  | 中等 | [基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii)                                        | 设计        | 加减直接运算，乘除则先把之前加减的给吐出来运算完了再加回去   |
