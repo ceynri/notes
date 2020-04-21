@@ -136,13 +136,15 @@ date: "2020-03-27"
 
 ## 1024+ 题
 
-| 序号 | 难度 | 题目                                                                                                           | 标签               | 思路                 |
-| ---- | ---- | -------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------- |
-| 1071 | 简单 | [字符串的最大公因子](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings)                      |                    |                      |
-| 1103 | 简单 | [分糖果 II](https://leetcode-cn.com/problems/distribute-candies-to-people)                                     |                    |                      |
-| 1111 | 中等 | [有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 字符串 子序列 分组 | 利用奇偶性进行分组   |
-| 1160 | 简单 | [拼写单词](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)                       |                    |                      |
-| 1162 | 中等 | [地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)                                     | 图 遍历            | 多源DFS，visited数组 |
+| 序号 | 难度 | 题目                                                                                                           | 标签          | 思路                                                      |
+| ---- | ---- | -------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------- |
+| 1071 | 简单 | [字符串的最大公因子](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings)                      |               |                                                           |
+| 1103 | 简单 | [分糖果 II](https://leetcode-cn.com/problems/distribute-candies-to-people)                                     |               |                                                           |
+| 1111 | 中等 | [有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 子序列 分组   | 利用奇偶性进行分组                                        |
+| 1160 | 简单 | [拼写单词](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)                       |               |                                                           |
+| 1162 | 中等 | [地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)                                     | 图 遍历       | 多源DFS，visited数组                                      |
+| 1248 | 中等 | [统计「优美子数组」](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/)                         | 子序列 前缀和 | 找到所有奇数，然后(odd[i]−odd[i−1])∗(odd[i+k]−odd[i+k−1]) |
+| 1248 | -    | -                                                                                                              | -             | 改为差分形式，遍历的数通过左最近奇数i找到odd[i-k]来累加   |
 
 ## 程序员面试金典系列
 
