@@ -88,7 +88,7 @@ date: "2020-03-27"
 | 289  | 中等 | [生命游戏](https://leetcode-cn.com/problems/game-of-life/)                                      | 矩阵 卷积       | 状态值少，可以使用位运算，在不同的位保存不同阶段的状态       |
 | 300  | 中等 | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)               | 动态规划 子序列 | 后面的dp从前面符合条件的dp取最大                             |
 | 300  | -    | -                                                                                               | 贪心 二分法     | 维护一个序列：大的接在后面，小的找个位置挤掉一个相对大的     |
-| 322  | 中等 | [零钱兑换](https://leetcode-cn.com/problems/coin-change)                                        | 动态规划        | `dp[i] = Math.min(dp[i], dp[i - coin] + 1)`                  |
+| 322  | 中等 | [零钱兑换](https://leetcode-cn.com/problems/coin-change)                                        | 动态规划        | 01背包问题，`dp[i] = Math.min(dp[i], dp[i - coin] + 1)`      |
 | 322  | -    | -                                                                                               | 贪心 回溯       | 每次贪心地选择尽量大的硬币（需回溯所有情况以保证最优）       |
 | 355  | 中等 | [设计推特](https://leetcode-cn.com/problems/design-twitter/)                                    | 设计            | 使用哈希表、链表、优先队列以尽量低的复杂度解决多路归并问题   |
 | 357  | 中等 | [计算各个位数不同的数字个数](https://leetcode-cn.com/problems/count-numbers-with-unique-digits) | 数学            | 数的排列组合                                                 |
@@ -154,6 +154,7 @@ date: "2020-03-27"
 | 面试题 01.06 | 简单 | [字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci)     | 字符串    | 取一字符，while自增循环计其连续个数，加入结果字符串    |
 | 面试题 01.07 | 中等 | [旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)        | 矩阵 交换 | 分成4区，顺时针交换；或者先转置，再水平翻转            |
 | 面试题 04.03 | 中等 | [特定深度节点链表](https://leetcode-cn.com/problems/list-of-depth-lcci) | 树 遍历   | 层次遍历（BFS）一层一次循环或者DFS将深度当参数传入     |
+| 面试题 08.11 | 中等 | [硬币](https://leetcode-cn.com/problems/coin-lcci/)                     | 动态规划  | 完全背包问题，关键点在于面额枚举在外层，背包遍历在内层 |
 | 面试题 10.01 | 简单 | [合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci)    | 数组      | 类似归并，要点是从后往前遍历，从尾巴开始填充           |
 | 面试题 16.03 | 困难 | [交点](https://leetcode-cn.com/problems/intersection-lcci/)             | 数学      | 参数方程表示线段，求交点，考虑斜率相等重叠等情况       |
 | 面试题 17.16 | 简单 | [按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci)            | 动态规划  | dp[i]=max(dp[i-1], dp[i-2]+val[i])（三个变量迭代即可） |
