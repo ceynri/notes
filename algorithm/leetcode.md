@@ -172,6 +172,7 @@ date: "2020-03-27"
 | 面试题33      | 中等 | [二叉搜索树的后序遍历序列](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof) | 树        | 翻转后序遍历结果就是镜像先序遍历+搜索树先序遍历递增性质 |
 | 面试题40      | 简单 | [最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof)                                      | 排序 TopK | 堆排序（O(nlogk)） / 快速排序变种（O(n)）               |
 | 面试题46      | 中等 | [把数字翻译成字符串](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof)                |           |                                                         |
+| 面试题51      | 困难 | [数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)                            | 数组 排序 | 和顺序有关需优化可考虑排序算法。本题一边归并一边统计    |
 | 面试题57 - II | 简单 | [和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof)              |           |                                                         |
 | 面试题59 - II | 中等 | [队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof)                                   |           |                                                         |
 | 面试题62      | 简单 | [圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)    | 数学      | 约瑟夫环循环链表可解 但数学推导从结果反推起始位置更好   |
