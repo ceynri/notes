@@ -55,6 +55,8 @@ date: "2020-03-27"
 | 11   | 中等 | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)                                | 数组 贪心   | 短板决定高度：两板中较短一版向中心找更长的板                 |
 | 21   | 简单 | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)                                 | 链表        | -                                                            |
 | 22   | 中等 | [括号生成](https://leetcode-cn.com/problems/generate-parentheses/)                                           | 回溯        | 还有'('时就插入'('，回溯，剩余')'多于'('就插入')'            |
+| 23   | 困难 | [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)                                    | 链表 分治   | 已经具有了多个子问题，可以子问题两两合并成一个较大的子问题   |
+| 23   | -    | -                                                                                                            | 优先队列    | 使用优先队列，用最小堆维护每个链表的首元素，便可每次取得最小 |
 | 24   | 中等 | [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)                                 | 链表        | 两两一组，每次记录前一组的最后一个                           |
 | 28   | 简单 | [实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)                                           | 字符串      | 暴力 / Sunday / KMP                                          |
 | 36   | 中等 | [有效的数独](https://leetcode-cn.com/problems/valid-sudoku)                                                  | 数组        | 用三个对象数组，空间换时间，可仅一次遍历                     |
@@ -65,7 +67,7 @@ date: "2020-03-27"
 | 55   | 中等 | [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)                                                      | 数组 贪心   | 一步一步走，不断延拓我们能够达到的最大边界                   |
 | 56   | 中等 | [合并区间](https://leetcode-cn.com/problems/merge-intervals/)                                                | 数组        | 先以起始位置排序，再按顺序比较，接壤则合并                   |
 | 72   | 困难 | [编辑距离](https://leetcode-cn.com/problems/edit-distance/)                                                  | 动态规划    | 二维动归，抽象出三种修改方式的状态转移关系                   |
-| 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组 查找   | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
+| 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组 分治   | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
 | 88   | 简单 | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)                                      | 数组        | 逆向思维，从后往前两两比较可以让出位置                       |
 | 94   | 中等 | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)                          | 树          | 左遍历压栈到底，弹出节点值，取其右节点继续左遍历             |
 | 100  | 简单 | [相同的树](https://leetcode-cn.com/problems/same-tree/)                                                      | 树          | 选一种遍历方式同时遍历两棵树即可                             |
@@ -88,7 +90,7 @@ date: "2020-03-27"
 | ---- | ---- | ----------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------ |
 | 289  | 中等 | [生命游戏](https://leetcode-cn.com/problems/game-of-life/)                                      | 矩阵 卷积       | 状态值少，可以使用位运算，在不同的位保存不同阶段的状态       |
 | 300  | 中等 | [最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)               | 动态规划 子序列 | 后面的dp从前面符合条件的dp取最大                             |
-| 300  | -    | -                                                                                               | 贪心 二分法     | 维护一个序列：大的接在后面，小的找个位置挤掉一个相对大的     |
+| 300  | -    | -                                                                                               | 贪心 分治       | 维护一个序列：大的接在后面，小的找个位置挤掉一个相对大的     |
 | 322  | 中等 | [零钱兑换](https://leetcode-cn.com/problems/coin-change)                                        | 动态规划        | 01背包问题，`dp[i] = Math.min(dp[i], dp[i - coin] + 1)`      |
 | 322  | -    | -                                                                                               | 贪心 回溯       | 每次贪心地选择尽量大的硬币（需回溯所有情况以保证最优）       |
 | 355  | 中等 | [设计推特](https://leetcode-cn.com/problems/design-twitter/)                                    | 设计            | 使用哈希表、链表、优先队列以尽量低的复杂度解决多路归并问题   |
@@ -124,7 +126,7 @@ date: "2020-03-27"
 | 838  | 中等 | [推多米诺](https://leetcode-cn.com/problems/push-dominoes)                                                     | 数组 双指针   | 双指针根据不同的情况进行区域划分，对区域做对应的操作          |
 | 841  | 中等 | [钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)                                                  | 遍历          | DFS/BFS，把当前进入的房间内未去过的房间的钥匙拿到             |
 | 876  | 简单 | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)                                   | 链表          | 经典快慢指针                                                  |
-| 887  | 困难 | [鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)                                                   | 动态规划 二分 | dp(K,N)=1+min(max(dp(K-1,X-1),dp(K,N-X))) K蛋数 N层数 X当前层 |
+| 887  | 困难 | [鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)                                                   | 动态规划 分治 | dp(K,N)=1+min(max(dp(K-1,X-1),dp(K,N-X))) K蛋数 N层数 X当前层 |
 | 892  | 简单 | [三维形体的表面积](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)                                 | 几何          | 注意不能用三视图算 可先算所有立方体的表面积再减去被遮挡的面   |
 | 905  | 简单 | [按奇偶排序数组](https://leetcode-cn.com/problems/sort-array-by-parity)                                        |               |                                                               |
 | 912  | 中等 | [排序数组](https://leetcode-cn.com/problems/sort-an-array/)                                                    | 排序          | 任意实现一种排序                                              |
