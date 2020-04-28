@@ -59,6 +59,7 @@ date: "2020-03-27"
 | 23   | -    | -                                                                                                            | 优先队列    | 使用优先队列，用最小堆维护每个链表的首元素，便可每次取得最小 |
 | 24   | 中等 | [两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)                                 | 链表        | 两两一组，每次记录前一组的最后一个                           |
 | 28   | 简单 | [实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)                                           | 字符串      | 暴力 / Sunday / KMP                                          |
+| 33   | 中等 | [搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)                         | 查找        | 二分法拓展，判断mid与哪边围起来是有序的且目标是否在这个范围  |
 | 36   | 中等 | [有效的数独](https://leetcode-cn.com/problems/valid-sudoku)                                                  | 数组        | 用三个对象数组，空间换时间，可仅一次遍历                     |
 | 42   | 困难 | [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)                                              | 数组 记忆化 | 遍历两次，记下每个元素的左最高元素和右最高元素，然后取交集   |
 | 42   | -    | -                                                                                                            | 数组 栈     | 高度向下时压栈，向上时元素出栈并与当前元素计算水槽宽高       |
@@ -164,21 +165,22 @@ date: "2020-03-27"
 
 ## 剑指Offer系列
 
-| 序号          | 难度 | 题目                                                                                                          | 标签      | 思路                                                    |
-| ------------- | ---- | ------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------- |
-| 面试题10- I   | 简单 | [斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof)                                    | 数学      | 基础题，直接用两个变量递推就可以                        |
-| 面试题11      | 简单 | [旋转数组的最小数字](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof)              | 数组 查找 | 二分查找的变种，注意两指针相等时需要做保守策略          |
-| 面试题13      | 中等 | [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)                      | 矩阵 遍历 | DFS/BFS 仔细分析限制条件，只需向右/下走即可遍历所有     |
-| 面试题14- I   | 中等 | [剪绳子](https://leetcode-cn.com/problems/jian-sheng-zi-lcof)                                                 | 数学 贪心 | 需要能观察出规律，或者数学推导，否则需动归              |
-| 面试题26      | 中等 | [树的子结构](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof)                                         | 树        | 二叉树版的字符串比对，时间复杂度O(M*N)可以了            |
-| 面试题27      | 简单 | [二叉树的镜像](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof)                                | 树        | 递归 left, right = mirror(right), mirror[left]          |
-| 面试题33      | 中等 | [二叉搜索树的后序遍历序列](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof) | 树        | 翻转后序遍历结果就是镜像先序遍历+搜索树先序遍历递增性质 |
-| 面试题40      | 简单 | [最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof)                                      | 排序 TopK | 堆排序（O(nlogk)） / 快速排序变种（O(n)）               |
-| 面试题46      | 中等 | [把数字翻译成字符串](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof)                |           |                                                         |
-| 面试题51      | 困难 | [数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)                            | 数组 排序 | 和顺序有关需优化可考虑排序算法。本题一边归并一边统计    |
-| 面试题57 - II | 简单 | [和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof)              |           |                                                         |
-| 面试题59 - II | 中等 | [队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof)                                   |           |                                                         |
-| 面试题62      | 简单 | [圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)    | 数学      | 约瑟夫环循环链表可解 但数学推导从结果反推起始位置更好   |
+| 序号        | 难度 | 题目                                                                                                          | 标签      | 思路                                                    |
+| ----------- | ---- | ------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------- |
+| 面试题10-I  | 简单 | [斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof)                                    | 数学      | 基础题，直接用两个变量递推就可以                        |
+| 面试题11    | 简单 | [旋转数组的最小数字](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof)              | 数组 查找 | 二分查找的变种，注意两指针相等时需要做保守策略          |
+| 面试题13    | 中等 | [机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)                      | 矩阵 遍历 | DFS/BFS 仔细分析限制条件，只需向右/下走即可遍历所有     |
+| 面试题14-I  | 中等 | [剪绳子](https://leetcode-cn.com/problems/jian-sheng-zi-lcof)                                                 | 数学 贪心 | 需要能观察出规律，或者数学推导，否则需动归              |
+| 面试题26    | 中等 | [树的子结构](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof)                                         | 树        | 二叉树版的字符串比对，时间复杂度O(M*N)可以了            |
+| 面试题27    | 简单 | [二叉树的镜像](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof)                                | 树        | 递归 left, right = mirror(right), mirror[left]          |
+| 面试题33    | 中等 | [二叉搜索树的后序遍历序列](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof) | 树        | 翻转后序遍历结果就是镜像先序遍历+搜索树先序遍历递增性质 |
+| 面试题40    | 简单 | [最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof)                                      | 排序 TopK | 堆排序（O(nlogk)） / 快速排序变种（O(n)）               |
+| 面试题46    | 中等 | [把数字翻译成字符串](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof)                |           |                                                         |
+| 面试题51    | 困难 | [数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)                            | 数组 排序 | 和顺序有关需优化可考虑排序算法。本题一边归并一边统计    |
+| 面试题56-I  | 中等 | [数组中数字出现的次数](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/)         | 位运算    | 要求低时空复杂度，考虑位运算，又有重复的条件，考虑异或  |
+| 面试题57-II | 简单 | [和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof)              |           |                                                         |
+| 面试题59-II | 中等 | [队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof)                                   |           |                                                         |
+| 面试题62    | 简单 | [圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)    | 数学      | 约瑟夫环循环链表可解 但数学推导从结果反推起始位置更好   |
 
 ## LeetCode 周赛
 
