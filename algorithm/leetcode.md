@@ -144,6 +144,7 @@ date: "2020-03-27"
 | 序号 | 难度 | 题目                                                                                                           | 标签          | 思路                                                      |
 | ---- | ---- | -------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------- |
 | 1071 | 简单 | [字符串的最大公因子](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings)                      |               |                                                           |
+| 1095 | 困难 | [山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array/)                               | 二分查找      | 二分找山顶时mid与mid+1比大小识别坡度，左右坡分别找target  |
 | 1103 | 简单 | [分糖果 II](https://leetcode-cn.com/problems/distribute-candies-to-people)                                     |               |                                                           |
 | 1111 | 中等 | [有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/) | 子序列 分组   | 利用奇偶性进行分组                                        |
 | 1160 | 简单 | [拼写单词](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)                       |               |                                                           |
