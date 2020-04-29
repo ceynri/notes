@@ -153,15 +153,16 @@ date: "2020-03-27"
 
 ## 程序员面试金典系列
 
-| 序号         | 难度 | 题目                                                                    | 标签      | 思路                                                   |
-| ------------ | ---- | ----------------------------------------------------------------------- | --------- | ------------------------------------------------------ |
-| 面试题 01.06 | 简单 | [字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci)     | 字符串    | 取一字符，while自增循环计其连续个数，加入结果字符串    |
-| 面试题 01.07 | 中等 | [旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)        | 矩阵 交换 | 分成4区，顺时针交换；或者先转置，再水平翻转            |
-| 面试题 04.03 | 中等 | [特定深度节点链表](https://leetcode-cn.com/problems/list-of-depth-lcci) | 树 遍历   | 层次遍历（BFS）一层一次循环或者DFS将深度当参数传入     |
-| 面试题 08.11 | 中等 | [硬币](https://leetcode-cn.com/problems/coin-lcci/)                     | 动态规划  | 完全背包问题，关键点在于面额枚举在外层，背包遍历在内层 |
-| 面试题 10.01 | 简单 | [合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci)    | 数组      | 类似归并，要点是从后往前遍历，从尾巴开始填充           |
-| 面试题 16.03 | 困难 | [交点](https://leetcode-cn.com/problems/intersection-lcci/)             | 数学      | 参数方程表示线段，求交点，考虑斜率相等重叠等情况       |
-| 面试题 17.16 | 简单 | [按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci)            | 动态规划  | dp[i]=max(dp[i-1], dp[i-2]+val[i])（三个变量迭代即可） |
+| 序号         | 难度 | 题目                                                                    | 标签      | 思路                                                     |
+| ------------ | ---- | ----------------------------------------------------------------------- | --------- | -------------------------------------------------------- |
+| 面试题 01.06 | 简单 | [字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci)     | 字符串    | 取一字符，while自增循环计其连续个数，加入结果字符串      |
+| 面试题 01.07 | 中等 | [旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)        | 矩阵 交换 | 分成4区，顺时针交换；或者先转置，再水平翻转              |
+| 面试题 04.03 | 中等 | [特定深度节点链表](https://leetcode-cn.com/problems/list-of-depth-lcci) | 树 遍历   | 层次遍历（BFS）一层一次循环或者DFS将深度当参数传入       |
+| 面试题 08.11 | 中等 | [硬币](https://leetcode-cn.com/problems/coin-lcci/)                     | 动态规划  | 完全背包问题，关键点在于面额枚举在外层，背包遍历在内层   |
+| 面试题 10.01 | 简单 | [合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci)    | 数组      | 类似归并，要点是从后往前遍历，从尾巴开始填充             |
+| 面试题 16.03 | 困难 | [交点](https://leetcode-cn.com/problems/intersection-lcci/)             | 数学      | 参数方程表示线段，求交点，考虑斜率相等重叠等情况         |
+| 面试题 16.16 | 中等 | [部分排序](https://leetcode-cn.com/problems/sub-sort-lcci/)             | 双指针    | 从左到右遍历不是为了找第一个不守序的元素，而是找最后一个 |
+| 面试题 17.16 | 简单 | [按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci)            | 动态规划  | dp[i]=max(dp[i-1], dp[i-2]+val[i])（三个变量迭代即可）   |
 
 ## 剑指Offer系列
 
