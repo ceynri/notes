@@ -80,6 +80,8 @@ date: "2020-03-27"
 | 175  | 简单 | [组合两个表](https://leetcode-cn.com/problems/combine-two-tables)                                            | SQL JOIN    | `A left join B on A.key = B.key`                             |
 | 199  | 中等 | [二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/)                              | 树          | BFS（层次遍历）/ DFS（右子树优先+维护当前遍历的节点深度）    |
 | 200  | 中等 | [岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)                                              | 矩阵 遍历   | 典型 DFS / BFS / 并查集                                      |
+| 202  | 简单 | [快乐数](https://leetcode-cn.com/problems/happy-number/comments/)                                            | 哈希表      | Set存储出现过的结果以避免循环                                |
+| 202  | 简单 | [快乐数](https://leetcode-cn.com/problems/happy-number/comments/)                                            | 双指针      | 对于判断是否有无限循环的问题，可以考虑快慢指针               |
 | 206  | 简单 | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list)                                             | 链表        | prev、current、current.next 三角恋                           |
 | 225  | 简单 | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)                                | 队列 设计   | 前n-1个数从队头出来返入队尾，原本的队尾即可从队头取出        |
 | 227  | 中等 | [基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii)                                        | 设计        | 加减直接运算，乘除则先把之前加减的给吐出来运算完了再加回去   |
@@ -126,7 +128,7 @@ date: "2020-03-27"
 | 836  | 简单 | [矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap)                                                 | 几何          | max(x1, x3) < min(x2, x4) && max(y1, y3) < min(y2, y4)        |
 | 838  | 中等 | [推多米诺](https://leetcode-cn.com/problems/push-dominoes)                                                     | 数组 双指针   | 双指针根据不同的情况进行区域划分，对区域做对应的操作          |
 | 841  | 中等 | [钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)                                                  | 遍历          | DFS/BFS，把当前进入的房间内未去过的房间的钥匙拿到             |
-| 876  | 简单 | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)                                   | 链表          | 经典快慢指针                                                  |
+| 876  | 简单 | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)                                   | 链表 双指针   | 经典快慢指针                                                  |
 | 887  | 困难 | [鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)                                                   | 动态规划 分治 | dp(K,N)=1+min(max(dp(K-1,X-1),dp(K,N-X))) K蛋数 N层数 X当前层 |
 | 892  | 简单 | [三维形体的表面积](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)                                 | 几何          | 注意不能用三视图算 可先算所有立方体的表面积再减去被遮挡的面   |
 | 905  | 简单 | [按奇偶排序数组](https://leetcode-cn.com/problems/sort-array-by-parity)                                        |               |                                                               |
