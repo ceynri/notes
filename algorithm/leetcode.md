@@ -51,6 +51,7 @@ date: "2020-03-27"
 | ---- | ---- | ------------------------------------------------------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | 1    | 简单 | [两数之和](https://leetcode-cn.com/problems/two-sum/)                                                        | 数组        | 利用哈希表的key，使key+value=target                          |
 | 2    | 中等 | [两数相加](https://leetcode-cn.com/problems/add-two-numbers/)                                                | 链表        | 进位状态、3while循环                                         |
+| 3    | 中等 | [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)     | 串          | 连续字串需满足某性质问题，可考虑滑动窗口，再用Set保持无重复  |
 | 8    | 中等 | [字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)                            | 字符串 正则 | 正则匹配 `/^(-|\+)?\d+/`                                     |
 | 11   | 中等 | [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)                                | 数组 贪心   | 短板决定高度：两板中较短一版向中心找更长的板                 |
 | 21   | 简单 | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)                                 | 链表        | -                                                            |
