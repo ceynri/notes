@@ -65,6 +65,7 @@ date: "2020-03-27"
 | 42   | -    | -                                                                                                            | 数组 栈     | 高度向下时压栈，向上时元素出栈并与当前元素计算水槽宽高       |
 | 42   | -    | -                                                                                                            | 数组 双指针 | 从两边各自记录找到的最大值，矮的一边向中遍历，小于最大可倒水 |
 | 46   | 中等 | [全排列](https://leetcode-cn.com/problems/permutations/)                                                     | 回溯        | 典型利用递归的特性实现回溯                                   |
+| 53   | 简单 | [最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)                                             | 动态规划    | 记录某位置前面的最大子序和，判断该位置是否要加上前子序和变大 |
 | 55   | 中等 | [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)                                                      | 数组 贪心   | 一步一步走，不断延拓我们能够达到的最大边界                   |
 | 56   | 中等 | [合并区间](https://leetcode-cn.com/problems/merge-intervals/)                                                | 数组        | 先以起始位置排序，再按顺序比较，接壤则合并                   |
 | 72   | 困难 | [编辑距离](https://leetcode-cn.com/problems/edit-distance/)                                                  | 动态规划    | 二维动归，抽象出三种修改方式的状态转移关系                   |
