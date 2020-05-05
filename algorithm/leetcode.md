@@ -65,6 +65,7 @@ date: "2020-03-27"
 | 42   | 困难 | [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)                                              | 数组 记忆化 | 遍历两次，记下每个元素的左最高元素和右最高元素，然后取交集   |
 | 42   | -    | -                                                                                                            | 数组 栈     | 高度向下时压栈，向上时元素出栈并与当前元素计算水槽宽高       |
 | 42   | -    | -                                                                                                            | 数组 双指针 | 从两边各自记录找到的最大值，矮的一边向中遍历，小于最大可倒水 |
+| 45   | 困难 | [跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/)                                                | 贪心        | 维护当前步数可达最远距离，在该范围内探索加一步可达的最远距离 |
 | 46   | 中等 | [全排列](https://leetcode-cn.com/problems/permutations/)                                                     | 回溯        | 典型利用递归的特性实现回溯                                   |
 | 53   | 简单 | [最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)                                             | 动态规划    | 记录某位置前面的最大子序和，判断该位置是否要加上前子序和变大 |
 | 55   | 中等 | [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)                                                      | 数组 贪心   | 一步一步走，不断延拓我们能够达到的最大边界                   |
@@ -73,6 +74,8 @@ date: "2020-03-27"
 | 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组 分治   | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
 | 88   | 简单 | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)                                      | 数组        | 逆向思维，从后往前两两比较可以让出位置                       |
 | 94   | 中等 | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)                          | 树          | 左遍历压栈到底，弹出节点值，取其右节点继续左遍历             |
+| 98   | 中等 | [验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)                              | 二叉搜索树  | 利用定义，设计递归函数`fn(root,lower,upper)`限制子树保持性质 |
+| 98   | -    | -                                                                                                            | -           | 利用性质，判断中序遍历结果是否为升序即可                     |
 | 100  | 简单 | [相同的树](https://leetcode-cn.com/problems/same-tree/)                                                      | 树          | 选一种遍历方式同时遍历两棵树即可                             |
 | 121  | 简单 | [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock)                       | 数组        | 线性遍历，记录当前已知最小值，相减以计算最大利润             |
 | 122  | 简单 | [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)                 | 数组        | 相邻相减，如果是正的就加起来                                 |
