@@ -1,6 +1,7 @@
 ---
 title: 工具使用手册
 date: 2020-05-08
+sidebar: false
 ---
 
 # 工具使用手册

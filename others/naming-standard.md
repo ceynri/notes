@@ -1,6 +1,7 @@
 ---
-title: "命名规范"
-date: "2019-09-24"
+title: 命名规范
+date: 2019-09-24
+sidebar: true
 ---
 
 # 命名规范

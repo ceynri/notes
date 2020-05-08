@@ -1,6 +1,7 @@
 ---
 title: "Git 学习笔记导航"
 date: "2019-08-22"
+sidebar: false
 ---
 
 # Git 学习笔记
