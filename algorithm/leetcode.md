@@ -9,11 +9,15 @@ date: "2020-03-27"
 
 > **⚠ 整理中**
 > 
-> 最近日期：04/14
+> 最近日期：05/08
 > 
-> 之前做过的题目补充题解的进度：85%
+> 之前做过的题目补充题解的进度：95%
+
+> md 表格生成代码：
 > 
-> 手动整理太慢，简单写了一份代码用于获得所有已通过的题目信息并生成markdown表格
+> 如果已经写了一些题目了，第一次想要整理成下面这样的表格用，手动整理太慢
+> 
+> 简单写了一份代码用于获得所有已通过的题目信息并生成 markdown 表格
 > 
 > 有需要可以自取，根据你的需求改一改就好了
 > 
@@ -88,6 +92,8 @@ date: "2020-03-27"
 | 202  | 简单 | [快乐数](https://leetcode-cn.com/problems/happy-number/comments/)                                            | 哈希表      | Set存储出现过的结果以避免循环                                |
 | 202  | 简单 | [快乐数](https://leetcode-cn.com/problems/happy-number/comments/)                                            | 双指针      | 对于判断是否有无限循环的问题，可以考虑快慢指针               |
 | 206  | 简单 | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list)                                             | 链表        | prev、current、current.next 三角恋                           |
+| 221  | 中等 | [最大正方形](https://leetcode-cn.com/problems/maximal-square/)                                               | 矩阵 遍历   | 对每个为1的元素，将其作为正方形左上角，看是否能补两边长变大  |
+| 221  | -    | -                                                                                                            | 动态规划    | 重复计算考虑动归，dp(i,j)等于i-1、j-1、i-1且j-1三者最小值+1  |
 | 225  | 简单 | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)                                | 队列 设计   | 前n-1个数从队头出来返入队尾，原本的队尾即可从队头取出        |
 | 227  | 中等 | [基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii)                                        | 设计        | 加减直接运算，乘除则先把之前加减的给吐出来运算完了再加回去   |
 | 235  | 简单 | [二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 二叉搜索树  | 利用搜索树性质，找到值在两数之间的数即可                     |
@@ -115,36 +121,40 @@ date: "2020-03-27"
 
 ## 512~767 题
 
-| 序号 | 难度 | 题目                                                                                                    | 标签      | 思路                                                         |
-| ---- | ---- | ------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------ |
-| 513  | 中等 | [找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/)                         | 树        | 记录当前遍历的深度，最深的最左叶子总是会第一个遍历到         |
-| 542  | 中等 | [01 矩阵](https://leetcode-cn.com/problems/01-matrix/)                                                  | 矩阵 遍历 | 逆向思维，将“每个1都去找最近的0”变成“所有0组成超级源点去BFS” |
-| 543  | 简单 | [二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)                                | 树 遍历   | 记录左树和右树高，记录最大的左右树高之和，返回1+最高子树高   |
-| 599  | 简单 | [两个列表的最小索引总和](https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists)               | 哈希表    | 将其中一表用\<list[i], i>存为哈希表，另一表线性遍历即可      |
-| 643  | 简单 | [子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i)                       | 数组      | 定宽滑动窗口                                                 |
-| 695  | 中等 | [岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island)                                   | 矩阵 遍历 | 典型矩阵DFS，每个位置做好visited标记后探索四个方向           |
-| 744  | 简单 | [寻找比目标字母大的最小字母](https://leetcode-cn.com/problems/find-smallest-letter-greater-than-target) | 数组 查找 | 尤其注意数组具有一个“有序”的条件，采取线性遍历或二分法       |
-| 747  | 简单 | [至少是其他数字两倍的最大数](https://leetcode-cn.com/problems/largest-number-at-least-twice-of-others)  | 数组      | 线性遍历找到第一大和第二大的数进行比较即可                   |
+| 序号 | 难度 | 题目                                                                                                    | 标签      | 思路                                                          |
+| ---- | ---- | ------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------- |
+| 513  | 中等 | [找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/)                         | 树        | 记录当前遍历的深度，最深的最左叶子总是会第一个遍历到          |
+| 542  | 中等 | [01 矩阵](https://leetcode-cn.com/problems/01-matrix/)                                                  | 矩阵 遍历 | 逆向思维，将“每个1都去找最近的0”变成“所有0组成超级源点去BFS”  |
+| 543  | 简单 | [二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)                                | 树 遍历   | 记录左树和右树高，记录最大的左右树高之和，返回1+最高子树高    |
+| 572  | 简单 | [另一个树的子树](https://leetcode-cn.com/problems/subtree-of-another-tree/)                             | 树 遍历   | 难度大于表面，细节很多，最好联想串匹配问题去注意细节，DFS遍历 |
+| 572  | -    | -                                                                                                       | 树 串     | 既然和串匹配很像，KMP算法也能用在DFS上（难度可以算困难了）    |
+| 599  | 简单 | [两个列表的最小索引总和](https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists)               | 哈希表    | 将其中一表用\<list[i], i>存为哈希表，另一表线性遍历即可       |
+| 643  | 简单 | [子数组最大平均数 I](https://leetcode-cn.com/problems/maximum-average-subarray-i)                       | 数组      | 定宽滑动窗口                                                  |
+| 695  | 中等 | [岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island)                                   | 矩阵 遍历 | 典型矩阵DFS，每个位置做好visited标记后探索四个方向            |
+| 744  | 简单 | [寻找比目标字母大的最小字母](https://leetcode-cn.com/problems/find-smallest-letter-greater-than-target) | 数组 查找 | 尤其注意数组具有一个“有序”的条件，采取线性遍历或二分法        |
+| 747  | 简单 | [至少是其他数字两倍的最大数](https://leetcode-cn.com/problems/largest-number-at-least-twice-of-others)  | 数组      | 线性遍历找到第一大和第二大的数进行比较即可                    |
 
 ## 768~1024 题
 
-| 序号 | 难度 | 题目                                                                                                           | 标签          | 思路                                                          |
-| ---- | ---- | -------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------- |
-| 836  | 简单 | [矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap)                                                 | 几何          | max(x1, x3) < min(x2, x4) && max(y1, y3) < min(y2, y4)        |
-| 838  | 中等 | [推多米诺](https://leetcode-cn.com/problems/push-dominoes)                                                     | 数组 双指针   | 双指针根据不同的情况进行区域划分，对区域做对应的操作          |
-| 841  | 中等 | [钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)                                                  | 遍历          | DFS/BFS，把当前进入的房间内未去过的房间的钥匙拿到             |
-| 876  | 简单 | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)                                   | 链表 双指针   | 经典快慢指针                                                  |
-| 887  | 困难 | [鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)                                                   | 动态规划 分治 | dp(K,N)=1+min(max(dp(K-1,X-1),dp(K,N-X))) K蛋数 N层数 X当前层 |
-| 892  | 简单 | [三维形体的表面积](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)                                 | 几何          | 注意不能用三视图算 可先算所有立方体的表面积再减去被遮挡的面   |
-| 905  | 简单 | [按奇偶排序数组](https://leetcode-cn.com/problems/sort-array-by-parity)                                        |               |                                                               |
-| 912  | 中等 | [排序数组](https://leetcode-cn.com/problems/sort-an-array/)                                                    | 排序          | 任意实现一种排序                                              |
-| 914  | 简单 | [卡牌分组](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards)                                    |               |                                                               |
-| 938  | 简单 | [二叉搜索树的范围和](https://leetcode-cn.com/problems/range-sum-of-bst)                                        |               |                                                               |
-| 945  | 中等 | [使数组唯一的最小增量](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique)                |               |                                                               |
-| 958  | 中等 | [二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree)                     |               |                                                               |
-| 994  | 简单 | [腐烂的橘子](https://leetcode-cn.com/problems/rotting-oranges)                                                 |               |                                                               |
-| 999  | 简单 | [可以被一步捕获的棋子数](https://leetcode-cn.com/problems/available-captures-for-rook)                         |               |                                                               |
-| 1013 | 简单 | [将数组分成和相等的三个部分](https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum) |               |                                                               |
+| 序号 | 难度 | 题目                                                                                                           | 标签          | 思路                                                           |
+| ---- | ---- | -------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------- |
+| 836  | 简单 | [矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap)                                                 | 几何          | max(x1,x3) < min(x2,x4) && max(y1,y3) < min(y2,y4)             |
+| 838  | 中等 | [推多米诺](https://leetcode-cn.com/problems/push-dominoes)                                                     | 数组 双指针   | 双指针根据不同的情况进行区域划分，对区域做对应的操作           |
+| 841  | 中等 | [钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)                                                  | 遍历          | DFS/BFS，把当前进入的房间内未去过的房间的钥匙拿到              |
+| 876  | 简单 | [链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)                                   | 链表 双指针   | 经典快慢指针                                                   |
+| 887  | 困难 | [鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/)                                                   | 动态规划 分治 | dp(K,N)=1+min(max(dp(K-1,X-1),dp(K,N-X))) K蛋数 N层数 X当前层  |
+| 892  | 简单 | [三维形体的表面积](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)                                 | 几何          | 注意不能用三视图算 可先算所有立方体的表面积再减去被遮挡的面    |
+| 905  | 简单 | [按奇偶排序数组](https://leetcode-cn.com/problems/sort-array-by-parity)                                        | 排序          | O(NlogN)：使用排序算法，以模2的结果作为排序依据                |
+| 905  | -    | -                                                                                                              | 遍历          | O(N)：两次遍历，一次输出偶数一次输出奇数                       |
+| 905  | -    | -                                                                                                              | 双指针        | O(N)：快排思想，双指针指向左右边缘，向中心找一对不守序的数     |
+| 912  | 中等 | [排序数组](https://leetcode-cn.com/problems/sort-an-array/)                                                    | 排序          | 任意实现一种排序                                               |
+| 914  | 简单 | [卡牌分组](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards)                                    | 哈希表        | 哈希表统计各元素个数，求个数的最大公约数是否大于2              |
+| 938  | 简单 | [二叉搜索树的范围和](https://leetcode-cn.com/problems/range-sum-of-bst)                                        | 二叉搜索树    | 依据性质，根据是否在区间内决定是否深入DFS即可                  |
+| 945  | 中等 | [使数组唯一的最小增量](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique)                | 数组 排序     | 先排序，然后线性遍历查找重复                                   |
+| 958  | 中等 | [二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree)                     | 树            | 层次遍历，每个入队元素都记录好自己的序号，观察遍历结果是否连续 |
+| 994  | 简单 | [腐烂的橘子](https://leetcode-cn.com/problems/rotting-oranges)                                                 |               |                                                                |
+| 999  | 简单 | [可以被一步捕获的棋子数](https://leetcode-cn.com/problems/available-captures-for-rook)                         |               |                                                                |
+| 1013 | 简单 | [将数组分成和相等的三个部分](https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum) |               |                                                                |
 
 ## 1024+ 题
 
