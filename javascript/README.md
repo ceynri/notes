@@ -1,6 +1,7 @@
 ---
-title: "JavaScript 笔记手册导航"
-date: "2019-08-10"
+title: JavaScript 笔记手册
+date: 2019-08-10
+sidebar: false
 ---
 
 # JavaScript 笔记手册
