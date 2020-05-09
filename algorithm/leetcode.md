@@ -74,6 +74,8 @@ date: "2020-03-27"
 | 53   | 简单 | [最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)                                             | 动态规划    | 记录某位置前面的最大子序和，判断该位置是否要加上前子序和变大 |
 | 55   | 中等 | [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)                                                      | 数组 贪心   | 一步一步走，不断延拓我们能够达到的最大边界                   |
 | 56   | 中等 | [合并区间](https://leetcode-cn.com/problems/merge-intervals/)                                                | 数组        | 先以起始位置排序，再按顺序比较，接壤则合并                   |
+| 69   | 简单 | [x 的平方根](https://leetcode-cn.com/problems/sqrtx/)                                                        | 查找   | 二分法求平方根，注意琐碎细节                                 |
+| 69   | -    | -                                                                                                            | 数学        | 数值分析牛顿法求解x^2-a=0的根，转化为x'=(x+a/x)/2迭代方程    |
 | 72   | 困难 | [编辑距离](https://leetcode-cn.com/problems/edit-distance/)                                                  | 动态规划    | 二维动归，抽象出三种修改方式的状态转移关系                   |
 | 74   | 中等 | [搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)                                          | 数组 分治   | 二维的二分法，`[row, col] = [floor(mid/n), mid%n]`           |
 | 88   | 简单 | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array)                                      | 数组        | 逆向思维，从后往前两两比较可以让出位置                       |
