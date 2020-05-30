@@ -40,10 +40,11 @@ sidebar: true
 | Python     | underscore_case | UPPER_CASE | underscore_case | PascalCase |
 
 > 注：在 JavaScript 中，因为定义一个常量只需使用 const 写起来很简单，我个人习惯对于不会改变的量都会用 const 代替 let，从而避免误修改。
-> 
+>
 > 但我仍然使用 camelCase 命名这些 const 变量，因为它们大多数都不会被反复使用，只是一个中间变量。
-> 
+>
 > 而对于会被反复使用的、用来代替某字面量的“常量”，我会使用绝大部分语言都通用的 UPPER_CASE 进行命名，这非常直观。
+
 <br/>
 
 ## 前端
