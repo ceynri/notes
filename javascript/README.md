@@ -73,6 +73,7 @@ sidebar: false
 
 ## 其他
 
+- [JavaScript 编码规范](./others/coding-standard.md)
 - [API 速查表](./others/api-cheat-sheet.md)  （收录一些常用方法以及属性等）
 - [浏览器调试与代码测试](./others/debug&test.md)
 - [JavaScript 性能](./others/performance.md)
