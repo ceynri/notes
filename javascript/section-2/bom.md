@@ -1,6 +1,6 @@
 ---
-title: "BOM"
-date: "2019-09-07"
+title: 'BOM'
+date: '2019-09-07'
 ---
 
 # JavaScript | BOM
@@ -17,7 +17,7 @@ date: "2019-09-07"
 - [window 对象属性](#window-对象属性)
   - [window.screen 对象](#windowscreen-对象)
   - [window.location 对象](#windowlocation-对象)
-  - [window.History 对象](#windowhistory-对象)
+  - [window.history 对象](#windowhistory-对象)
   - [window.navigator 对象](#windownavigator-对象)
 - [Timing 事件](#timing-事件)
 - [Cookies](#cookies)
@@ -41,7 +41,6 @@ window.document.getElementById("header");
 // 等价于
 document.getElementById("header");
 ```
-
 
 **一些方法**
 
@@ -76,7 +75,7 @@ document.getElementById("header");
 
 ## 元素尺寸
 
-元素的一系列宽度属性：（Height类同）
+元素的一系列宽度属性：（Height 类同）
 
 | 属性        | 包括内容                   | 不包括内容           | 读写性 |
 | ----------- | -------------------------- | -------------------- | ------ |
@@ -97,9 +96,12 @@ document.getElementById("header");
 
 ```js
 let scrollHeight = Math.max(
-  document.body.scrollHeight, document.documentElement.scrollHeight,
-  document.body.offsetHeight, document.documentElement.offsetHeight,
-  document.body.clientHeight, document.documentElement.clientHeight
+  document.body.scrollHeight,
+  document.documentElement.scrollHeight,
+  document.body.offsetHeight,
+  document.documentElement.offsetHeight,
+  document.body.clientHeight,
+  document.documentElement.clientHeight
 );
 ```
 
@@ -110,15 +112,15 @@ let scrollHeight = Math.max(
 滚动页面需要等到 DOM 完全构建好才可以进行。
 
 - 获得当前的滚动状态建议使用 `window.pageYOffset/pageXOffset` 属性。（只读）
-    
-    > `documentElement.scrollLeft/scrollTop` 属性并不方便且存在 bugs，有些浏览器需要用 `document.body` 代替 `document.documentElement`。
+
+  > `documentElement.scrollLeft/scrollTop` 属性并不方便且存在 bugs，有些浏览器需要用 `document.body` 代替 `document.documentElement`。
 
 - 改变当前滚动：
-    | 描述                          | 方法                                  |
-    | ----------------------------- | ------------------------------------- |
-    | 绝对定位                      | window.scrollTo(*pageX*, *pageY*)     |
-    | 相对当前位置滚动              | window.scrollBy(*x*, *y*)             |
-    | *elem* 与 与窗口顶部/底部对齐 | *elem*.scrollIntoView([*topBoolean*]) |
+  | 描述 | 方法 |
+  | ----------------------------- | ------------------------------------- |
+  | 绝对定位 | window.scrollTo(_pageX_, _pageY_) |
+  | 相对当前位置滚动 | window.scrollBy(_x_, _y_) |
+  | _elem_ 与 与窗口顶部/底部对齐 | _elem_.scrollIntoView([*topBoolean*]) |
 
 <br/>
 
@@ -154,7 +156,7 @@ function getCoords(elem) {
 
   return {
     top: box.top + pageYOffset,
-    left: box.left + pageXOffset
+    left: box.left + pageXOffset,
   };
 }
 ```
@@ -175,7 +177,7 @@ function getCoords(elem) {
 - screen.availWidth
 - screen.availHeight
 
-色彩深度/像素深度（两者通常相等，意为表示一种颜色所需的bit数，如16位、24位、32位）：
+色彩深度/像素深度（两者通常相等，意为表示一种颜色所需的 bit 数，如 16 位、24 位、32 位）：
 
 - screen.colorDepth
 - screen.pixelDepth
@@ -184,17 +186,21 @@ function getCoords(elem) {
 
 ### window.location 对象
 
-| 属性 / 方法            | 描述                       |
-| ---------------------- | -------------------------- |
-| location.href          | 返回当前页面的 URL         |
-| location.hostname      | 返回 web 主机的域名        |
-| location.pathname      | 返回当前页面的路径或文件名 |
-| location.protocol      | 返回页面的 web 协议        |
-| location.assign(*url*) | 加载新文档                 |
+以 `https://docs.ceynri.cn/notes/javascript/section-2/bom.html?example=true#windows` 为例：
+
+| 属性 / 方法            | 描述                       | 例子                                                                      |
+| ---------------------- | -------------------------- | ------------------------------------------------------------------------- |
+| location.href          | 返回当前页面的 URL         | `https://docs.ceynri.cn/notes/javascript/section-2/bom.html?example=true` |
+| location.hostname      | 返回 web 主机的域名        | `docs.ceynri.cn`                                                          |
+| location.pathname      | 返回当前页面的路径或文件名 | `/notes/javascript/section-2/bom.html`                                    |
+| location.protocol      | 返回页面的 web 协议        | `https:`                                                                  |
+| location.search        | 获取 url 的参数            | `?example=true`                                                           |
+| location.hash          | 获取 url 锚点              | `#windows`                                                                |
+| location.assign(_url_) | 加载新文档                 | 类似于直接`location=url`                                                  |
 
 <br/>
 
-### window.History 对象
+### window.history 对象
 
 window.history 对象包含浏览器历史，为了保护用户的隐私，JavaScript 访问此对象存在限制。
 
@@ -228,19 +234,19 @@ window.navigator 对象包含有关访问者的信息。
 
 window 对象允许以指定的时间间隔执行代码,这些时间间隔称为定时事件。
 
-- setTimeout(*function*, *milliseconds*)  
+- setTimeout(_function_, _milliseconds_)  
   在等待指定的毫秒数后执行函数。
 
-- clearTimeout(*timeoutVariable*)  
+- clearTimeout(_timeoutVariable_)  
   停止执行 `setTimeout()` 中规定的函数。
 
-- setInterval(*function*, *milliseconds*)  
+- setInterval(_function_, _milliseconds_)  
   持续重复在等待指定的毫秒数后执行该函数。
 
-- clearInterval(*timeoutVariable*)  
+- clearInterval(_timeoutVariable_)  
   停止执行 `clearInterval()` 中规定的函数。
 
-其中，*timeoutVariable* 为 `setInterval()` 的返回值。
+其中，_timeoutVariable_ 为 `setInterval()` 的返回值。
 
 例子：
 
@@ -270,18 +276,19 @@ window 对象允许以指定的时间间隔执行代码,这些时间间隔称为
 
 - JavaScript 可以用 `document.cookie` 属性创建、读取、删除 cookie。
 
-    ```js
-    document.cookie = "username=Bill Gates; expires=Sun, 31 Dec 2017 12:00:00 UTC; path=/";
-    ```
+  ```js
+  document.cookie =
+    'username=Bill Gates; expires=Sun, 31 Dec 2017 12:00:00 UTC; path=/';
+  ```
 
-    通过 `path` 参数，您可以告诉浏览器 cookie 属于什么路径。默认情况下，cookie 属于当前页。
+  通过 `path` 参数，您可以告诉浏览器 cookie 属于什么路径。默认情况下，cookie 属于当前页。
 
-    默认情况下，在浏览器关闭时会删除 cookie。
+  默认情况下，在浏览器关闭时会删除 cookie。
 
 - 将 `document.cookie` 赋值给一个变量，会获得 cookie 的字符串。
-  
+
 - 将时间设置为过去，即可删除 cookie。
 
-    ```js
-    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    ```
+  ```js
+  document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+  ```
