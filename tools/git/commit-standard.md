@@ -7,11 +7,11 @@ date: 2020-05-08
 
 ## 前言
 
-观察别人的项目，有时候会发现好的项目的commit记录都遵循着`<header>: <subject>`的规则。
+观察别人的项目，有时候会发现好的项目的 commit 记录都遵循着`<header>: <subject>`的规则。
 
-好处显而易见：`header`能够第一时间了解到该commit的性质，`subject`则是对该commit的简短描述。
+好处显而易见：`header`能够第一时间了解到该 commit 的性质，`subject`则是对该 commit 的简短描述。
 
-保持该规范对commit的整洁性有着很大的帮助😄
+保持该规范对 commit 的整洁性有着很大的帮助 😄
 
 ## 规范
 
@@ -20,10 +20,10 @@ date: 2020-05-08
 其实在这方面，早就有人做好了 Git Commit 的自动化代码提交规范工具，比较常见的是 [Commitlint](https://www.npmjs.com/package/@commitlint/config-conventional)，它提出了一些简单的规范：
 
 - feat：新功能（feature）
-- fix：修补bug
+- fix：修补 bug
 - docs：文档（documentation）
-- style：格式方面的优化
-- refactor：重构
+- style：格式方面的优化（空格、代码格式化等）
+- refactor：代码重构（不是 bug 也不是 feature）
 - test：测试
 - chore：构建过程或辅助工具等无关紧要的变动
 
@@ -42,7 +42,7 @@ date: 2020-05-08
 上面的规范都是针对有代码的项目的，这里我自己简单地定一个面向文档笔记项目的 commit 规范，供大家参考：
 
 - new：新文章
-- feat：旧文档增加新内容
+- add：旧文档增加新内容
 - fix：错误内容的修正
 - typo：拼写错误
 - modify：部分内容修改
@@ -51,4 +51,12 @@ date: 2020-05-08
 - remove：删除文件
 - chore：其他无关紧要的变动
 
-毕竟是个人项目，适合自己，看起来舒服就好啦。
+还有一种更简洁的方法，就是用符号当作 header，冒号`:`也省略掉：
+
+- +：增加新东西
+- -：删减部分内容
+- *：修改代码
+- !：重要变动
+- ...
+
+也挺好看的，就是对于比较特殊的符号可能就不便于他人理解了。不过毕竟是个人项目，适合自己，看起来舒服就好啦。
