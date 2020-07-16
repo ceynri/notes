@@ -44,6 +44,8 @@ sidebar: false
 - [箭头函数](./section-1/es6/arrow-function.md)
 - [...运算符](./section-1/es6/three-point-operator.md)
 - [解构赋值](./section-1/es6/destructuring-assignment.md)
+- [Promise 对象](./section-1/es6/promise.md)
+- [async 函数](./section-1/es6/async.md)
 - [Symbol 类型](./section-1/es6/symbol.md)
 - [Map 与 Set 类型](./section-1/es6/map&set.md)
 - [Class 类](./section-1/es6/class.md) [没写完]
