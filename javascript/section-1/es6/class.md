@@ -122,24 +122,126 @@ class Driver extends Person {
     super.say();
   }
 }
+
 let driver = new Driver( ... );
 driver.say(); // Don't talk when driving.
               // 18 years old, is a driver
 ```
 
-### 字段
+### 属性
 
-类字段（field）的概念类似于 C++/Java 里的成员函数，直接写在 class 里：
+> 该特性较新，对旧浏览器需要 polyfill
+
+类的实例属性（field）的概念类似于 C++/Java 里的成员函数，直接写在 class 里：
 
 ```js
 class Person {
-  
+  momey = 100;
+  // ...
 }
+
+const haze = new Person();
+console.log(haze.money); // 100
 ```
+
+与类方法不同，它会绑定在实例而非原型上，改变某个实例的对应属性的值，不会影响其他实例。
+
+一般来说，我们都是在构造器里初始化一个属性，效果和字段类似：
+
+```js
+class Person {
+  constructor() {
+    this.money = 100;
+  }
+}
+
+console.log(haze.money); // 100
+```
+
+但效果没有直接写在外面的实例属性要更加直观和简单。
 
 ### 静态
 
-我们可以在类的方法前增加 `static` 关键字进行修饰，得到的静态方法可以
+有时候我们可能想将一个方法直接赋值在类本身，而与实例无关。我们可以在类的方法前增加 `static` 关键字进行修饰，得到的方法被称为“静态方法”。
+
+静态方法无需使用 new 创建对象后再调用。
+
+```js
+class Person {
+  static kind() {
+    console.log('human');
+  }
+}
+
+Person.kind(); // human
+```
+
+当我们想要编写与特定实例对象无关的方法时，使用静态方法来实现它是个比较合适的选择：
+
+```js
+class Person {
+  // 比较两个人的身高
+  static compareHeight(personA, personB) {
+    return personA.height > personB.height;
+  }
+}
+```
+
+```js
+class Person {
+  // 一般的构造方法
+  constructor(birthday) {
+    this.birthday = birthday;
+  }
+
+  // 工厂方法，通过调用类的静态方法来得到新的实例对象
+  static bronToday() {
+    return new this(new Date());
+  }
+}
+```
+
+属性也可以声明为静态属性，这样属性就绑定在类上而非实例上。
+
+```js
+class Person {
+  static kind = 'human';
+  // ...
+}
+```
+
+### 其他
+
+getter/setter：
+
+```js
+class Person {
+  _money = 100;
+
+  get money() {
+    return this._money;
+  }
+
+  set money(value) {
+    if (value <= 0) {
+      throw new Error('Do not accept negative values.');
+    }
+    this._money = value;
+  }
+}
+```
+
+计算方法：
+
+```js
+const methodName = 'say';
+
+class Person {
+  [methodName]() {
+    // ...
+  }
+}
+```
 
 <br>
 
