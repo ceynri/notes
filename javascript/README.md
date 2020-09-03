@@ -46,9 +46,9 @@ sidebar: false
 - [解构赋值](./section-1/es6/destructuring-assignment.md)
 - [Promise 对象](./section-1/es6/promise.md)
 - [async 函数](./section-1/es6/async.md)
-- [Symbol 类型](./section-1/es6/symbol.md)
+- [Class 类](./section-1/es6/class.md)
 - [Map 与 Set 类型](./section-1/es6/map&set.md)
-- [Class 类](./section-1/es6/class.md) [没写完]
+- [Symbol 类型](./section-1/es6/symbol.md)
 <!-- - [更多特性...](./section-1/es6/es6.md) -->
 
 ### 更多的数据类型
