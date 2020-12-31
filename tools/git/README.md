@@ -18,7 +18,7 @@ sidebar: false
 
 ## 其他
 
-- [VS Code 中的 Git](./git-in-vscode.md) [没什么用]
+- [Git 团队协作常用缩写](./abbr.md) <!-- sidebar 未收录 -->
 
 <br>
 
