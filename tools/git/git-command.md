@@ -1,6 +1,6 @@
 ---
 title: "Git 常见指令"
-date: "2019-08-22"
+date: 2019-08-22
 ---
 
 # Git 常见指令 <!-- omit in toc -->
