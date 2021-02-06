@@ -1,6 +1,6 @@
 ---
-title: "Git 学习笔记导航"
-date: "2019-08-22"
+title: 'Git 学习笔记导航'
+date: '2019-08-22'
 sidebar: false
 ---
 
@@ -18,11 +18,11 @@ sidebar: false
 
 ## 其他
 
-- [VS Code 中的 Git](./git-in-vscode.md) [没什么用]
+- [Git 团队协作常用缩写](./abbr.md) <!-- sidebar 未收录 -->
 
 <br>
 
 ## 推荐参考
 
 - [Git - Book](https://git-scm.com/book/zh/v2)  
-  Git官方教程，好用👍
+  Git 官方教程，好用 👍

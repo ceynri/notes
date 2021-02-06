@@ -1,6 +1,6 @@
 ---
-title: "Git 常见指令"
-date: "2019-08-22"
+title: 'Git 常见指令'
+date: 2019-08-22
 ---
 
 # Git 常见指令 <!-- omit in toc -->
@@ -15,7 +15,7 @@ date: "2019-08-22"
   - [查看暂存状态](#查看暂存状态)
 - [修改操作](#修改操作)
   - [修改最后一次提交](#修改最后一次提交)
-  - [修改commit时间](#修改commit时间)
+  - [修改 commit 时间](#修改-commit-时间)
 - [撤销操作](#撤销操作)
   - [取消暂存的文件](#取消暂存的文件)
   - [删除暂存的文件](#删除暂存的文件)
@@ -86,11 +86,11 @@ git commit --amend -m 'initial commit'
 
 <br/>
 
-### 修改commit时间
+### 修改 commit 时间
 
-在commit的时候添加参数`--date="<commit-time>"`即可，注意时间要按照格式输入。
+在 commit 的时候添加参数`--date="<commit-time>"`即可，注意时间要按照格式输入。
 
-例子：修改上次提交（`--amend`）的commit的时间（`--date`）
+例子：修改上次提交（`--amend`）的 commit 的时间（`--date`）
 
 ```bash
 git commit --amend --date="Sun, 25 Dec 2016 19:42:09 +0800"
@@ -128,6 +128,7 @@ Changes to be committed:
 ```bash
 git rm -r --cached <file>
 ```
+
 `-r` 参数：即 `--recursive`，递归删除目录及其内容（用于文件夹）
 
 <br/>

@@ -51,11 +51,13 @@ const lee = new Person();
 
 ```js
 function Person() {
-  this.say = function () {
+  this.say = function() {
     console.log('hi');
-  }
+  };
 }
 new Person().say(); // hi
 ```
 
 这时候
+
+_TODO 以下未完成_
