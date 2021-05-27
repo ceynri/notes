@@ -18,7 +18,7 @@ sidebar: false
 
 ## 其他
 
-- [Git 团队协作常用缩写](./abbr.md) <!-- sidebar 未收录 -->
+- [Git 团队协作常用缩写](./abbr.md)
 
 <br>
 
